@@ -74,7 +74,7 @@
     <link href="http://blog.zhaiyifan.cn/2016/11/16/pwa-react-p2/"/>
     <id>http://blog.zhaiyifan.cn/2016/11/16/pwa-react-p2/</id>
     <published>2016-11-16T15:26:28.000Z</published>
-    <updated>2016-11-16T10:56:15.000Z</updated>
+    <updated>2016-11-16T11:48:03.000Z</updated>
     <content type="html"><![CDATA[<p>系列第二篇，来看看基于 React 路由分块的页面加载优化。</p>
 <blockquote>
 <ul>
@@ -132,7 +132,7 @@
    <span class="comment">// require(deps, cb) 是异步的。它会异步加载，并且评估</span>
    <span class="comment">// 模块，通过你的 deps 的 exports 调用 cb。</span>
 });
-</code></pre><p>当你的代码需要某些东西，Webpack 会发起一个 JSONP 请求来从服务器获得它。这个和 React Router 结合工作得很好，我们可以在对用户渲染视图之前在依赖（块）中懒加载一个新的路由。<br>When your code needs something, Webpack makes a JSONP call to fetch it from the server. This works well with React Router and we can lazy-load in the dependencies (chunks) a new route needs before rendering the view to a user.</p>
+</code></pre><p>当你的代码需要某些东西，Webpack 会发起一个 JSONP 请求来从服务器获得它。这个和 React Router 结合工作得很好，我们可以在对用户渲染视图之前在依赖（块）中懒加载一个新的路由。</p>
 <p>Webpack 2 支持 <a href="https://medium.com/modus-create-front-end-development/automatic-code-splitting-for-react-router-w-es6-imports-a0abdaa491e9#.3ryyedhfc" target="_blank" rel="external">使用 React Router 的自动代码分割</a> 因为它可以处理模块上的 System.import 调用为 import 语句，将导入的文件和它们的依赖一起打包。依赖不会与你在 Webpack 设置中的初始入口冲突。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> App <span class="keyword">from</span> <span class="string">'../containers/App'</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">errorLoading</span>(<span class="params">err</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.error(<span class="string">'Lazy-loading failed'</span>, err);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">loadRoute</span>(<span class="params">cb</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> (<span class="built_in">module</span>) =&gt; cb(<span class="literal">null</span>, <span class="built_in">module</span>.default);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  component: App,</span><br><span class="line">  childRoutes: [</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">    &#123;</span><br><span class="line">      path: <span class="string">'booktour'</span>,</span><br><span class="line">      getComponent(location, cb) &#123;</span><br><span class="line">        System.import(<span class="string">'../pages/BookTour'</span>)</span><br><span class="line">          .then(loadRoute(cb))</span><br><span class="line">          .catch(errorLoading);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
 <h3 id="附录：预加载那些路由！">附录：预加载那些路由！</h3><p>在我们继续之前，除了刚才的方法，另一个可选的是 <a href="https://www.smashingmagazine.com/2016/02/preload-what-is-it-good-for/" target="_blank" rel="external"></a> 来自 <a href="https://twitter.com/addyosmani/status/743571393174872064" target="_blank" rel="external">Resource Hints</a>。这个提供给我们一个方法来宣告式地获取资源而不执行它们。预加载可以用来预加载用户<strong>可能</strong>要去的路由所需要的 Webpack 块，于是缓存已经为他们准备好了，可以在需要的时候立即可用。</p>
 <p><img src="https://cdn-images-1.medium.com/max/1600/0*l-XqjMw7_XX0wsxX." alt=""></p>
@@ -166,8 +166,8 @@
 <p><img src="https://cdn-images-1.medium.com/max/1600/0*tVvolw4FTKjNFAnY." alt=""></p>
 <p>提醒：有许多可用于 Service Worker 的简单 Webpack 插件：</p>
 <ul>
-<li><a href="https://github.com/goldhand/sw-precache-webpack-plugin" target="_blank" rel="external">sw-precache-webpack-plugin</a> which uses sw-precache under the hood</li>
-<li><a href="https://github.com/NekR/offline-plugin" target="_blank" rel="external">offline-plugin</a> which is used by react-boilerplate</li>
+<li><a href="https://github.com/goldhand/sw-precache-webpack-plugin" target="_blank" rel="external">sw-precache-webpack-plugin</a> 在底层使用 sw-precache</li>
+<li><a href="https://github.com/NekR/offline-plugin" target="_blank" rel="external">offline-plugin</a> 被 react-boilerplate 所使用</li>
 </ul>
 <h4 id="CommonsChunkPlugin">CommonsChunkPlugin</h4><p><img src="https://cdn-images-1.medium.com/max/1600/0*QphlrnwHQiOsB06w." alt=""></p>
 <p>为了识别出在不同路由使用的通用模块并把它们放在一个通用的分块，需要使用 <a href="https://webpack.github.io/docs/list-of-plugins.html#commonschunkplugin" target="_blank" rel="external">CommonsChunkPlugin</a>。它需要在每个页面 requires 两个 script 标签，一个用于 commons 分块，另一个用于一次路由的入口分块。</p>
@@ -293,7 +293,7 @@
     
       <category term="React.js" scheme="http://blog.zhaiyifan.cn/tags/React-js/"/>
     
-      <category term="前端" scheme="http://blog.zhaiyifan.cn/tags/%E5%89%8D%E7%AB%AF/"/>
+      <category term="前端ke" scheme="http://blog.zhaiyifan.cn/tags/%E5%89%8D%E7%AB%AFke/"/>
     
       <category term="Frontend" scheme="http://blog.zhaiyifan.cn/categories/Frontend/"/>
     
