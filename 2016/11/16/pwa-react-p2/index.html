@@ -64,26 +64,30 @@
 
 
 
-<meta name="description" content="原文地址：Progressive Web Apps with React.js: Part 2 — Page Load Performance
+<meta name="description" content="系列第二篇，来看看基于 React 路由分块的页面加载优化。
+
+
+原文地址：Progressive Web Apps with React.js: Part 2 — Page Load Performance
 原文作者：Addy Osmani
 译文出自：掘金翻译计划
 译者：markzhai
-校对者：
 
 
-使用 React.js 的渐进式 Web 应用程序：第 2 部分 - 页面加载性能新 系列 的第二部分会完整地走一遍怎么使用 Lighthouse. 来优化移动">
+使用 React.js 的渐进式 Web 应用程序：第 2 部分 - 页面加载性能新 系列 的第二部分会">
 <meta property="og:type" content="article">
 <meta property="og:title" content="使用 React.js 的渐进式 Web 应用程序：第 2 部分 - 页面加载性能">
-<meta property="og:url" content="http://blog.zhaiyifan.cn/2010/11/14/pwa-react-p2/index.html">
+<meta property="og:url" content="http://blog.zhaiyifan.cn/2016/11/16/pwa-react-p2/index.html">
 <meta property="og:site_name" content="markzhai's home">
-<meta property="og:description" content="原文地址：Progressive Web Apps with React.js: Part 2 — Page Load Performance
+<meta property="og:description" content="系列第二篇，来看看基于 React 路由分块的页面加载优化。
+
+
+原文地址：Progressive Web Apps with React.js: Part 2 — Page Load Performance
 原文作者：Addy Osmani
 译文出自：掘金翻译计划
 译者：markzhai
-校对者：
 
 
-使用 React.js 的渐进式 Web 应用程序：第 2 部分 - 页面加载性能新 系列 的第二部分会完整地走一遍怎么使用 Lighthouse. 来优化移动">
+使用 React.js 的渐进式 Web 应用程序：第 2 部分 - 页面加载性能新 系列 的第二部分会">
 <meta property="og:image" content="https://cdn-images-1.medium.com/max/2000/0*KlJk2hhZl3wyn6E4.">
 <meta property="og:image" content="https://cdn-images-1.medium.com/max/1600/0*qfZvSxxJxPHhXXgb.">
 <meta property="og:image" content="https://cdn-images-1.medium.com/max/2000/0*N--j53GygKHn2ViI.">
@@ -99,17 +103,19 @@
 <meta property="og:image" content="https://cdn-images-1.medium.com/max/2000/0*2XxuNsDEp1-4VuoU.">
 <meta property="og:image" content="https://cdn-images-1.medium.com/max/1600/0*-llrY94drXMjBUW6.">
 <meta property="og:image" content="https://cdn-images-1.medium.com/max/2000/0*-hLp_Acvig_s4Uop.">
-<meta property="og:updated_time" content="2016-11-14T15:28:00.000Z">
+<meta property="og:updated_time" content="2016-11-16T10:56:15.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="使用 React.js 的渐进式 Web 应用程序：第 2 部分 - 页面加载性能">
-<meta name="twitter:description" content="原文地址：Progressive Web Apps with React.js: Part 2 — Page Load Performance
+<meta name="twitter:description" content="系列第二篇，来看看基于 React 路由分块的页面加载优化。
+
+
+原文地址：Progressive Web Apps with React.js: Part 2 — Page Load Performance
 原文作者：Addy Osmani
 译文出自：掘金翻译计划
 译者：markzhai
-校对者：
 
 
-使用 React.js 的渐进式 Web 应用程序：第 2 部分 - 页面加载性能新 系列 的第二部分会完整地走一遍怎么使用 Lighthouse. 来优化移动">
+使用 React.js 的渐进式 Web 应用程序：第 2 部分 - 页面加载性能新 系列 的第二部分会">
 
 
 
@@ -314,7 +320,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://blog.zhaiyifan.cn/2010/11/14/pwa-react-p2/">
+  <link itemprop="mainEntityOfPage" href="http://blog.zhaiyifan.cn/2016/11/16/pwa-react-p2/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="Mark Zhai (翟一帆)">
@@ -350,8 +356,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time title="Дата создания записи" itemprop="dateCreated datePublished" datetime="2010-11-14T23:26:28+08:00">
-              2010-11-14
+            <time title="Дата создания записи" itemprop="dateCreated datePublished" datetime="2016-11-16T23:26:28+08:00">
+              2016-11-16
             </time>
 
             &nbsp;|&nbsp;
@@ -359,8 +365,8 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-check-o"></i>
             </span>
-            <time title="Дата обновления записи" itemprop="dateModified" datetime="2016-11-14T23:28:00+08:00">
-              2016-11-14
+            <time title="Дата обновления записи" itemprop="dateModified" datetime="2016-11-16T18:56:15+08:00">
+              2016-11-16
             </time>
             
           </span>
@@ -390,8 +396,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2010/11/14/pwa-react-p2/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2010/11/14/pwa-react-p2/" itemprop="commentCount"></span>
+                <a href="/2016/11/16/pwa-react-p2/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/16/pwa-react-p2/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -422,13 +428,13 @@
       
 
       
-        <blockquote>
+        <p>系列第二篇，来看看基于 React 路由分块的页面加载优化。</p>
+<blockquote>
 <ul>
 <li>原文地址：<a href="https://medium.com/@addyosmani/progressive-web-apps-with-react-js-part-2-page-load-performance-33b932d97cf2#.o0f4vf64s" target="_blank" rel="external">Progressive Web Apps with React.js: Part 2 — Page Load Performance</a></li>
 <li>原文作者：<a href="https://medium.com/@addyosmani" target="_blank" rel="external">Addy Osmani</a></li>
 <li>译文出自：<a href="https://github.com/xitu/gold-miner" target="_blank" rel="external">掘金翻译计划</a></li>
 <li>译者：<a href="https://github.com/markzhai" target="_blank" rel="external">markzhai</a></li>
-<li>校对者：</li>
 </ul>
 </blockquote>
 <h1 id="使用_React-js_的渐进式_Web_应用程序：第_2_部分_-_页面加载性能">使用 React.js 的渐进式 Web 应用程序：第 2 部分 - 页面加载性能</h1><h2 id="新_系列_的第二部分会完整地走一遍怎么使用_Lighthouse-_来优化移动_web_apps。这篇文章，我们来看看页面加载性能。">新 <a href="https://medium.com/@addyosmani/progressive-web-apps-with-react-js-part-i-introduction-50679aef2b12#.ysn8uhvkq" target="_blank" rel="external">系列</a> 的第二部分会完整地走一遍怎么使用 <a href="https://github.com/googlechrome/lighthouse" target="_blank" rel="external">Lighthouse.</a> 来优化移动 web apps。这篇文章，我们来看看页面加载性能。</h2><h3 id="保证页面加载性能是快的">保证页面加载性能是快的</h3><p>移动 Web 的速度很关键。平均地，更快的体验会带来 <a href="https://www.doubleclickbygoogle.com/articles/mobile-speed-matters/" target="_blank" rel="external">70% 更长的会话</a> 以及两倍以上更多的移动广告收益。Web 性能的投资像是基于 React 的 Flipkart Lite <a href="https://developers.google.com/web/showcase/2016/flipkart" target="_blank" rel="external">获得了三倍网站浏览时间</a>， GQ 在流量上得到了 <a href="http://digiday.com/publishers/gq-com-cut-page-load-time-80-percent/" target="_blank" rel="external">80% 增长</a>，Trainline 在 <a href="https://youtu.be/ai-6qwT6ES8?t=462" target="_blank" rel="external">年收益上增长了 11M</a> 并且 Instagram <a href="http://engineering.instagram.com/posts/193415561023919/performance-&amp;-usage-at-Instagram" target="_blank" rel="external">增长了 33% 的印象</a>.</p>
@@ -557,19 +563,19 @@
 <li>(L)azy-load，根据用户在应用中的移动懒加载并懒初始化 apps 中对应的部分。</li>
 </ul>
 <p><img src="https://cdn-images-1.medium.com/max/2000/0*2XxuNsDEp1-4VuoU." alt=""></p>
-<p>We have to give great kudos here to the <a href="https://shop.polymer-project.org/" target="_blank" rel="external">Polymer Shop demo</a> for showing us the way on real mobile devices. Using PRPL (in this case with HTML Imports, which can take advantage of the browser’s background HTML parser). No pixels go on screen that you can’t use. Additional work here is chunked and stays interactive. We’re interactive on a real mobile device at 1.75seconds. 1.3s of JavaScript but it’s all broken up. After that it all works.</p>
-<p>You’re hopefully on board with the benefits of breaking down applications into more granular chunks by now. When a user first visits our PWA, let’s say they go to a particular route. The server (using H/2 Push) can push down the chunks needed for just that route — these are only the pieces needed to get the application booted up. Those go into the network cache.</p>
-<p>Once they’ve been pushed down, we’ve effectively primed the cache with the chunks we know the page will need. When the application boots up, it looks at the route and knows that what we need is already in the cache, so we get that really fast first load of our application — not just a splash screen — but the interactive content the user asked for.</p>
-<p>The next part of this is rendering the content for the view as quickly as possible. The third is, while the user is looking at the current view, using Service Worker to start pre-caching all of the other chunks and routes the user hasn’t asked for yet and getting those all installed into the Service Worker cache.</p>
-<p>At this point the entire application (or a lot more of it) can be available offline. When a user navigates to a different part of the application, we can lazy load the next parts of it from the Service Worker cache. There’s no network loading needed because they’re already precached. Instant loading awesomeness ahoy! ❤</p>
-<p>PRPL can be applied to any app, as Flipkart recently demonstrated on their React stack. Apps fully using PRPL can take advantage of fast-loading using HTTP/2 server push by producing two builds that we conditionally serve depending on your browser support:</p>
+<p>在这里，我们必须给予 <a href="https://shop.polymer-project.org/" target="_blank" rel="external">Polymer Shop demo</a> 大大的赞赏，因为它向我们展示了真实移动设备上的道路。使用 PRPL（在这种情况下通过 HTML Imports，从而利用浏览器的后台 HTML parser 的好处）。屏幕上的像素你都可以使用。这里额外的工作在于分块和保持可交互。在一台真实移动设备上，我们可以在 1.75 秒内达到可交互。1.3 秒用于 JavaScript，但它都被打散了。在那以后所有功能都可以用了。</p>
+<p>你到现在应该已经成功享受到讲应用打碎到更精细的分块的好处了。当用户第一次访问我们的 PWA，假设说他们去到一个特定的路由。服务器（使用 H/2 Push）能够推送下来仅仅那次路由需要的分块 —— 这些是用来启动应用的必要资源，并会进入网络缓存中。</p>
+<p>一旦它们被推送下来了，我们就能高效地准备好未来会被加载的页面分块到缓存中。当应用启动后，检查路由并指导我们想要的已经在缓存中了，所以我们就能使得应用的首次加载非常快 —— 不仅仅是闪屏 —— 而是用户请求的可交互内容。</p>
+<p>下一部分是尽快渲染这个视图的内容。第三部分是，当用户在看当前的视图的时候，使用 Service Worker 来开始预缓存所有其他用户还没有请求的分块和路由，将它们安装到 Service Worker 的缓存中。</p>
+<p>此时，整个应用（或者大部分）都已经可以离线使用了。当用户导航到应用的不同部分，我们可以从 Service Worker 的缓存中懒加载下面的部分。不需要网络加载 —— 因为它们已经被预缓存了。瞬间加载碉堡了！❤</p>
+<p>PRPL 可以被应用到任何 app，正如 Flipkart 最近在他们的 React 栈上所展示的。完全使用 PRPL 的 Apps 可以利用 HTTP/2 服务器推送的快速加载，通过产生两种编译版本，并根据浏览器的支持提供不同版本：</p>
 <ul>
-<li><p>A bundled build optimised to minimize round-trips for servers/browsers without HTTP/2 Push support. For most of us, this is what we ship today by default.</p>
+<li><p>一个 bundled 编译，为没有 HTTP/2 推送支持的服务器/浏览器优化以最小化往返。For most of us, this is what we ship today by default.</p>
 </li>
-<li><p>An unbundled build for servers/browsers that do support HTTP/2 Push enabling a faster first-paint</p>
+<li><p>一个没有 bundled 编译，用于支持 HTTP/2 推送的服务器/浏览器，使得首次绘制更快。</p>
 </li>
 </ul>
-<p>This builds on some of the thinking we talked about earlier with route-chunking. With PRPL, the server and our Service Worker work together to precache resources for intactive routes. When a user navigates around your app and changes routes, we lazy-load resources for routes not cached yet and create the required views.</p>
+<p>这个部分基于我们在之前讨论的路由分块的想法。通过 PRPL，服务器和我们的 Service Worker 协作来为非活动路由预缓存资源。当一个用户在你的 app 中浏览并改变路由，我们对尚未缓存的路由进行懒加载，并创建请求的视图。</p>
 <h3 id="实现_PRPL">实现 PRPL</h3><p><strong>太长了，所以没有看：Webpack 的 require.ensure() 以及异步的 ‘getComponent’，还有 React Router 是到 PRPL 风格性能模式的最小摩擦路径</strong></p>
 <p><img src="https://cdn-images-1.medium.com/max/1600/0*-llrY94drXMjBUW6." alt=""></p>
 <p>PRPL 的一大部分在于将 JS 捆包思维方式放下，并像编写时候那样精细地传输资源（至少从功能独立模块角度上）。通过 Webpack，这就是我们已经说过的路由分块。</p>
@@ -690,14 +696,18 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2016/11/14/pwa-react-p1/" rel="next" title="使用 React.js 的渐进式 Web 应用程序：第 1 部分 - 介绍">
+                <i class="fa fa-chevron-left"></i> 使用 React.js 的渐进式 Web 应用程序：第 1 部分 - 介绍
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2015/01/18/tumblr-like-titlebar-anim/" rel="prev" title="实现Tumblr的标题栏跟滑动渐变颜色（在2个色值之间）的动画">
-                实现Tumblr的标题栏跟滑动渐变颜色（在2个色值之间）的动画 <i class="fa fa-chevron-right"></i>
+              <a href="/2016/12/31/Blog-Plan-2016/" rel="prev" title="Blog计划2016">
+                Blog计划2016 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -750,8 +760,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2010/11/14/pwa-react-p2/"
-           data-title="使用 React.js 的渐进式 Web 应用程序：第 2 部分 - 页面加载性能" data-url="http://blog.zhaiyifan.cn/2010/11/14/pwa-react-p2/">
+      <div class="ds-thread" data-thread-key="2016/11/16/pwa-react-p2/"
+           data-title="使用 React.js 的渐进式 Web 应用程序：第 2 部分 - 页面加载性能" data-url="http://blog.zhaiyifan.cn/2016/11/16/pwa-react-p2/">
       </div>
     
   </div>
