@@ -4,7 +4,7 @@
   
   <link href="/atom.xml" rel="self"/>
   <link href="http://blog.zhaiyifan.cn/"/>
-  <updated>2016-07-21T08:36:24.000Z</updated>
+  <updated>2017-01-11T06:41:12.000Z</updated>
   <id>http://blog.zhaiyifan.cn/</id>
   
   <author>
@@ -13,6 +13,65 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[PWA 渐进式实践 (1)]]></title>
+    <link href="http://blog.zhaiyifan.cn/2017/01/11/pwa-in-practice-1/"/>
+    <id>http://blog.zhaiyifan.cn/2017/01/11/pwa-in-practice-1/</id>
+    <published>2017-01-11T04:14:42.000Z</published>
+    <updated>2017-01-11T06:41:12.000Z</updated>
+    <content type="html"><![CDATA[<p>不知道大家还记不记得之前的四篇 PWA 系列翻译：</p>
+<ul>
+<li><a href="https://zhuanlan.zhihu.com/p/23673184?refer=moduth" target="_blank" rel="external">https://zhuanlan.zhihu.com/p/23673184?refer=moduth</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/23926652?refer=moduth" target="_blank" rel="external">https://zhuanlan.zhihu.com/p/23926652?refer=moduth</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/23966686?refer=moduth" target="_blank" rel="external">https://zhuanlan.zhihu.com/p/23966686?refer=moduth</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/23966862?refer=moduth" target="_blank" rel="external">https://zhuanlan.zhihu.com/p/23966862?refer=moduth</a></li>
+</ul>
+<p>不过这毕竟是老外他们自己的实践，而且相对来说是从科普角度来描述了 PWA 的实践，对想要直接进行 PWA 优化的，可能会觉得比较啰嗦。</p>
+<p>恰好我司最近使用 React 全家桶开发了一个网站：<a href="https://pai.bigins.cn/" target="_blank" rel="external">海绵保保</a>，所以干脆就拿它开刀，来进行 PWA 优化，顺便记录一下点滴。</p>
+<h1 id="Lighthouse">Lighthouse</h1><p>首先我看了下 taobao 的评分，21/100，恩…这样一来，就有信心了，再怎么我们肯定比它高不是？</p>
+<p>测了一下，嗯…果然还算看得过去，66分，至少及格了不是？</p>
+<p><img src="http://blog.zhaiyifan.cn/images/pwa-in-practice-1.png" alt="Lighthouse result"></p>
+<p>我们的目标就是能把它优化到<strong>90分</strong>以上！</p>
+<p>作为系列第一篇，我们先来看看有哪些问题导致了网站评分不够高，其产生原因和大概的解决策略。</p>
+<h1 id="App在离线/间断网络下的加载">App在离线/间断网络下的加载</h1><p>第一类就是 Service Worker 导致的问题：</p>
+<p><img src="http://blog.zhaiyifan.cn/images/pwa-in-practice-2.png" alt="App can load on offline/flaky connections"></p>
+<p>简单描述 Service Worker 的话，可以理解为一个本地的 server，在客户端（浏览器）发起请求的时候，可以直接监听到它并直接进行响应。</p>
+<p>当然，它不仅仅是这么一个拦截器，本身作为一个后台运行的任务，它还能进行预加载，离线响应（返回200），甚至进行 push 提示。</p>
+<h1 id="页面加载性能">页面加载性能</h1><p><img src="http://blog.zhaiyifan.cn/images/pwa-in-practice-3.png" alt="Page load performance is fast"></p>
+<p>各种性能指标不够过关啦。</p>
+<h1 id="渐进式增强">渐进式增强</h1><p><img src="http://blog.zhaiyifan.cn/images/pwa-in-practice-4.png" alt="Site is progressively enhanced"></p>
+<p>即 JavaScript 被禁用的时候，页面仍然应该有内容，即便那只是提示用户需要打开 JavaScript 以使用 app。</p>
+<h1 id="添加到主屏幕">添加到主屏幕</h1><p><img src="http://blog.zhaiyifan.cn/images/pwa-in-practice-5.png" alt="User can be prompted to Add to Homescreen"></p>
+<p>manifest 其实我已经加上了，还是因为 service worker 没有注册，所以最后没有生效。</p>
+<h1 id="避免影响用户体验的_APIs">避免影响用户体验的 APIs</h1><p><img src="http://blog.zhaiyifan.cn/images/pwa-in-practice-6.png" alt="Avoiding APIs that harm the user experience"></p>
+<p>一些 css 标签放在 header 里，阻塞影响到了页面体验。</p>
+<h1 id="辅助功能">辅助功能</h1><p><img src="http://blog.zhaiyifan.cn/images/pwa-in-practice-7.png" alt="Accessibility"></p>
+<p>对比度啦，标签啦，还有那么几个缺省了的。</p>
+<h1 id="性能指标">性能指标</h1><p><img src="http://blog.zhaiyifan.cn/images/pwa-in-practice-8.png" alt="Performance Metrics"></p>
+<p>加载链太长。</p>
+<h1 id="奇妙的东西">奇妙的东西</h1><p>总而言之就是一些新特性。</p>
+<p><img src="http://blog.zhaiyifan.cn/images/pwa-in-practice-9.png" alt="Site does not use Date.now() in its own scripts"></p>
+<p>然而好像是插件还是 sw-tools 导致的。</p>
+<h1 id="预告">预告</h1><p>本篇中我们大致看到了哪些问题导致了我们的 webapp 的 PWA 评分不够高，下一次，我们会开始逐个开刀，解决这些问题。对本话题感兴趣的朋友，也可以使用 Lighthouse 插件，对自家的网站或者其他网站来评评分，看看做得有多好（其实我们的<strong>66分</strong>真的已经挺高了）。</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>不知道大家还记不记得之前的四篇 PWA 系列翻译：</p>
+<ul>
+<li><a href="https://zhuanlan.zhihu.com/p/23673184?refer=moduth" target="_blank" rel="external">https:]]>
+    </summary>
+    
+      <category term="JavaScript" scheme="http://blog.zhaiyifan.cn/tags/JavaScript/"/>
+    
+      <category term="PWA" scheme="http://blog.zhaiyifan.cn/tags/PWA/"/>
+    
+      <category term="React.js" scheme="http://blog.zhaiyifan.cn/tags/React-js/"/>
+    
+      <category term="前端" scheme="http://blog.zhaiyifan.cn/tags/%E5%89%8D%E7%AB%AF/"/>
+    
+      <category term="Frontend" scheme="http://blog.zhaiyifan.cn/categories/Frontend/"/>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[Blog计划2016]]></title>
@@ -74,7 +133,7 @@
     <link href="http://blog.zhaiyifan.cn/2016/11/16/pwa-react-p2/"/>
     <id>http://blog.zhaiyifan.cn/2016/11/16/pwa-react-p2/</id>
     <published>2016-11-16T15:26:28.000Z</published>
-    <updated>2016-11-23T08:25:54.000Z</updated>
+    <updated>2017-01-11T04:17:07.000Z</updated>
     <content type="html"><![CDATA[<p>系列第二篇，来看看基于 React 路由分块的页面加载优化。</p>
 <blockquote>
 <ul>
@@ -295,7 +354,7 @@
     
       <category term="React.js" scheme="http://blog.zhaiyifan.cn/tags/React-js/"/>
     
-      <category term="前端ke" scheme="http://blog.zhaiyifan.cn/tags/%E5%89%8D%E7%AB%AFke/"/>
+      <category term="前端" scheme="http://blog.zhaiyifan.cn/tags/%E5%89%8D%E7%AB%AF/"/>
     
       <category term="Frontend" scheme="http://blog.zhaiyifan.cn/categories/Frontend/"/>
     
@@ -1953,87 +2012,6 @@
     </summary>
     
       <category term="Dagger" scheme="http://blog.zhaiyifan.cn/tags/Dagger/"/>
-    
-      <category term="New Android Project From 0" scheme="http://blog.zhaiyifan.cn/tags/New-Android-Project-From-0/"/>
-    
-      <category term="Android Project From 0" scheme="http://blog.zhaiyifan.cn/categories/Android-Project-From-0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[从零开始的Android新项目3 - MVPVM in Action, 谁告诉你MVP和MVVM是互斥的]]></title>
-    <link href="http://blog.zhaiyifan.cn/2016/03/16/android-new-project-from-0-p3/"/>
-    <id>http://blog.zhaiyifan.cn/2016/03/16/android-new-project-from-0-p3/</id>
-    <published>2016-03-16T02:19:28.000Z</published>
-    <updated>2016-03-26T06:47:44.000Z</updated>
-    <content type="html"><![CDATA[<h1 id="前言">前言</h1><p>去年5月左右的时候，笔者在逛GitHub的时候，看到了一个MVP的项目，叫做mosby，仔细看了源码和作者介绍的文章后，发现确实有点意思，虽然会需要多写几个类和方法，但是解决了activity/fragment过重的问题，通过V/P分离能够帮助提高可维护性。时至去年年底，今年年初，MVP才逐渐被大家所知，也不时看到些文章介绍其概念和实践。</p>
-<p>再说说MVVM (Model-View-ViewModel)，在Android上对应data binding。即ViewModel到View的映射，不需要再去自己找到view，然后更新字段，而是在映射建立后直接更新ViewModel然后反映到View上。</p>
-<p>值得一提的是，MVP和MVVM都是微软提出的理念，最早都是在WPF里面被应用的，只是时至今日才在Android上被真正用起来。本文不是来介绍这两个的，所以不再赘述，讲讲正题。</p>
-<p>在本系列<a href="http://blog.zhaiyifan.cn/2016/03/14/android-new-project-from-0-p1/">首篇</a>中我曾经提到过在我设计的新应用中，采用了MVP+MVVM的混合（当初也考虑过Flux，但感觉并不合适Android），后来有一次CJJ同学和我探讨这个架构的时候，问到了我有没有什么正式的名字，我就有楞，因为这个组合和应用是我自己设计的，所以还真没想过这个问题，Google一搜，还真有这么个东西（见参考资料，文章写得很棒，建议英文不错的同学读一读）！</p>
-<p>这就是本文我要介绍的东西，MVPVM (Model-View-Presenter-ViewModel)。</p>
-<h1 id="Quick_glance">Quick glance</h1><p>以下所有Model，并不单单指的是Bean，而是Model层，更像是repository或者business logic。</p>
-<p><img src="/images/android-new-project-from-0-mvc.png" alt="MVC"></p>
-<p>MVC: View持有Controller，传递事件给Controller，Controller由此去触发Model层事件，Model更新完数据（如从网络或者数据库获得数据后）触发View的更新事件。</p>
-<p><img src="/images/android-new-project-from-0-mvp.png" alt="MVP"></p>
-<p>乍一看，MVP似乎是MVC的变种，即C的位置被P取代了，但如果我们再看一看下图：</p>
-<p><img src="/images/android-new-project-from-0-mvpc.png" alt="MVCP"></p>
-<p>其实MVP是MVC的一个wrap，C层仍然可以在那里，代替View处理点击事件、数据绑定、扮演ListView的观察者，从而View可以专注于处理纯视觉的一些东西。而Presenter则避免了Model直接去触发View的更新，View彻底成为了一个被动的东西，只有Presenter告知其更新视觉，它才会去更新，比如showLoading(), showEmpty()。</p>
-<p><img src="/images/android-new-project-from-0-mvvm.png" alt="MVVM"></p>
-<p>MVVM通过View和ViewModel的双向绑定，让我们可以</p>
-<ul>
-<li>直接更新ViewModel，View会进行对应刷新</li>
-<li>View的事件直接传递到ViewModel，ViewModel去对Model进行操作并接受更新。</li>
-</ul>
-<h1 id="Why_MVPVM">Why MVPVM</h1><p>如果你仔细读过Clean architecture的源码，会发现其中已经有了ViewModel这一层。如果你熟悉DO（Domain Object），PO（Persistent Object），VO（View Object），或许了解visibility这个概念，各层只需要知道其应该知道的。这些Object代表了完全独立不同的概念。</p>
-<p>ViewModel层的必要性，简单举个例子，服务器传来一个Date String，但我们需要显示的是该Date到现在的相对时间描述，比如1分钟前，2天前，为了避免在view中绑定数据时去做这个逻辑，ViewModel会代替来进行这个的转换。</p>
-<p>MVVM尽管确实省去了绑定数据到View的boilerplate，但</p>
-<ul>
-<li>ViewModel引用了View，从而导致ViewModel无法重用于其他View。</li>
-<li>并没有解决View层过重的问题，仅仅去掉了数据绑定，尤其对一些复杂业务逻辑的页面。</li>
-</ul>
-<p>模式的引入都是为了通过可拔插化以提高可复用性，松耦合和尽量小的接口可以给予最大的可复用性，使得组件能重组使用。</p>
-<p>所以有了MVPVM：</p>
-<p><img src="/images/android-new-project-from-0-mvpvm.png" alt="MVPVM"></p>
-<p>在我的个人实践中:</p>
-<ul>
-<li>Model: data和domain模块组成，包含了Interactor（UseCase）、Repository、Datastore、Retrofit、Realm、DO、部分PO等。</li>
-<li>View: Activity/Fragment。</li>
-<li>Presenter：Presenter，包含了Subscriber，并通过Dagger2注入UseCase从而减轻耦合。</li>
-<li>ViewModel：由Model转换而成，继承BaseObservable或SortedList，大部分直接wrap了model，从而去掉了mapper的boilerplate。通过Data Binding绑定到xml。</li>
-</ul>
-<p>从Presenter的Subscriber往下都是RxJava的流世界，stream in stream out。如果你原来就应用了MVP或者Clean Architecture，那会发现再加上ViewModel简直太简单了，同时让代码库更小，逻辑更清晰。</p>
-<p>接着看看各个组件在MVPVM中的standing。</p>
-<h2 id="MVPVM:_Model">MVPVM: Model</h2><p>实际对应的是Repository层，即第一篇文章中提到的data/domain module。具体的Model理论上应该是PO，但我们大部分场景并不需要PO，所以也可以是domain层的DO。</p>
-<h2 id="MVPVM:_View">MVPVM: View</h2><p>View对ViewModel不需要了解太多，这样才能保持两者的解耦，两者之间的协议只需要：</p>
-<ul>
-<li>ViewModel支持View需要展示的properties。</li>
-<li>View实现了ViewModel的观察者模式接口（如Listener）。</li>
-</ul>
-<p>所以这里ViewModel到View是一条虚线，而不是MVVM中的双向实线。</p>
-<h2 id="MVPVM:_Presenter">MVPVM: Presenter</h2><p>和在MVP一样，Presenter站在View和Model层之间。这里值得一提的是Presenter到ViewModel是有耦合的，因为Presenter需要把model更新到ViewModel中，也就是map行为，然后调用View的对应接口进行binding。</p>
-<p>Presenter是MVPVM中唯一不需要解耦的，它紧紧地与View、ViewModel、Model层耦合。如果你的Presenter被多个View重用了，那你可能需要考虑它是不是更应该作为一个module，比如（第三方）登陆。</p>
-<h2 id="MVPVM:_ViewModel">MVPVM: ViewModel</h2><p>MVPVM让ViewModel可以重用，因为它再也不是直接和特定View绑定，而仅仅作为数据到View的一个绑定用展示。ViewModel因为用户操作而触发的事件不再直接对Model进行操作，而由View去负责任务流。ViewModel本身基本没有field，而是通过暴露get方法来让data binding找到对应要显示的property，get方法中直接调用持有的model的对应属性get方法。</p>
-<p>理想化的架构是通过一个mapper类进行转换，但我想大部分的程序员面对这个工作都会抓狂，毕竟很多字段其实就是一个复制，而且对性能也有一些影响（遍历list，new对象，一个个字段转换，添加到新的list）。所以折中地，让ViewModel持有Model，在get方法中直接返回对应model的具体字段，在一些特殊的field如相对时间、添加一些描述性字符的地方再去进行拼接和特殊处理。</p>
-<p>啊，对了，说到ViewModel，Data Binding现在支持双向绑定了哦，见<a href="https://halfthought.wordpress.com/2016/03/23/2-way-data-binding-on-android/，语法如：" target="_blank" rel="external">https://halfthought.wordpress.com/2016/03/23/2-way-data-binding-on-android/，语法如：</a><br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">EditText</span> <span class="attribute">android:text</span>=<span class="value">"@=&#123;user.firstName&#125;"</span> <span class="attribute">...</span>/&gt;</span></span><br></pre></td></tr></table></figure></p>
-<p>不同于单向绑定的@{}，使用了@={}，毕竟双向绑定这个东西还是慎用，一方面早成数据流混乱不好理解，另一方面容易出现死循环。</p>
-<h2 id="NO_Presenter">NO Presenter</h2><p>在MVP中，我们有时候碰到的问题是，Presenter真的有必要存在吗，尤其是一些较为静态，没什么业务逻辑，只需要纯展示的页面，结果就是为了MVP而特意去创建一个Presenter。</p>
-<p>所以Presenter不应该被强求，正如MVP中，V和C其实被并在了一起，在某些情况下（确实就是个纯展示，或者很少的业务逻辑），应该允许去Presenter，并让View承担其任务。比如注册页面，我真的就只是想把用户的输入发到服务器验证一下，何必非得去搞一个presenter套着呢？</p>
-<p>我们不能永远理想化地去选择所谓最好的设计，在现实的必要情况下，我们要敢于舍弃，最合适的设计才是最好的设计。为此，Presenter不是强制的；为此，ViewModel并不一定通过mapper生成，而可以返回持有的DO对象对应字段。</p>
-<h1 id="总结">总结</h1><p>本篇讲了讲MVPVM及其在Android的实践，因为时间原因来不及写个demo来说说具体实现，欢迎大家提出意见和建议。有空的话我最近会在GitHub上写一下demo，你如果有兴趣可以follow一下等等更新: <a href="https://github.com/markzhai" target="_blank" rel="external">markzhai</a>。</p>
-<h1 id="下集预告">下集预告</h1><p>Dagger匕首，比ButterKnife黄油刀锋利得多。Square为什么这么有自信地给它取了这个名字，Google又为什么会拿去做了Dagger2呢？笔者看了很多国内Dagger2的文章，但发现它们都保留在介绍API和官网翻译的层面，无法让读者能明白究竟为什么用Dagger2，又如何用好Dagger2。希望能在下一次为大家讲清楚。</p>
-<h1 id="参考资料">参考资料</h1><ul>
-<li><a href="https://msdn.microsoft.com/en-us/magazine/hh580734.aspx" target="_blank" rel="external">MVPVM Design Pattern - The Model-View-Presenter-ViewModel Design Pattern for WPF</a></li>
-</ul>
-]]></content>
-    <summary type="html">
-    <![CDATA[<h1 id="前言">前言</h1><p>去年5月左右的时候，笔者在逛GitHub的时候，看到了一个MVP的项目，叫做mosby，仔细看了源码和作者介绍的文章后，发现确实有点意思，虽然会需要多写几个类和方法，但是解决了activity/fragment过重的问题，通过V/P分离]]>
-    </summary>
-    
-      <category term="MVP" scheme="http://blog.zhaiyifan.cn/tags/MVP/"/>
-    
-      <category term="MVPVM" scheme="http://blog.zhaiyifan.cn/tags/MVPVM/"/>
-    
-      <category term="MVVM" scheme="http://blog.zhaiyifan.cn/tags/MVVM/"/>
     
       <category term="New Android Project From 0" scheme="http://blog.zhaiyifan.cn/tags/New-Android-Project-From-0/"/>
     

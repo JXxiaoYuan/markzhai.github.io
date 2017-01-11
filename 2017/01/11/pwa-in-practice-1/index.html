@@ -1,0 +1,1031 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="google-site-verification" content="ieCGPLaYJPLAp6By_5652iPczS2GIfAPy9XGEkD6-e0" />
+
+
+
+
+  <meta name="baidu-site-verification" content="780t5iFaTK" />
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="JavaScript,PWA,React.js,前端," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="markzhai's home" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="不知道大家还记不记得之前的四篇 PWA 系列翻译：
+
+https://zhuanlan.zhihu.com/p/23673184?refer=moduth
+https://zhuanlan.zhihu.com/p/23926652?refer=moduth
+https://zhuanlan.zhihu.com/p/23966686?refer=moduth
+https://zhuanlan.zhi">
+<meta property="og:type" content="article">
+<meta property="og:title" content="PWA 渐进式实践 (1)">
+<meta property="og:url" content="http://blog.zhaiyifan.cn/2017/01/11/pwa-in-practice-1/index.html">
+<meta property="og:site_name" content="markzhai's home">
+<meta property="og:description" content="不知道大家还记不记得之前的四篇 PWA 系列翻译：
+
+https://zhuanlan.zhihu.com/p/23673184?refer=moduth
+https://zhuanlan.zhihu.com/p/23926652?refer=moduth
+https://zhuanlan.zhihu.com/p/23966686?refer=moduth
+https://zhuanlan.zhi">
+<meta property="og:image" content="http://blog.zhaiyifan.cn/images/pwa-in-practice-1.png">
+<meta property="og:image" content="http://blog.zhaiyifan.cn/images/pwa-in-practice-2.png">
+<meta property="og:image" content="http://blog.zhaiyifan.cn/images/pwa-in-practice-3.png">
+<meta property="og:image" content="http://blog.zhaiyifan.cn/images/pwa-in-practice-4.png">
+<meta property="og:image" content="http://blog.zhaiyifan.cn/images/pwa-in-practice-5.png">
+<meta property="og:image" content="http://blog.zhaiyifan.cn/images/pwa-in-practice-6.png">
+<meta property="og:image" content="http://blog.zhaiyifan.cn/images/pwa-in-practice-7.png">
+<meta property="og:image" content="http://blog.zhaiyifan.cn/images/pwa-in-practice-8.png">
+<meta property="og:image" content="http://blog.zhaiyifan.cn/images/pwa-in-practice-9.png">
+<meta property="og:updated_time" content="2017-01-11T06:41:12.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="PWA 渐进式实践 (1)">
+<meta name="twitter:description" content="不知道大家还记不记得之前的四篇 PWA 系列翻译：
+
+https://zhuanlan.zhihu.com/p/23673184?refer=moduth
+https://zhuanlan.zhihu.com/p/23926652?refer=moduth
+https://zhuanlan.zhihu.com/p/23966686?refer=moduth
+https://zhuanlan.zhi">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '13060344',
+      author: 'MarkZhai'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: "",
+      labels: ""
+    }
+  };
+</script>
+
+
+
+
+
+
+
+  <title> PWA 渐进式实践 (1) | markzhai's home </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-67533211-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?74dc0d49be7a61e341f6c897ee4d733a";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">markzhai's home</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://blog.zhaiyifan.cn/2017/01/11/pwa-in-practice-1/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="Mark Zhai (翟一帆)">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/avatar.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="markzhai's home">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="markzhai's home" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                PWA 渐进式实践 (1)
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time title="Дата создания записи" itemprop="dateCreated datePublished" datetime="2017-01-11T12:14:42+08:00">
+              2017-01-11
+            </time>
+
+            &nbsp;|&nbsp;
+
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-check-o"></i>
+            </span>
+            <time title="Дата обновления записи" itemprop="dateModified" datetime="2017-01-11T14:41:12+08:00">
+              2017-01-11
+            </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Frontend/" itemprop="url" rel="index">
+                    <span itemprop="name">Frontend</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2017/01/11/pwa-in-practice-1/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/01/11/pwa-in-practice-1/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+              &nbsp; | &nbsp;
+              <span class="page-pv"><i class="fa fa-file-o"></i>
+              <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+              </span>
+          
+          
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>不知道大家还记不记得之前的四篇 PWA 系列翻译：</p>
+<ul>
+<li><a href="https://zhuanlan.zhihu.com/p/23673184?refer=moduth" target="_blank" rel="external">https://zhuanlan.zhihu.com/p/23673184?refer=moduth</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/23926652?refer=moduth" target="_blank" rel="external">https://zhuanlan.zhihu.com/p/23926652?refer=moduth</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/23966686?refer=moduth" target="_blank" rel="external">https://zhuanlan.zhihu.com/p/23966686?refer=moduth</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/23966862?refer=moduth" target="_blank" rel="external">https://zhuanlan.zhihu.com/p/23966862?refer=moduth</a></li>
+</ul>
+<p>不过这毕竟是老外他们自己的实践，而且相对来说是从科普角度来描述了 PWA 的实践，对想要直接进行 PWA 优化的，可能会觉得比较啰嗦。</p>
+<p>恰好我司最近使用 React 全家桶开发了一个网站：<a href="https://pai.bigins.cn/" target="_blank" rel="external">海绵保保</a>，所以干脆就拿它开刀，来进行 PWA 优化，顺便记录一下点滴。</p>
+<h1 id="Lighthouse">Lighthouse</h1><p>首先我看了下 taobao 的评分，21/100，恩…这样一来，就有信心了，再怎么我们肯定比它高不是？</p>
+<p>测了一下，嗯…果然还算看得过去，66分，至少及格了不是？</p>
+<p><img src="http://blog.zhaiyifan.cn/images/pwa-in-practice-1.png" alt="Lighthouse result"></p>
+<p>我们的目标就是能把它优化到<strong>90分</strong>以上！</p>
+<p>作为系列第一篇，我们先来看看有哪些问题导致了网站评分不够高，其产生原因和大概的解决策略。</p>
+<h1 id="App在离线/间断网络下的加载">App在离线/间断网络下的加载</h1><p>第一类就是 Service Worker 导致的问题：</p>
+<p><img src="http://blog.zhaiyifan.cn/images/pwa-in-practice-2.png" alt="App can load on offline/flaky connections"></p>
+<p>简单描述 Service Worker 的话，可以理解为一个本地的 server，在客户端（浏览器）发起请求的时候，可以直接监听到它并直接进行响应。</p>
+<p>当然，它不仅仅是这么一个拦截器，本身作为一个后台运行的任务，它还能进行预加载，离线响应（返回200），甚至进行 push 提示。</p>
+<h1 id="页面加载性能">页面加载性能</h1><p><img src="http://blog.zhaiyifan.cn/images/pwa-in-practice-3.png" alt="Page load performance is fast"></p>
+<p>各种性能指标不够过关啦。</p>
+<h1 id="渐进式增强">渐进式增强</h1><p><img src="http://blog.zhaiyifan.cn/images/pwa-in-practice-4.png" alt="Site is progressively enhanced"></p>
+<p>即 JavaScript 被禁用的时候，页面仍然应该有内容，即便那只是提示用户需要打开 JavaScript 以使用 app。</p>
+<h1 id="添加到主屏幕">添加到主屏幕</h1><p><img src="http://blog.zhaiyifan.cn/images/pwa-in-practice-5.png" alt="User can be prompted to Add to Homescreen"></p>
+<p>manifest 其实我已经加上了，还是因为 service worker 没有注册，所以最后没有生效。</p>
+<h1 id="避免影响用户体验的_APIs">避免影响用户体验的 APIs</h1><p><img src="http://blog.zhaiyifan.cn/images/pwa-in-practice-6.png" alt="Avoiding APIs that harm the user experience"></p>
+<p>一些 css 标签放在 header 里，阻塞影响到了页面体验。</p>
+<h1 id="辅助功能">辅助功能</h1><p><img src="http://blog.zhaiyifan.cn/images/pwa-in-practice-7.png" alt="Accessibility"></p>
+<p>对比度啦，标签啦，还有那么几个缺省了的。</p>
+<h1 id="性能指标">性能指标</h1><p><img src="http://blog.zhaiyifan.cn/images/pwa-in-practice-8.png" alt="Performance Metrics"></p>
+<p>加载链太长。</p>
+<h1 id="奇妙的东西">奇妙的东西</h1><p>总而言之就是一些新特性。</p>
+<p><img src="http://blog.zhaiyifan.cn/images/pwa-in-practice-9.png" alt="Site does not use Date.now() in its own scripts"></p>
+<p>然而好像是插件还是 sw-tools 导致的。</p>
+<h1 id="预告">预告</h1><p>本篇中我们大致看到了哪些问题导致了我们的 webapp 的 PWA 评分不够高，下一次，我们会开始逐个开刀，解决这些问题。对本话题感兴趣的朋友，也可以使用 Lighthouse 插件，对自家的网站或者其他网站来评评分，看看做得有多好（其实我们的<strong>66分</strong>真的已经挺高了）。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+<div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
+    <img id="wechat_subscriber_qcode" src="/uploads/wechat-public-qcode.jpg" alt="Mark Zhai (翟一帆) wechat" style="width: 200px; max-width: 100%;"/>
+    <div>欢迎您扫一扫上面的微信公众号，订阅我们的公众号！</div>
+</div>
+
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/images/donation.jpg" alt="Mark Zhai (翟一帆) WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/images/donation-alipay.png" alt="Mark Zhai (翟一帆) Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
+          
+            <a href="/tags/PWA/" rel="tag"># PWA</a>
+          
+            <a href="/tags/React-js/" rel="tag"># React.js</a>
+          
+            <a href="/tags/前端/" rel="tag"># 前端</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/12/31/Blog-Plan-2016/" rel="next" title="Blog计划2016">
+                <i class="fa fa-chevron-left"></i> Blog计划2016
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_tqq"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_douban"></a>
+  <a class="jiathis_button_renren"></a>
+  <a class="jiathis_button_qzone"></a>
+  <a class="jiathis_button_kaixin001"></a>
+  <a class="jiathis_button_copy"></a>
+  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+  var jiathis_config={
+    hideMore:false
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+  <p>热评文章</p>
+  <div class="ds-top-threads" data-range="weekly" data-num-items="4"></div>
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2017/01/11/pwa-in-practice-1/"
+           data-title="PWA 渐进式实践 (1)" data-url="http://blog.zhaiyifan.cn/2017/01/11/pwa-in-practice-1/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="Mark Zhai (翟一帆)" />
+          <p class="site-author-name" itemprop="name">Mark Zhai (翟一帆)</p>
+          <p class="site-description motion-element" itemprop="description">白驹过隙 忽然而已</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">63</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">17</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">62</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/markzhai" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/zhayaofen" target="_blank" title="微博">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  微博
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.zhihu.com/people/markzhai" target="_blank" title="知乎">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  知乎
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://zhaiyifan.cn/" target="_blank" title="个人主页">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  个人主页
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              友情链接
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://abner-nimengbo.cn" title="Abner泥阿布" target="_blank">Abner泥阿布</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://itangqi.me" title="Qi Tang" target="_blank">Qi Tang</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://yifeiyuan.me" title="程序亦非猿" target="_blank">程序亦非猿</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://blog.isming.me/" title="码农明明桑" target="_blank">码农明明桑</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Lighthouse"><span class="nav-number">1.</span> <span class="nav-text">Lighthouse</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#App在离线/间断网络下的加载"><span class="nav-number">2.</span> <span class="nav-text">App在离线/间断网络下的加载</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#页面加载性能"><span class="nav-number">3.</span> <span class="nav-text">页面加载性能</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#渐进式增强"><span class="nav-number">4.</span> <span class="nav-text">渐进式增强</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#添加到主屏幕"><span class="nav-number">5.</span> <span class="nav-text">添加到主屏幕</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#避免影响用户体验的_APIs"><span class="nav-number">6.</span> <span class="nav-text">避免影响用户体验的 APIs</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#辅助功能"><span class="nav-number">7.</span> <span class="nav-text">辅助功能</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#性能指标"><span class="nav-number">8.</span> <span class="nav-text">性能指标</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#奇妙的东西"><span class="nav-number">9.</span> <span class="nav-text">奇妙的东西</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#预告"><span class="nav-number">10.</span> <span class="nav-text">预告</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2015 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Mark Zhai</span>
+</div>
+
+
+
+        
+
+<div class="busuanzi-count">
+
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv"><i class="fa fa-user"></i><span class="busuanzi-value" id="busuanzi_value_site_uv"></span></span>
+  
+
+  
+    <span class="site-pv"><i class="fa fa-eye"></i><span class="busuanzi-value" id="busuanzi_value_site_pv"></span></span>
+  
+  
+</div>
+
+
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"markzhai"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+
+
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+      search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+      $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = $( "entry", xmlResponse ).map(function() {
+            return {
+              title: $( "title", this ).text(),
+              content: $("content",this).text(),
+              url: $( "url" , this).text()
+            };
+          }).get();
+          var $input = document.getElementById(search_id);
+          var $resultContent = document.getElementById(content_id);
+          $input.addEventListener('input', function(){
+            var matchcounts = 0;
+            var str='<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length > 1) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var content_index = [];
+                var data_title = data.title.trim().toLowerCase();
+                var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                var data_url = decodeURIComponent(data.url);
+                var index_title = -1;
+                var index_content = -1;
+                var first_occur = -1;
+                // only match artiles with not empty titles and contents
+                if(data_title != '') {
+                  keywords.forEach(function(keyword, i) {
+                    index_title = data_title.indexOf(keyword);
+                    index_content = data_content.indexOf(keyword);
+                    if( index_title >= 0 || index_content >= 0 ){
+                      isMatch = true;
+                      if (i == 0) {
+                        first_occur = index_content;
+                      }
+                    }
+
+                  });
+                }
+                // show search results
+                if (isMatch) {
+                  matchcounts += 1;
+                  str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                  var content = data.content.trim().replace(/<[^>]+>/g,"");
+                  if (first_occur >= 0) {
+                    // cut out 100 characters
+                    var start = first_occur - 20;
+                    var end = first_occur + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if(start == 0){
+                      end = 50;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    var match_content = content.substring(start, end);
+                    // highlight all keywords
+                    keywords.forEach(function(keyword){
+                      var regS = new RegExp(keyword, "gi");
+                      match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                    });
+
+                    str += "<p class=\"search-result\">" + match_content +"...</p>"
+                  }
+                  str += "</li>";
+                }
+              })};
+            str += "</ul>";
+            if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+            if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+            $resultContent.innerHTML = str;
+          });
+          proceedsearch();
+        }
+      });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+  
+
+  
+
+  
+
+  
+
+
+</body>
+</html>
