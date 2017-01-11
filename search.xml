@@ -18,7 +18,7 @@
 <h1 id="Lighthouse">Lighthouse</h1><p>首先我看了下 taobao 的评分，21/100，恩…这样一来，就有信心了，再怎么我们肯定比它高不是？</p>
 <p>测了一下，嗯…果然还算看得过去，66分，至少及格了不是？</p>
 <p><img src="http://blog.zhaiyifan.cn/images/pwa-in-practice-1.png" alt="Lighthouse result"></p>
-<p>我们的目标就是能把它优化到<strong>90分</strong>以上！</p>
+<p>我们的目标就是能把它优化到<strong>90分</strong>以上！（作为 PWA 模范的 mobile.twitter.com，就达到了90分）</p>
 <p>作为系列第一篇，我们先来看看有哪些问题导致了网站评分不够高，其产生原因和大概的解决策略。</p>
 <h1 id="App在离线/间断网络下的加载">App在离线/间断网络下的加载</h1><p>第一类就是 Service Worker 导致的问题：</p>
 <p><img src="http://blog.zhaiyifan.cn/images/pwa-in-practice-2.png" alt="App can load on offline/flaky connections"></p>
