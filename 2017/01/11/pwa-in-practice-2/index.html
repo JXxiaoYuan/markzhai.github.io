@@ -75,7 +75,9 @@
 添加 Service Worker注册我们的项目是使用 ejs 在 webpack 阶段注入几个变量生成最后的 index.html 的，所以直接拿 index.ejs 动刀即可：
 12345678910111213141516171819202122232425262728293031&amp;lt;body&amp;gt;  &amp;">
 <meta property="og:image" content="http://blog.zhaiyifan.cn/images/pwa-in-practice-10.png">
-<meta property="og:updated_time" content="2017-01-13T03:20:01.000Z">
+<meta property="og:image" content="http://blog.zhaiyifan.cn/images/pwa-in-practice-11.png">
+<meta property="og:image" content="http://blog.zhaiyifan.cn/images/pwa-in-practice-12.png">
+<meta property="og:updated_time" content="2017-01-13T04:15:13.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="PWA 渐进式实践 (2) - Service Worker">
 <meta name="twitter:description" content="作为 PWA 的象征之一，我们首先做的，就是加上 Service Worker。
@@ -330,7 +332,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-check-o"></i>
             </span>
-            <time title="Дата обновления записи" itemprop="dateModified" datetime="2017-01-13T11:20:01+08:00">
+            <time title="Дата обновления записи" itemprop="dateModified" datetime="2017-01-13T12:15:13+08:00">
               2017-01-13
             </time>
             
@@ -410,7 +412,11 @@
 <p>运行一下 npm run build，发现 <code>service-worker.js</code> 被更新了，里面是生成的策略脚本。</p>
 <h2 id="评测">评测</h2><p>再次运行 Lighthouse 后，发现我们的评分已经嗖嗖嗖上去了：</p>
 <p><img src="http://blog.zhaiyifan.cn/images/pwa-in-practice-10.png" alt="After service worker"></p>
-<h1 id="离线依然返回_200">离线依然返回 200</h1><p>未完</p>
+<h1 id="离线依然返回_200">离线依然返回 200</h1><p>这里的秘密就在 runtime-caching.js 文件里，我们更新一下：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// global.toolbox is defined in a different script, sw-toolbox.js, which is part of the</span></span><br><span class="line"><span class="comment">// https://github.com/GoogleChrome/sw-toolbox project.</span></span><br><span class="line"><span class="comment">// That sw-toolbox.js script must be executed first, so it needs to be listed before this in the</span></span><br><span class="line"><span class="comment">// importScripts() call that the parent service worker makes.</span></span><br><span class="line">(<span class="function"><span class="keyword">function</span> (<span class="params">global</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// See https://github.com/GoogleChrome/sw-toolbox/blob/6e8242dc328d1f1cfba624269653724b26fa94f1/README.md#toolboxroutergeturlpattern-handler-options</span></span><br><span class="line">  <span class="comment">// and https://github.com/GoogleChrome/sw-toolbox/blob/6e8242dc328d1f1cfba624269653724b26fa94f1/README.md#toolboxfastest</span></span><br><span class="line">  <span class="comment">// for more details on how this handler is defined and what the toolbox.fastest strategy does.</span></span><br><span class="line">  global.toolbox.router.get(<span class="string">'/(.*)'</span>, global.toolbox.fastest, &#123;</span><br><span class="line">    origin: <span class="regexp">/\.(?:googleapis|gstatic|firebaseio|appspot)\.com$/</span>,</span><br><span class="line">  &#125;);</span><br><span class="line">  global.toolbox.router.get(<span class="string">'/(.+)'</span>, global.toolbox.fastest, &#123;</span><br><span class="line">    origin: <span class="string">'https://api.pai.bigins.cn/'</span>,</span><br><span class="line">  &#125;);</span><br><span class="line">  global.toolbox.router.get(<span class="string">'/(.+)'</span>, global.toolbox.fastest, &#123;</span><br><span class="line">    origin: <span class="string">'https://qa.api.pai.bigins.cn/'</span>,</span><br><span class="line">  &#125;);</span><br><span class="line">  global.toolbox.router.get(<span class="string">'/(.+)'</span>, global.toolbox.fastest, &#123;</span><br><span class="line">    origin: <span class="string">'https://pai.bigins.cn/'</span>,</span><br><span class="line">  &#125;);</span><br><span class="line">  global.toolbox.router.get(<span class="string">'/*'</span>, global.toolbox.fastest);</span><br><span class="line">  global.toolbox.precache([<span class="string">'/index.html'</span>, <span class="string">'/index.css'</span>, <span class="string">'/img/logo.png'</span>]);</span><br><span class="line">&#125;(self));</span><br></pre></td></tr></table></figure></p>
+<p>然后再提交构建一下，在 Chrome 的 Network Panel 中，勾选 Offline，然后刷新页面，哇，依然可以用诶。</p>
+<h2 id="评测-1">评测</h2><p><img src="http://blog.zhaiyifan.cn/images/pwa-in-practice-11.png" alt="After precache"></p>
+<h1 id="What’s_next">What’s next</h1><p><img src="http://blog.zhaiyifan.cn/images/pwa-in-practice-12.png" alt="What&#39;s next"></p>
+<p>剩下的就是一些比较棘手的性能和体验问题了，我们下回见。</p>
 
       
     </div>
@@ -706,7 +712,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#添加_Service_Worker"><span class="nav-number">1.</span> <span class="nav-text">添加 Service Worker</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#注册"><span class="nav-number">1.1.</span> <span class="nav-text">注册</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Cache_策略"><span class="nav-number">1.2.</span> <span class="nav-text">Cache 策略</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#评测"><span class="nav-number">1.3.</span> <span class="nav-text">评测</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#离线依然返回_200"><span class="nav-number">2.</span> <span class="nav-text">离线依然返回 200</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#添加_Service_Worker"><span class="nav-number">1.</span> <span class="nav-text">添加 Service Worker</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#注册"><span class="nav-number">1.1.</span> <span class="nav-text">注册</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Cache_策略"><span class="nav-number">1.2.</span> <span class="nav-text">Cache 策略</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#评测"><span class="nav-number">1.3.</span> <span class="nav-text">评测</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#离线依然返回_200"><span class="nav-number">2.</span> <span class="nav-text">离线依然返回 200</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#评测-1"><span class="nav-number">2.1.</span> <span class="nav-text">评测</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#What’s_next"><span class="nav-number">3.</span> <span class="nav-text">What’s next</span></a></li></ol></div>
             
 
           </div>
