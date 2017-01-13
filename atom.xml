@@ -4,7 +4,7 @@
   
   <link href="/atom.xml" rel="self"/>
   <link href="http://blog.zhaiyifan.cn/"/>
-  <updated>2017-01-13T04:16:55.000Z</updated>
+  <updated>2017-01-13T05:06:29.000Z</updated>
   <id>http://blog.zhaiyifan.cn/</id>
   
   <author>
@@ -15,11 +15,38 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title><![CDATA[PWA 渐进式实践 (3) - 用户体验 & 性能]]></title>
+    <link href="http://blog.zhaiyifan.cn/2017/01/15/pwa-in-practice-3/"/>
+    <id>http://blog.zhaiyifan.cn/2017/01/15/pwa-in-practice-3/</id>
+    <published>2017-01-15T04:14:42.000Z</published>
+    <updated>2017-01-13T05:06:29.000Z</updated>
+    <content type="html"><![CDATA[<p><strong>未完</strong></p>
+<p>为了让我们的网站能达到更高的评分（咦，为什么变成刷分了），我们最后需要进行用户体验和性能的优化。</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p><strong>未完</strong></p>
+<p>为了让我们的网站能达到更高的评分（咦，为什么变成刷分了），我们最后需要进行用户体验和性能的优化。</p>
+]]>
+    </summary>
+    
+      <category term="JavaScript" scheme="http://blog.zhaiyifan.cn/tags/JavaScript/"/>
+    
+      <category term="PWA" scheme="http://blog.zhaiyifan.cn/tags/PWA/"/>
+    
+      <category term="React.js" scheme="http://blog.zhaiyifan.cn/tags/React-js/"/>
+    
+      <category term="前端" scheme="http://blog.zhaiyifan.cn/tags/%E5%89%8D%E7%AB%AF/"/>
+    
+      <category term="Frontend" scheme="http://blog.zhaiyifan.cn/categories/Frontend/"/>
+    
+  </entry>
+  
+  <entry>
     <title><![CDATA[PWA 渐进式实践 (2) - Service Worker]]></title>
-    <link href="http://blog.zhaiyifan.cn/2017/01/11/pwa-in-practice-2/"/>
-    <id>http://blog.zhaiyifan.cn/2017/01/11/pwa-in-practice-2/</id>
-    <published>2017-01-11T04:14:42.000Z</published>
-    <updated>2017-01-13T04:16:55.000Z</updated>
+    <link href="http://blog.zhaiyifan.cn/2017/01/13/pwa-in-practice-2/"/>
+    <id>http://blog.zhaiyifan.cn/2017/01/13/pwa-in-practice-2/</id>
+    <published>2017-01-13T04:14:42.000Z</published>
+    <updated>2017-01-13T05:06:27.000Z</updated>
     <content type="html"><![CDATA[<p>作为 PWA 的象征之一，我们首先做的，就是加上 Service Worker。</p>
 <h1 id="添加_Service_Worker">添加 Service Worker</h1><h2 id="注册">注册</h2><p>我们的项目是使用 ejs 在 webpack 阶段注入几个变量生成最后的 index.html 的，所以直接拿 index.ejs 动刀即可：</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">div</span> <span class="attribute">id</span>=<span class="value">"container"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"&lt;%= bundle %&gt;"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">script</span>&gt;</span><span class="javascript"></span><br><span class="line">    <span class="keyword">if</span> (<span class="string">'serviceWorker'</span> <span class="keyword">in</span> navigator) &#123;</span><br><span class="line">      navigator.serviceWorker.register(<span class="string">'/service-worker.js'</span>, &#123;</span><br><span class="line">        scope: <span class="string">'./'</span></span><br><span class="line">      &#125;).then(<span class="function"><span class="keyword">function</span>(<span class="params">registration</span>) </span>&#123;</span><br><span class="line">        registration.onupdatefound = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">          <span class="keyword">if</span> (navigator.serviceWorker.controller) &#123;</span><br><span class="line">            <span class="keyword">const</span> installingWorker = registration.installing;</span><br><span class="line">            installingWorker.onstatechange = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">              <span class="keyword">switch</span> (installingWorker.state) &#123;</span><br><span class="line">                <span class="keyword">case</span> <span class="string">'installed'</span>:</span><br><span class="line">                  <span class="keyword">break</span>;</span><br><span class="line">                <span class="keyword">case</span> <span class="string">'redundant'</span>:</span><br><span class="line">                  <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">'The installing '</span> +</span><br><span class="line">                    <span class="string">'service worker became redundant.'</span>);</span><br><span class="line">                <span class="keyword">default</span>:</span><br><span class="line">                <span class="comment">// Ignore</span></span><br><span class="line">              &#125;</span><br><span class="line">            &#125;;</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;;</span><br><span class="line">      &#125;).catch(<span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.error(<span class="string">'Error during service worker registration:'</span>, e);</span><br><span class="line">      &#125;);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">'service worker is not supported'</span>);</span><br><span class="line">    &#125;</span><br><span class="line">  </span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
@@ -1904,77 +1931,6 @@
       <category term="前端" scheme="http://blog.zhaiyifan.cn/tags/%E5%89%8D%E7%AB%AF/"/>
     
       <category term="Frontend" scheme="http://blog.zhaiyifan.cn/categories/Frontend/"/>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[在 Android N 预览版中使用 Java 8 的新特性]]></title>
-    <link href="http://blog.zhaiyifan.cn/2016/04/20/trans-java-8-in-android-n-preview/"/>
-    <id>http://blog.zhaiyifan.cn/2016/04/20/trans-java-8-in-android-n-preview/</id>
-    <published>2016-04-20T03:48:40.000Z</published>
-    <updated>2016-05-26T04:14:07.000Z</updated>
-    <content type="html"><![CDATA[<blockquote>
-<ul>
-<li>原文链接 : <a href="https://medium.com/@sergii/java-8-in-android-n-preview-76184e2ab7ad#.ywf5x3l8w" target="_blank" rel="external">Java 8 in Android N Preview</a></li>
-<li>原文作者 : <a href="https://medium.com/@sergii" target="_blank" rel="external">Sergii Zhuk</a></li>
-<li>译文出自 : <a href="https://github.com/xitu/gold-miner" target="_blank" rel="external">掘金翻译计划</a></li>
-<li>译者 : <a href="https://github.com/markzhai" target="_blank" rel="external">markzhai</a></li>
-<li>校对者: <a href="https://github.com/narcotics726" target="_blank" rel="external">narcotics726</a>, <a href="https://github.com/MiJack" target="_blank" rel="external">MiJack</a></li>
-</ul>
-</blockquote>
-<p>Android团队最近发布了Android N Preview，带来了很多提升，包括由Jack编译器提供的Java 8支持。在这篇文章中，我们将来看看它究竟对Android开发者意味着什么，以及如何尝试新的语言特性。</p>
-<blockquote>
-<p><em>免责声明: 本信息在2016年3月30日是有效的，我不确定在下个release版本中，Google团队会增加什么新的没有在此提到的Java 8特性。</em></p>
-</blockquote>
-<p><img src="https://cdn-images-1.medium.com/max/800/1*0Vex_2H0J7MBBiu1EqMtaw.png" alt=""></p>
-<figcaption>图片 by <a href="http://www.androidpolice.com/2016/03/09/android-n-feature-spotlight-jack-compiler-gains-support-for-many-java-8-language-features-including-lambdas-streams-functional-interfaces-and-more/" target="_blank" rel="external">Android Police<sup class="readableLinkFootnote">[1]</sup></a></figcaption>
-
-<h3 id="概览">概览</h3><p>在这篇文章中，去介绍Oracle Java 8的新特性并没有太大意义 —— 很多信息已经在互联网上有了。我个人最喜欢的是Simon Ritter的“<a href="https://www.youtube.com/watch?v=rtAredKhyac" target="_blank" rel="external">Java SE 8的55个新特性<sup class="readableLinkFootnote">[2]</sup></a>”。</p>
-<p>另一方面，Android <a href="http://android-developers.blogspot.de/2016/03/first-preview-of-android-n-developer.html" target="_blank" rel="external">官方的Java 8公告<sup class="readableLinkFootnote">[3]</sup></a> 留下了很多开放的问题给开发者们，感觉上并非所有的原生 Java 8 功能都是可用的。更详细的 <a href="http://developer.android.com/intl/ru/preview/j8-jack.html" target="_blank" rel="external">技术公告<sup class="readableLinkFootnote">[4]</sup></a> 确认了这一点。我们可以根据在 Android N 中的可用性，将这些语言特性分类如下：</p>
-<p>Android Gingebread (API 9)及以上:</p>
-<ul>
-<li><a href="https://docs.oracle.com/javase/tutorial/java/javaOO/lambdaexpressions.html" target="_blank" rel="external">Lambda 表达式</a></li>
-<li><a href="https://docs.oracle.com/javase/8/docs/api/java/util/function/package-summary.html" target="_blank" rel="external">java.util.function</a></li>
-</ul>
-<p>Android N及以上:</p>
-<ul>
-<li><a href="https://docs.oracle.com/javase/tutorial/java/IandI/defaultmethods.html" target="_blank" rel="external">默认和静态interface方法</a></li>
-<li><a href="https://docs.oracle.com/javase/tutorial/java/annotations/repeating.html" target="_blank" rel="external">可重复的注解</a></li>
-<li><a href="http://www.oracle.com/technetwork/articles/java/ma14-java-se-8-streams-2177646.html" target="_blank" rel="external">流(Streams)</a></li>
-<li>反射APIs</li>
-</ul>
-<p>所以对Java 8特性和使用的minSdkVersion之间的关联性，开发者必须去精心选择。我们也必须注意到语言向后兼容是由Jack编译器提供的。在概念上，Jack编译器将javac，ProGuard，以及dex的功能 <a href="https://www.guardsquare.com/blog/the_upcoming_jack_and_jill_compilers_in_android" target="_blank" rel="external">合并 <sup class="readableLinkFootnote">[5]</sup></a>到了一个转换步骤中。<a href="http://trickyandroid.com/the-dark-world-of-jack-and-jill/" target="_blank" rel="external">这意味着<sup class="readableLinkFootnote">[6]</sup></a>其中没有中间的Java字节码可用，且像是JaCoCo和Mockito的工具将无法工作，DexGuard也一样 (ProGuard的企业版本)。让我们祈祷这只是一个早期的preview版本，且这些问题将在未来被修复。</p>
-<p>Lambda表达式以及相关的函数功能APIs —— 这是一个每个Android开发都会喜欢的东西。这类功能将会对增加代码可读性极为有用 —— 它替代了提供事件监听器的匿名内部类。而之前只能通过 <a href="http://zserge.com/blog/android-lambda.html" target="_blank" rel="external">额外的工具<sup class="readableLinkFootnote">[7]</sup></a> 来实现，或者由Android Studio编辑器去折叠代码。</p>
-<p>默认及静态interface方法可以帮助我们减少额外的工具类的数量，但显然不是最需要的特性。还有一些其他的新增功能，我希望去说的更详细一些，因此不在本文的范围内。</p>
-<p>对我来说最有趣的事 —— Java 8 流(Streams) —— 在当前的预览版中不可用。我们可以发现事实上它 <a href="https://android.googlesource.com/platform/libcore/+/916b0af2ccdd1bdfc0283b1096b291c40997d05f" target="_blank" rel="external">刚被merge<sup class="readableLinkFootnote">[8]</sup></a> 到AOSP源码，所以期望可以在下个N Preview 或者 Beta release中见到它。如果你实在等不及去浏览 —— 可以试试使用 <a href="https://github.com/aNNiMON/Lightweight-Stream-API" target="_blank" rel="external">Lightweight-Stream-API<sup class="readableLinkFootnote">[9]</sup></a>，目前的一个开源向后兼容。</p>
-<h3 id="示例项目">示例项目</h3><p><a href="http://developer.android.com/preview/setup-sdk.html" target="_blank" rel="external">官方手册<sup class="readableLinkFootnote">[10]</sup></a>提供了指示，甚至还有图展示了如何去配置你的项目使用 Android N Preview 和 Java 8。在这儿没什么可以再说的，就跟着指示走吧。</p>
-<p><img src="http://ww4.sinaimg.cn/large/a490147fjw1f2w1lxrva9j20m803pt9h.jpg" alt=""></p>
-<p>下一步是去配置你的app模块的 build.gradle 文件。你可以在下面看到实例的 build.gradle 文件。从N SDK上的公告来看，似乎可以设置 <em>minSdkVersion</em> 为 Jelly Bean 或者 KitKat。 但… 在将 <em>targetSdkVersion</em> 设为Android N Preview后，<a href="http://stackoverflow.com/questions/36278517/java-8-in-android-n-preview" target="_blank" rel="external">将无法工作在API低于N的设备上<sup class="readableLinkFootnote">[11]</sup></a>。另外，如果你把 <em>minSdkVersion</em> 设置为23或者更低 —— Java 8代码将无法编译。这里是一些在 <a href="http://stackoverflow.com/questions/35929484/android-n-cannot-run-on-lower-api-though-minsdk-set-to-14" target="_blank" rel="external">SO forums<sup class="readableLinkFootnote">[12]</sup></a>的hack，描述了怎么设置minSdk为想要的值并使得app可以工作。我希望你不会在生产代码中使用这种方法 :)</p>
-<p>我决定保持实例代码干净，所以没有添加任何hack手段来做低版本兼容，请读者自由去尝试或者使用N的测试设备/模拟器。</p>
-<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">android</span> &#123;</span><br><span class="line">    <span class="title">compileSdkVersion</span> <span class="string">'android-N'</span></span><br><span class="line">    buildToolsVersion <span class="string">'24.0.0 rc1'</span></span><br><span class="line"></span><br><span class="line">    defaultConfig &#123;</span><br><span class="line">        <span class="title">applicationId</span> <span class="string">"org.sergiiz.thermometer"</span></span><br><span class="line">        minSdkVersion <span class="string">'N'</span> // 在 N Preview 中不能使用低于N的版本</span><br><span class="line">        targetSdkVersion <span class="string">'N'</span></span><br><span class="line">        versionCode <span class="number">1</span></span><br><span class="line">        versionName <span class="string">"1.0"</span></span><br><span class="line">        jackOptions&#123;</span><br><span class="line">            <span class="title">enabled</span> <span class="built_in">true</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    compileOptions &#123;</span><br><span class="line">        <span class="title">targetCompatibility</span> <span class="number">1</span>.<span class="number">8</span></span><br><span class="line">        sourceCompatibility <span class="number">1</span>.<span class="number">8</span></span><br><span class="line">    &#125;</span><br><span class="line">    //...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>请注意这个设置是跟着新的<a href="http://developer.android.com/preview/j8-jack.html" target="_blank" rel="external">文档<sup class="readableLinkFootnote">[13]</sup></a>来的，使用了新的 Gradle DSL 方法 <em>jackOptions</em> 来配置Jack编译器设置，在更老的版本中，我们使用 <em>useJack true</em> 来达到同样的结果。</p>
-<p>所以来试着实现一些Java 8的优雅代码到我们陈旧的Thermometer项目。</p>
-<p>这是一个接口，包含了默认方法：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Thermometer</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">   <span class="function"><span class="keyword">void</span> <span class="title">setCelsius</span><span class="params">(<span class="keyword">final</span> <span class="keyword">float</span> celsiusValue)</span></span>;</span><br><span class="line"></span><br><span class="line">   <span class="function"><span class="keyword">float</span> <span class="title">getValue</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line">   <span class="function">String <span class="title">getSign</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line">   <span class="function"><span class="keyword">default</span> String <span class="title">getFormattedValue</span><span class="params">()</span></span>&#123;</span><br><span class="line">      <span class="keyword">return</span> String.format(Locale.getDefault(),</span><br><span class="line">            <span class="string">"The temperature is %.2f %s"</span>, getValue(), getSign());</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>实现了这个接口的类：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FahrenheitThermometer</span> <span class="keyword">implements</span> <span class="title">Thermometer</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">   <span class="keyword">private</span> <span class="keyword">float</span> fahrenheitDeg;</span><br><span class="line"></span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="title">FahrenheitThermometer</span><span class="params">(<span class="keyword">float</span> celsius)</span> </span>&#123;</span><br><span class="line">      setCelsius(celsius);</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   <span class="annotation">@Override</span></span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setCelsius</span><span class="params">(<span class="keyword">float</span> celsius)</span> </span>&#123;</span><br><span class="line">      fahrenheitDeg = celsius * <span class="number">9</span> / <span class="number">5</span> + <span class="number">32f</span>;</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   <span class="annotation">@Override</span></span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">float</span> <span class="title">getValue</span><span class="params">()</span> </span>&#123;</span><br><span class="line">      <span class="keyword">return</span> fahrenheitDeg;</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   <span class="annotation">@Override</span></span><br><span class="line">   <span class="function"><span class="keyword">public</span> String <span class="title">getSign</span><span class="params">()</span> </span>&#123;</span><br><span class="line">      <span class="keyword">return</span> Constants.DEGREE + <span class="string">"F"</span>;</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>增加一个点击事件的lambda函数：</p>
-<figure class="highlight roboconf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="component">buttonFahrenheit.setOnClickListener(view1 -&gt; &#123;</span><br><span class="line">   fahrenheitThermometer<span class="string">.setCelsius(currentCelsius)</span>;</span><br><span class="line">   String text = fahrenheitThermometer<span class="string">.getFormattedValue()</span>;</span><br><span class="line">   makeText(MainActivity<span class="string">.this</span>, text, Toast<span class="string">.LENGTH_SHORT).show()</span>;</span><br><span class="line">&#125;</span>);</span><br></pre></td></tr></table></figure>
-<p>例子的完整源码可见 <a href="https://github.com/sergiiz/AndroidNPreviewJ8" target="_blank" rel="external">GitHub repository<sup class="readableLinkFootnote">[14]</sup></a>。</p>
-<h3 id="总结">总结</h3><p>在这篇文章中，我们了解了Java 8的用例，以及目前其在Android N Preview SDK的实现情况。我们也看到了当前Jack编译器的限制，及其在最后发布前可能被修复的功能。在demo项目中我们检验了如何去使用新的Java 8特性，以及它们可以被应用的target SDK版本。</p>
-<p>声明：本文已独家授权微信公众号Android程序员（AndroidTrending）在微信公众号平台原创首发。</p>
-]]></content>
-    <summary type="html">
-    <![CDATA[<blockquote>
-<ul>
-<li>原文链接 : <a href="https://medium.com/@sergii/java-8-in-android-n-preview-76184e2ab7ad#.ywf5x3l8w" target="_blank" rel="e]]>
-    </summary>
-    
-      <category term="Android" scheme="http://blog.zhaiyifan.cn/tags/Android/"/>
-    
-      <category term="Java8" scheme="http://blog.zhaiyifan.cn/tags/Java8/"/>
-    
-      <category term="Java8" scheme="http://blog.zhaiyifan.cn/categories/Java8/"/>
     
   </entry>
   
