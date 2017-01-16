@@ -6,8 +6,46 @@
     <entry>
       <title><![CDATA[PWA 渐进式实践 (3) - 用户体验 & 性能]]></title>
       <url>http://blog.zhaiyifan.cn/2017/01/15/pwa-in-practice-3/</url>
-      <content type="html"><![CDATA[<p><strong>未完</strong></p>
-<p>为了让我们的网站能达到更高的评分（咦，为什么变成刷分了），我们最后需要进行用户体验和性能的优化。</p>
+      <content type="html"><![CDATA[<p>为了让我们的网站能达到更高的评分（咦，为什么变成刷分了），我们最后需要进行用户体验和性能的优化。</p>
+<h1 id="页面加载性能">页面加载性能</h1><p>我们需要尽可能把其他所有页面做成异步的，如：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getSubmitCase</span>(<span class="params">nextState, callback</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">require</span>.ensure([], (<span class="built_in">require</span>) =&gt; &#123;</span><br><span class="line">    callback(<span class="literal">null</span>, <span class="built_in">require</span>(<span class="string">'./containers/case/SubmitCasePage'</span>).default);</span><br><span class="line">  &#125;, <span class="string">'SubmitCasePage'</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;Route path=<span class="string">"submit"</span> getComponent=&#123;getSubmitCase&#125; /&gt;</span><br></pre></td></tr></table></figure>
+<p>通过把非首页面路由给大部分变成异步化的后：</p>
+<p><img src="http://blog.zhaiyifan.cn/images/pwa-in-practice-13.png" alt="After async"></p>
+<p>原来都是黄色红色的，现在大部分变成了绿色。</p>
+<h1 id="渐进式增强">渐进式增强</h1><p>页面在脚本（JavaScript）不可用的时候仍然包含一些内容，即便它只是一个给用户的警告，官方文档见：<a href="https://developers.google.com/web/tools/lighthouse/audits/no-js" target="_blank" rel="external">no-js</a>。</p>
+<p>复杂地话，我们需要能输出静态页面，但由于我们是纯粹的客户端渲染，没办法那么做，所以一切从简，考虑直接在无法使用 JS 的时候输出提示。</p>
+<p>具体怎么做呢？不用急，还真有个标签可以直接拿来用：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">noscript</span>&gt;</span>Your browser does not support JavaScript!<span class="tag">&lt;/<span class="title">noscript</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>放在 body 里面就好了。</p>
+<h1 id="辅助功能">辅助功能</h1><p>考虑到应用场景，这个就不加了（更何况报的一些其实是 ant design 的问题）。</p>
+<p>还有一个是我们 form 表单没有使用 label（因为使用了 icon 来示意），这个提示有点傻逼，无视它。</p>
+<h1 id="性能指标">性能指标</h1><p>请求链路的优化，主要是因为一些静态文件的依赖比较多（css、js、图片）。没有想到特别好的方法，官方解释见：<a href="https://developers.google.com/web/tools/lighthouse/audits/critical-request-chains" target="_blank" rel="external">Critical Request Chains</a>，应该需要尽量做成异步非阻塞的，并减少 roundtrips 数量。</p>
+<h1 id="避免影响用户体验的_APIs">避免影响用户体验的 APIs</h1><p><img src="http://blog.zhaiyifan.cn/images/pwa-in-practice-6.png" alt="Avoiding APIs that harm the user experience"></p>
+<p>CSS 文件大，容易导致阻塞，因为 CSS 会被默认处理为渲染阻塞的资源。</p>
+<p>可以先阅读 Google 的这一篇文档：<a href="https://developers.google.com/web/fundamentals/performance/critical-rendering-path/render-blocking-css" target="_blank" rel="external">Render Blocking CSS</a>。</p>
+<p>因为通常在 CSS 文件未正确加载前，我们的页面会无法正常使用，所以唯一的优化方案就是让加载 CSS 变得更快。</p>
+<p>可是具体怎么做呢？其实 link stylesheet 有一个标签 —— media，也就是我们熟知的 media query：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">link</span> <span class="attribute">href</span>=<span class="value">"style.css"</span> <span class="attribute">rel</span>=<span class="value">"stylesheet"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">link</span> <span class="attribute">href</span>=<span class="value">"print.css"</span> <span class="attribute">rel</span>=<span class="value">"stylesheet"</span> <span class="attribute">media</span>=<span class="value">"print"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">link</span> <span class="attribute">href</span>=<span class="value">"other.css"</span> <span class="attribute">rel</span>=<span class="value">"stylesheet"</span> <span class="attribute">media</span>=<span class="value">"(min-width: 40em)"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>第一个 stylesheet 就是我们以往常用的，被应用在所有场景，总是会阻塞渲染。</li>
+<li>第二个 stylesheet 在内容被打印后才应用 —— 可能你会想要重新排版布局，改变字体等等，所以不会阻塞页面的首次加载。</li>
+<li>第三个使用了 media query，会被浏览器执行，如果条件负责，则会阻塞到该 stylesheet 被下载并处理完毕。</li>
+</ul>
+<p>再来看几个例子：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">link</span> <span class="attribute">href</span>=<span class="value">"style.css"</span>    <span class="attribute">rel</span>=<span class="value">"stylesheet"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">link</span> <span class="attribute">href</span>=<span class="value">"style.css"</span>    <span class="attribute">rel</span>=<span class="value">"stylesheet"</span> <span class="attribute">media</span>=<span class="value">"all"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">link</span> <span class="attribute">href</span>=<span class="value">"portrait.css"</span> <span class="attribute">rel</span>=<span class="value">"stylesheet"</span> <span class="attribute">media</span>=<span class="value">"orientation:portrait"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">link</span> <span class="attribute">href</span>=<span class="value">"print.css"</span>    <span class="attribute">rel</span>=<span class="value">"stylesheet"</span> <span class="attribute">media</span>=<span class="value">"print"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>第一个申明在所有条件下都是渲染阻塞的。</li>
+<li>第二个申明和第一个其实等价，因为如果没有指定 media type 的话，他其实就是 “all”。</li>
+<li>第三个申明有一个动态 media 查询，在页面加载时进行评估。依赖于加载时设备的方向，portrait.css 可能会阻塞渲染。</li>
+<li>最后一个在页面被打印时才应用，所以不会在首次加载页面时阻塞渲染。</li>
+</ul>
+<p>最后要注意的是，阻塞渲染仅仅涉及到浏览器是否要等待资源加载后才进行首次渲染，在任何场景下，浏览器还是会下载该 css 资源的，只不过对非阻塞资源的优先级会低一点。</p>
+<p>GitLab 也存在这个问题，见：<a href="https://gitlab.com/gitlab-org/gitlab-ce/issues/26080。" target="_blank" rel="external">https://gitlab.com/gitlab-org/gitlab-ce/issues/26080。</a></p>
+<p>找了一下没找到对应的工具，回头试试看：<a href="https://github.com/WatchBeam/split-css-loader，暂且先放着了，毕竟目前" target="_blank" rel="external">https://github.com/WatchBeam/split-css-loader，暂且先放着了，毕竟目前</a> CSS 文件还不算太大。</p>
+<h1 id="尾声">尾声</h1><p>最后的优化结果，竟然达到了97分，还是让我吓了一跳的。</p>
+<p><img src="http://blog.zhaiyifan.cn/images/pwa-in-practice-16.png" alt="Final result"></p>
+<p>PWA 实践系列到了这里就是尾声了，大家下回见。</p>
 ]]></content>
     </entry>
     
@@ -69,7 +107,7 @@
 <h1 id="添加到主屏幕">添加到主屏幕</h1><p><img src="http://blog.zhaiyifan.cn/images/pwa-in-practice-5.png" alt="User can be prompted to Add to Homescreen"></p>
 <p>manifest 其实我已经加上了，还是因为 service worker 没有注册，所以最后没有生效。</p>
 <h1 id="避免影响用户体验的_APIs">避免影响用户体验的 APIs</h1><p><img src="http://blog.zhaiyifan.cn/images/pwa-in-practice-6.png" alt="Avoiding APIs that harm the user experience"></p>
-<p>一些 css 标签放在 header 里，阻塞影响到了页面体验。</p>
+<p>CSS 阻塞影响到了页面体验。</p>
 <h1 id="辅助功能">辅助功能</h1><p><img src="http://blog.zhaiyifan.cn/images/pwa-in-practice-7.png" alt="Accessibility"></p>
 <p>对比度啦，标签啦，还有那么几个缺省了的。</p>
 <h1 id="性能指标">性能指标</h1><p><img src="http://blog.zhaiyifan.cn/images/pwa-in-practice-8.png" alt="Performance Metrics"></p>
