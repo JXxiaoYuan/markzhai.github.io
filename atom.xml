@@ -4,7 +4,7 @@
   
   <link href="/atom.xml" rel="self"/>
   <link href="http://blog.zhaiyifan.cn/"/>
-  <updated>2017-03-28T08:08:53.000Z</updated>
+  <updated>2017-03-28T08:10:54.000Z</updated>
   <id>http://blog.zhaiyifan.cn/</id>
   
   <author>
@@ -19,7 +19,7 @@
     <link href="http://blog.zhaiyifan.cn/2017/03/28/rn-weex-compare-1/"/>
     <id>http://blog.zhaiyifan.cn/2017/03/28/rn-weex-compare-1/</id>
     <published>2017-03-28T05:40:33.000Z</published>
-    <updated>2017-03-28T08:08:53.000Z</updated>
+    <updated>2017-03-28T08:10:54.000Z</updated>
     <content type="html"><![CDATA[<h1 id="前言">前言</h1><p>React Native 自 iOS 版发布后至今也 2 年了，从最初国内QQ空间实践踩坑，到现在逐步稳定，线上已经有很多 app 在使用了：</p>
 <p><img src="/images/rn_weex_1_1.png" alt="RN Usage"></p>
 <p>上图的仅仅只是一部分，更多的可以查看官网 <a href="https://facebook.github.io/react-native/showcase.html" target="_blank" rel="external">Showcase</a>。</p>
@@ -48,10 +48,6 @@
 <p>如果你对三端有强需求，尤其是需要在 H5 / 微信公众号上上线，那你可以考虑 Weex，毕竟存在工作量 / 3 的问题，而且目前的 Weex 语法已经跟 Vue 一样了，对于原来做 Vue 开发的前端来说，上手成本很低。</p>
 <p>如果你的团队在移动端并不强，那建议使用 React Native，否则你可能会困惑到底是自己姿势错了还是 Weex 的错。毕竟不是每个团队都像饿了么一样可以直接让 Weex 的人过来驻场协助开发的。</p>
 <h1 id="总结">总结</h1><p>借用一句知乎专栏看到的话：跨平台是毒品，就算不纯，吸一口也会上瘾。</p>
-<hr>
-<p>欢迎加入QQ群：568863373。</p>
-<p>欢迎关注我们的公众号：<code>魔都三帅</code>，欢迎大家来投稿~只需要是未在微信平台上发布过的技术相关类文章都可以哦（不局限于任何语言和平台）。</p>
-<p><img src="http://7xvy2g.com1.z0.glb.clouddn.com/qrcode_for_gh_2e738d2eb3b5_430.jpg" alt="公众号"></p>
 ]]></content>
     <summary type="html">
     <![CDATA[<h1 id="前言">前言</h1><p>React Native 自 iOS 版发布后至今也 2 年了，从最初国内QQ空间实践踩坑，到现在逐步稳定，线上已经有很多 app 在使用了：</p>
