@@ -4,7 +4,7 @@
   
   <link href="/atom.xml" rel="self"/>
   <link href="http://blog.zhaiyifan.cn/"/>
-  <updated>2017-01-16T08:28:18.000Z</updated>
+  <updated>2017-03-28T08:08:53.000Z</updated>
   <id>http://blog.zhaiyifan.cn/</id>
   
   <author>
@@ -13,6 +13,60 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[React Native 和 Weex 的爱恨情仇]]></title>
+    <link href="http://blog.zhaiyifan.cn/2017/03/28/rn-weex-compare-1/"/>
+    <id>http://blog.zhaiyifan.cn/2017/03/28/rn-weex-compare-1/</id>
+    <published>2017-03-28T05:40:33.000Z</published>
+    <updated>2017-03-28T08:08:53.000Z</updated>
+    <content type="html"><![CDATA[<h1 id="前言">前言</h1><p>React Native 自 iOS 版发布后至今也 2 年了，从最初国内QQ空间实践踩坑，到现在逐步稳定，线上已经有很多 app 在使用了：</p>
+<p><img src="/images/rn_weex_1_1.png" alt="RN Usage"></p>
+<p>上图的仅仅只是一部分，更多的可以查看官网 <a href="https://facebook.github.io/react-native/showcase.html" target="_blank" rel="external">Showcase</a>。</p>
+<p>包括 Instagram 也在线上的 app 中直接使用了 React Native，我也在去年2月的时候在公司 app 中实践上线了子业务的 RN 化，并进行了优化。</p>
+<p>2016 年上半年，阿里也发布了自己的跨平台解决方案 —— Weex，主要由手淘推动，并在阿里系的一些 app 中有了一部分应用：</p>
+<p><img src="/images/rn_weex_1_2.png" alt="Weex Usage"></p>
+<p>饿了么 app 的第二个 tab 首页也是使用 weex 的，但毕竟只是个很简单的单页，所以做不得参考。</p>
+<p>对 Native 开发者来说，尤其是没有接触过混合开发的，可能会困惑如何选择的问题。我也有一些认识的朋友和老同事，因为选择错误而吐槽了很多次。本文就是来讲讲 React Native 和 Weex 的爱恨情仇的。</p>
+<h1 id="用户数">用户数</h1><p>对这些 JS 库来说，GitHub 的 Star 不足为信，我们可以直接去 npm 看。</p>
+<p>先看看 React Native 必须的依赖：<br><img src="/images/rn_weex_1_3.png" alt="RN npm Usage"></p>
+<p>再来看看 Weex 必须的依赖：<br><img src="/images/rn_weex_1_4.png" alt="Weex npm Usage"></p>
+<p>差不多单日是50余倍的差距。而他们在 GitHub 的差距仅仅是 46.2 / 13.7（3.3倍）。现在你知道 GitHub 水分有多大了吧。</p>
+<h1 id="开发体验">开发体验</h1><p>从开发体验上，开发 Weex 虽然使用的是 Vue，而且三端 API 一致。但实际开发中，我们碰到了以下问题：</p>
+<ul>
+<li>Android / iOS Weex 库不够完善，需要对应 Native 人员来做 native 端开发。</li>
+<li>Bugs。目前的版本不够稳定，很多问题需要联调解决，甚至需要原生人员去查看源码进行定位。</li>
+<li>接口不稳定。文档和实际最新版本的代码无法一一对应，比如 fireEvent 这个接口。</li>
+</ul>
+<p>很多基类都需要自己开发，而不像 React Native 提供了如 ReactActivity。</p>
+<p>虽然目前 Weex 也解耦了 JS 框架，并实现了 rax 这样的类 react 框架，但 rax 本身处于比 weex-vue 更早期的阶段。稳定性上有一些欠缺，甚至 weex-vue 本身存在的许多问题，可能过几周升级一下版本又好了，但随着而来原来好的东西又出了问题。</p>
+<p>两者同样的，对代码进行改动后刷新一下页面就会更新，甚至可以做即使更新都不需要刷新页面，相比 native 开发无痛了许多。</p>
+<h1 id="社区">社区</h1><p>虽然 Weex 在 GitHub 上也有一些项目，但如果仔细阅读的话，会发现版本问题很严重，而且大部分使用的是旧版本的 .we 开发，而不是使用 .vue。渲染也使用了 weex-html5，并没有使用最新的 weex-vue-render。只有 weex-hackernews 相对新，但其也存在问题就是几乎是完整的 weex 应用，而不是混合式开发，无法参考其中的 native 部分。</p>
+<p>最蛋疼的是，Weex 原来的 repo：<a href="https://github.com/alibaba/weex" target="_blank" rel="external">alibaba/weex</a> 直接被废弃了，连同着里面的 issue 甚至大部分没有被解决就被烂尾，而新的 repo：<a href="https://github.com/apache/incubator-weex" target="_blank" rel="external">apache/incubator-weex</a> 则没有 issue tab，没法上报 bug。而 segmentfault 上则都是些<a href="https://segmentfault.com/t/weex" target="_blank" rel="external">小白问题</a>。让我记忆最深的是 wx 这个单位，真是不想说啥了。</p>
+<p>而对应的 React Native 处理 issue 则更为高效一些，虽然一些为人诟病的问题依然还没解决（<a href="https://github.com/facebook/react-native/issues/5399" target="_blank" rel="external">分bundle</a>，list复用等）。</p>
+<h1 id="选择">选择</h1><p>如果你是个小而美的团队，而且同一份需求并不需要在三端都上线，仅需要支持 Android 和 iOS，那 React Native 是你最好的选择。</p>
+<p>如果你对三端有强需求，尤其是需要在 H5 / 微信公众号上上线，那你可以考虑 Weex，毕竟存在工作量 / 3 的问题，而且目前的 Weex 语法已经跟 Vue 一样了，对于原来做 Vue 开发的前端来说，上手成本很低。</p>
+<p>如果你的团队在移动端并不强，那建议使用 React Native，否则你可能会困惑到底是自己姿势错了还是 Weex 的错。毕竟不是每个团队都像饿了么一样可以直接让 Weex 的人过来驻场协助开发的。</p>
+<h1 id="总结">总结</h1><p>借用一句知乎专栏看到的话：跨平台是毒品，就算不纯，吸一口也会上瘾。</p>
+<hr>
+<p>欢迎加入QQ群：568863373。</p>
+<p>欢迎关注我们的公众号：<code>魔都三帅</code>，欢迎大家来投稿~只需要是未在微信平台上发布过的技术相关类文章都可以哦（不局限于任何语言和平台）。</p>
+<p><img src="http://7xvy2g.com1.z0.glb.clouddn.com/qrcode_for_gh_2e738d2eb3b5_430.jpg" alt="公众号"></p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<h1 id="前言">前言</h1><p>React Native 自 iOS 版发布后至今也 2 年了，从最初国内QQ空间实践踩坑，到现在逐步稳定，线上已经有很多 app 在使用了：</p>
+<p><img src="/images/rn_weex_1_1.png" alt=]]>
+    </summary>
+    
+      <category term="Android" scheme="http://blog.zhaiyifan.cn/tags/Android/"/>
+    
+      <category term="React Native" scheme="http://blog.zhaiyifan.cn/tags/React-Native/"/>
+    
+      <category term="Weex" scheme="http://blog.zhaiyifan.cn/tags/Weex/"/>
+    
+      <category term="React Native" scheme="http://blog.zhaiyifan.cn/categories/React-Native/"/>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[PWA 渐进式实践 (3) - 用户体验 & 性能]]></title>
@@ -1895,80 +1949,6 @@
       <category term="Server" scheme="http://blog.zhaiyifan.cn/tags/Server/"/>
     
       <category term="Node.js" scheme="http://blog.zhaiyifan.cn/categories/Node-js/"/>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[React.js 新手村教程]]></title>
-    <link href="http://blog.zhaiyifan.cn/2016/04/22/trans-react-newbies-tutorial/"/>
-    <id>http://blog.zhaiyifan.cn/2016/04/22/trans-react-newbies-tutorial/</id>
-    <published>2016-04-22T02:54:01.000Z</published>
-    <updated>2016-11-14T15:27:14.000Z</updated>
-    <content type="html"><![CDATA[<blockquote>
-<ul>
-<li>原文链接 : <a href="http://www.leanpanda.com/blog/2016/04/06/react-newbies-tutorial/" target="_blank" rel="external">HOMEBLOG React JS: newbies tutorial</a></li>
-<li>原文作者 : Elise Cicognani</li>
-<li>译文出自 : <a href="https://github.com/xitu/gold-miner" target="_blank" rel="external">掘金翻译计划</a></li>
-<li>译者 : <a href="https://github.com/markzhai" target="_blank" rel="external">markzhai</a></li>
-<li>校对者: <a href="https://github.com/JasinYip" target="_blank" rel="external">JasinYip</a>, <a href="https://github.com/malcolmyu" target="_blank" rel="external">malcolmyu</a>, <a href="https://github.com/antonia0912" target="_blank" rel="external">羊羊羊</a></li>
-</ul>
-</blockquote>
-<p>正如你能从标题猜到的，这篇文章的目标是给那些有很少编程经验的读者的。比如，像我这样的人：因为迄今为止，我才探索了编程世界6个月。<strong>所以，这将是一篇新手村教程！</strong> 你只需要拥有对 HTML 和 CSS 的理解，以及基本的 JavaScript（JS）知识就能看懂本文。</p>
-<p>注意：在接下来的例子中，我们将会利用 ES6 提供的新能力，来简化写 JS 代码的过程。然而，你也能完全使用 ES5 来写 React。</p>
-<p>预计阅读时间9分钟</p>
-<h1 id="什么是_React_？">什么是 React ？</h1><p>React 是一个 JS 库，由 Facebook 和 Instagram 创建(<a href="https://facebook.github.io/react/" target="_blank" rel="external">https://facebook.github.io/react/</a>)。它通过将应用分为一些动态的、可复用的 <strong>组件</strong>，来使我们可以创建单页应用(<a href="http://www.leanpanda.com/blog/2015/05/25/single-page-application-development/" target="_blank" rel="external">Single Page Applications (SPA)</a>)。</p>
-<p>一个 React 组件是一个继承了由 React 提供的 <strong>Component</strong> 的 JS 类。一个组件代表并定义了一块 HTML 代码，以及任何与这块代码相关的行为，比如点击事件。组件就像是乐高积木，可以用来组建成所需的复杂应用。完全由 JS 代码构成的组件，可以被隔离和复用。基本方法是 <strong>render()</strong>，它简单地返回一片HTML代码。</p>
-<p>这种用来定义 React 组件的语法被称为 <strong>JSX</strong>。该语法由 React 的创建者们所开发，被用来简化 JS-HTML 代码的组件内交互。使用该语法写的代码在变成实际 JS 代码前必须被编译。</p>
-<h1 id="创建一个组件（component）">创建一个组件（component）</h1><p>为了创建我们的组件并将它渲染为一页 HTML，我们首先在我们的 HTML 文件里需要定义一个有唯一 id 的 div。接着，我们将要在 JSX 文件里写代码，以连接 React 组件到使用其 id 的 div，如下面的例子所示。这样做将会指导浏览器在相关 DOM 标签所在的页面渲染组件。</p>
-<iframe height="266" scrolling="no" src="//codepen.io/makhenzi/embed/XXdmvL/?height=266&amp;theme-id=0&amp;default-tab=js,result&amp;embed-version=2" frameborder="no" allowtransparency="true" allowfullscreen="true" style="width: 100%;">See the Pen &lt;a href=”<a href="http://codepen.io/makhenzi/pen/XXdmvL/&quot;&gt;Start&lt;/a&amp;gt" target="_blank" rel="external">http://codepen.io/makhenzi/pen/XXdmvL/&quot;&gt;Start&lt;/a&amp;gt</a>; by Makhenzi (&lt;a href=”<a href="http://codepen.io/makhenzi&quot;&gt;@makhenzi&lt;/a&amp;gt" target="_blank" rel="external">http://codepen.io/makhenzi&quot;&gt;@makhenzi&lt;/a&amp;gt</a>;) on &lt;a href=”<a href="http://codepen.io&quot;&gt;CodePen&lt;/a&amp;gt" target="_blank" rel="external">http://codepen.io&quot;&gt;CodePen&lt;/a&amp;gt</a>;.</iframe>
-
-<p>See the Pen <a href="http://codepen.io/makhenzi/pen/XXdmvL/" target="_blank" rel="external">Start</a> by Makhenzi (<a href="http://codepen.io/makhenzi" target="_blank" rel="external">@makhenzi</a>) on <a href="http://codepen.io" target="_blank" rel="external">CodePen</a>.</p>
-<p>JSX 内的 HTML 标签属性和普通 HTML 内的是几乎一样的；唯一不同的是“class”，在 JSX 里面变成了“className”。类 HTML 语法使用圆括号闭合，而包含 JS 的块则使用尖括号闭合。正如你将看到的。render() <em>总</em> 会返回一个 div，而在其中开发者可以自由引入他们认为合适的任意多的标签和元素。</p>
-<h2 id="例子：海盗的灭绝">例子：海盗的灭绝</h2><p><img src="http://ww4.sinaimg.cn/large/a490147fjw1f2x94p1ev2j20m80etjtt.jpg" alt=""></p>
-<p>如果我们选择使用 React 来创建这张图，我们可以对屏幕上各个日期进行可视化，并在那些日期被点击的时候，才显示对应的温度和海盗数量。</p>
-<p>为此我们需要2个组件：第一个用来渲染日期，并将每个日期链接到给定的海盗数量和温度；第二个则需要用来接收日期上的点击事件对应的信息，如海盗的数量和当时的温度，接着基于这些数据渲染选择的元素。</p>
-<p>前者相当于是“父亲”的角色，并包含多个后面的“子”组件的链接，而后者则紧密依赖于它们的“父亲”。</p>
-<p>React 结构，被称为<a href="https://facebook.github.io/react/docs/working-with-the-browser.html" target="_blank" rel="external">虚拟 DOM</a>，可以使我们在组件的内容发生改变的时候，不需要刷新整个页面，而可以只更新对应组件。为此，组件需要一个内部方法，来保存变量 data 和 赋值给该元素的会被改变的 HTML 属性。这些属性会自行链接到那些我们在组件内定义的，会负责响应变化的方法。</p>
-<h2 id="状态(State)和属性(props)">状态(State)和属性(props)</h2><p>在我们的例子里，那个独立的变量 data 是由日期组成的。这些会根据点击事件所集合的 DOM 内连锁反应进而根据对应海盗、温度信息而进行改变。所以我们将会根据每个 “DATA” 对象内的对应日期去保存信息。我们还将利用 React 在父组件内的 <code>this.state={}</code> 属性来以键值对拷贝形式保存变量数据的。</p>
-<p>以这种形式组织程序使得我们可以利用 React 提供的方法，来以“状态(state)”的形式和数据交互，并对其进行任意更改。</p>
-<p>考虑到我们想要使用 DATA 对象的 key 来渲染 HTML 内的日期，最好可以找到一种方法来在 key 上使用 JS 的 <code>map()</code> 方法(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map" target="_blank" rel="external">Array.prototype.map()</a>)，以便能直接显示返回到 <code>render()</code> 的 HTML。事实上确实有方法可以做到！我们只需要把 JS 代码包裹在双花括号里，并放置在想要代码输出显示的管理该组件的 DOM 块内，然后就好了。</p>
-<p>在这个特殊例子中，我们将在组件内的方法里定义 <code>map()</code> 回调，其将在同一组件的<code>render()</code>内返回一片 HTML 代码。</p>
-<iframe height="266" scrolling="no" src="//codepen.io/makhenzi/embed/XXdmvL/?height=266&amp;theme-id=0&amp;default-tab=js,result&amp;embed-version=2" frameborder="no" allowtransparency="true" allowfullscreen="true" style="width: 100%;">See the Pen &lt;a href=”<a href="http://codepen.io/makhenzi/pen/XXdmvL/&quot;&gt;Start&lt;/a&amp;gt" target="_blank" rel="external">http://codepen.io/makhenzi/pen/XXdmvL/&quot;&gt;Start&lt;/a&amp;gt</a>; by Makhenzi (&lt;a href=”<a href="http://codepen.io/makhenzi&quot;&gt;@makhenzi&lt;/a&amp;gt" target="_blank" rel="external">http://codepen.io/makhenzi&quot;&gt;@makhenzi&lt;/a&amp;gt</a>;) on &lt;a href=”<a href="http://codepen.io&quot;&gt;CodePen&lt;/a&amp;gt" target="_blank" rel="external">http://codepen.io&quot;&gt;CodePen&lt;/a&amp;gt</a>;.</iframe>
-
-<p>See the Pen <a href="http://codepen.io/makhenzi/pen/qbZbxR/" target="_blank" rel="external">State1</a> by Makhenzi (<a href="http://codepen.io/makhenzi" target="_blank" rel="external">@makhenzi</a>) on <a href="http://codepen.io" target="_blank" rel="external">CodePen</a>.</p>
-<p>为了分配点击事件到每个日期，我们将会分配 <code>onClick</code> 属性给它们。</p>
-<p>在该属性中，我们会调用组件的方法，该方法则会定义我们希望在 onClick 事件后触发的状态修改和其他变更。</p>
-<p>在我们的例子里，我们定义该函数为 <code>handleClick()</code>。在 handleClick() 中，我们会调用 React 方法 <code>setState()</code>，其允许我们在在每个点击事件中去更改状态数据。我们只需要插入一个包含我们想要修改的状态 key 的对象，并在后者括号内分配给它们新的相关联值。</p>
-<p>总的来说，每次一个日期被点击，被选中的div的onClick属性会调用 <code>HandClick()</code> 方法，该方法会调用 setState() 方法来修改组件的状态。</p>
-<p>每次状态改变，一旦发生 React 就会自动检查组件的 <code>render()</code> 函数的返回，以寻找基于新状态需要更新的内容。一旦有那样的数据， React 就会自动触发一次新的 <code>render()</code> 来更新那些有变更的 HTML 片段。</p>
-<p>(我很抱歉，在接着的例子里，我插入了三行利用了 Classnames 的代码，一个用来基于状态变更来做 CSS 管理的小工具，我这么做只是为了给预览一点颜色。我还会使用它在最终的例子里给预览填充一些海盗变量。你可以找到 GitHub 上 Classnames 仓库的链接，还有一个<a href="https://github.com/JedWatson/classnames" target="_blank" rel="external">简要使用向导</a>)</p>
-<iframe height="266" scrolling="no" src="//codepen.io/makhenzi/embed/EPKwRo/?height=266&amp;theme-id=0&amp;default-tab=js,result&amp;embed-version=2" frameborder="no" allowtransparency="true" allowfullscreen="true" style="width: 100%;">See the Pen &lt;a href=”<a href="http://codepen.io/makhenzi/pen/EPKwRo/&quot;&gt;State2&lt;/a&amp;gt" target="_blank" rel="external">http://codepen.io/makhenzi/pen/EPKwRo/&quot;&gt;State2&lt;/a&amp;gt</a>; by Makhenzi (&lt;a href=”<a href="http://codepen.io/makhenzi&quot;&gt;@makhenzi&lt;/a&amp;gt" target="_blank" rel="external">http://codepen.io/makhenzi&quot;&gt;@makhenzi&lt;/a&amp;gt</a>;) on &lt;a href=”<a href="http://codepen.io&quot;&gt;CodePen&lt;/a&amp;gt" target="_blank" rel="external">http://codepen.io&quot;&gt;CodePen&lt;/a&amp;gt</a>;.</iframe>
-
-<p>See the Pen <a href="http://codepen.io/makhenzi/pen/EPKwRo/" target="_blank" rel="external">State2</a> by Makhenzi (<a href="http://codepen.io/makhenzi" target="_blank" rel="external">@makhenzi</a>) on <a href="http://codepen.io" target="_blank" rel="external">CodePen</a>.</p>
-<p>如此，我们的父组件状态已经被设定好根据选中数据去创建子组件（其将会描述海盗数量和对应温度）。</p>
-<p>我们将会在 JSX 文件中创建子组件的实例，正如我们之前对父组件所做的。为了链接子组件到其父亲上，我们只需要在后者的 <code>render()</code> 函数使用同一种语法和一个 HTML 标签去定义关系。如果我们称它为 “Child” ，它将会在我们插入 <code>&lt;Child /&gt;</code>处所在的 HTML 块内出现。</p>
-<p>我们的子组件还必须根据现在选中数据所关联的海盗和温度，传递数据到其父亲。为此，我们将利用赋给 Child 标签的属性，其名字可以随便取，其信息只对父组件可见。</p>
-<p>如此一来，子组件将可以通过显式访问归属于其父组件的数据，即利用这些 “attribute-bridges”，或者 <strong>属性(props)</strong>，来获取到它自己内部信息的访问权。</p>
-<p>所以，每次父组件的状态发生改变，其子组件的属性内容就会自动进行更新。但是，正如子组件的<code>render()</code>方法会显示属性内容，它也会基于单向的数据线性流，根据任何收到的新信息去进行更新。</p>
-<iframe height="266" scrolling="no" src="//codepen.io/makhenzi/embed/EPKbmO/?height=266&amp;theme-id=0&amp;default-tab=js,result&amp;embed-version=2" frameborder="no" allowtransparency="true" allowfullscreen="true" style="width: 100%;">See the Pen &lt;a href=”<a href="http://codepen.io/makhenzi/pen/EPKbmO/&quot;&gt;Props&lt;/a&amp;gt" target="_blank" rel="external">http://codepen.io/makhenzi/pen/EPKbmO/&quot;&gt;Props&lt;/a&amp;gt</a>; by Makhenzi (&lt;a href=”<a href="http://codepen.io/makhenzi&quot;&gt;@makhenzi&lt;/a&amp;gt" target="_blank" rel="external">http://codepen.io/makhenzi&quot;&gt;@makhenzi&lt;/a&amp;gt</a>;) on &lt;a href=”<a href="http://codepen.io&quot;&gt;CodePen&lt;/a&amp;gt" target="_blank" rel="external">http://codepen.io&quot;&gt;CodePen&lt;/a&amp;gt</a>;.</iframe>
-
-<p>See the Pen <a href="http://codepen.io/makhenzi/pen/EPKbmO/" target="_blank" rel="external">Props</a> by Makhenzi (<a href="http://codepen.io/makhenzi" target="_blank" rel="external">@makhenzi</a>) on <a href="http://codepen.io" target="_blank" rel="external">CodePen</a>.</p>
-<p>搞定了！组件们会互相交互，并根据我们的点击在 DOM 里渲染不同数据，而不需要单页去进行刷新。以这个为基础，交互的复杂性和组件的数量可以按需增加，使我们能创建复杂高效的应用。</p>
-<p>如果你被这个库的潜力启发了，<a href="https://react.rocks/" target="_blank" rel="external">不妨看看 react.rocks 网站</a>，在那里你会找到很多有趣的点子来帮助你开始。(:</p>
-]]></content>
-    <summary type="html">
-    <![CDATA[<blockquote>
-<ul>
-<li>原文链接 : <a href="http://www.leanpanda.com/blog/2016/04/06/react-newbies-tutorial/" target="_blank" rel="external">HOMEB]]>
-    </summary>
-    
-      <category term="JavaScript" scheme="http://blog.zhaiyifan.cn/tags/JavaScript/"/>
-    
-      <category term="React.js" scheme="http://blog.zhaiyifan.cn/tags/React-js/"/>
-    
-      <category term="前端" scheme="http://blog.zhaiyifan.cn/tags/%E5%89%8D%E7%AB%AF/"/>
-    
-      <category term="Frontend" scheme="http://blog.zhaiyifan.cn/categories/Frontend/"/>
     
   </entry>
   

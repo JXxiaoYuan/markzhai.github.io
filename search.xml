@@ -4,6 +4,44 @@
   
     
     <entry>
+      <title><![CDATA[React Native 和 Weex 的爱恨情仇]]></title>
+      <url>http://blog.zhaiyifan.cn/2017/03/28/rn-weex-compare-1/</url>
+      <content type="html"><![CDATA[<h1 id="前言">前言</h1><p>React Native 自 iOS 版发布后至今也 2 年了，从最初国内QQ空间实践踩坑，到现在逐步稳定，线上已经有很多 app 在使用了：</p>
+<p><img src="/images/rn_weex_1_1.png" alt="RN Usage"></p>
+<p>上图的仅仅只是一部分，更多的可以查看官网 <a href="https://facebook.github.io/react-native/showcase.html" target="_blank" rel="external">Showcase</a>。</p>
+<p>包括 Instagram 也在线上的 app 中直接使用了 React Native，我也在去年2月的时候在公司 app 中实践上线了子业务的 RN 化，并进行了优化。</p>
+<p>2016 年上半年，阿里也发布了自己的跨平台解决方案 —— Weex，主要由手淘推动，并在阿里系的一些 app 中有了一部分应用：</p>
+<p><img src="/images/rn_weex_1_2.png" alt="Weex Usage"></p>
+<p>饿了么 app 的第二个 tab 首页也是使用 weex 的，但毕竟只是个很简单的单页，所以做不得参考。</p>
+<p>对 Native 开发者来说，尤其是没有接触过混合开发的，可能会困惑如何选择的问题。我也有一些认识的朋友和老同事，因为选择错误而吐槽了很多次。本文就是来讲讲 React Native 和 Weex 的爱恨情仇的。</p>
+<h1 id="用户数">用户数</h1><p>对这些 JS 库来说，GitHub 的 Star 不足为信，我们可以直接去 npm 看。</p>
+<p>先看看 React Native 必须的依赖：<br><img src="/images/rn_weex_1_3.png" alt="RN npm Usage"></p>
+<p>再来看看 Weex 必须的依赖：<br><img src="/images/rn_weex_1_4.png" alt="Weex npm Usage"></p>
+<p>差不多单日是50余倍的差距。而他们在 GitHub 的差距仅仅是 46.2 / 13.7（3.3倍）。现在你知道 GitHub 水分有多大了吧。</p>
+<h1 id="开发体验">开发体验</h1><p>从开发体验上，开发 Weex 虽然使用的是 Vue，而且三端 API 一致。但实际开发中，我们碰到了以下问题：</p>
+<ul>
+<li>Android / iOS Weex 库不够完善，需要对应 Native 人员来做 native 端开发。</li>
+<li>Bugs。目前的版本不够稳定，很多问题需要联调解决，甚至需要原生人员去查看源码进行定位。</li>
+<li>接口不稳定。文档和实际最新版本的代码无法一一对应，比如 fireEvent 这个接口。</li>
+</ul>
+<p>很多基类都需要自己开发，而不像 React Native 提供了如 ReactActivity。</p>
+<p>虽然目前 Weex 也解耦了 JS 框架，并实现了 rax 这样的类 react 框架，但 rax 本身处于比 weex-vue 更早期的阶段。稳定性上有一些欠缺，甚至 weex-vue 本身存在的许多问题，可能过几周升级一下版本又好了，但随着而来原来好的东西又出了问题。</p>
+<p>两者同样的，对代码进行改动后刷新一下页面就会更新，甚至可以做即使更新都不需要刷新页面，相比 native 开发无痛了许多。</p>
+<h1 id="社区">社区</h1><p>虽然 Weex 在 GitHub 上也有一些项目，但如果仔细阅读的话，会发现版本问题很严重，而且大部分使用的是旧版本的 .we 开发，而不是使用 .vue。渲染也使用了 weex-html5，并没有使用最新的 weex-vue-render。只有 weex-hackernews 相对新，但其也存在问题就是几乎是完整的 weex 应用，而不是混合式开发，无法参考其中的 native 部分。</p>
+<p>最蛋疼的是，Weex 原来的 repo：<a href="https://github.com/alibaba/weex" target="_blank" rel="external">alibaba/weex</a> 直接被废弃了，连同着里面的 issue 甚至大部分没有被解决就被烂尾，而新的 repo：<a href="https://github.com/apache/incubator-weex" target="_blank" rel="external">apache/incubator-weex</a> 则没有 issue tab，没法上报 bug。而 segmentfault 上则都是些<a href="https://segmentfault.com/t/weex" target="_blank" rel="external">小白问题</a>。让我记忆最深的是 wx 这个单位，真是不想说啥了。</p>
+<p>而对应的 React Native 处理 issue 则更为高效一些，虽然一些为人诟病的问题依然还没解决（<a href="https://github.com/facebook/react-native/issues/5399" target="_blank" rel="external">分bundle</a>，list复用等）。</p>
+<h1 id="选择">选择</h1><p>如果你是个小而美的团队，而且同一份需求并不需要在三端都上线，仅需要支持 Android 和 iOS，那 React Native 是你最好的选择。</p>
+<p>如果你对三端有强需求，尤其是需要在 H5 / 微信公众号上上线，那你可以考虑 Weex，毕竟存在工作量 / 3 的问题，而且目前的 Weex 语法已经跟 Vue 一样了，对于原来做 Vue 开发的前端来说，上手成本很低。</p>
+<p>如果你的团队在移动端并不强，那建议使用 React Native，否则你可能会困惑到底是自己姿势错了还是 Weex 的错。毕竟不是每个团队都像饿了么一样可以直接让 Weex 的人过来驻场协助开发的。</p>
+<h1 id="总结">总结</h1><p>借用一句知乎专栏看到的话：跨平台是毒品，就算不纯，吸一口也会上瘾。</p>
+<hr>
+<p>欢迎加入QQ群：568863373。</p>
+<p>欢迎关注我们的公众号：<code>魔都三帅</code>，欢迎大家来投稿~只需要是未在微信平台上发布过的技术相关类文章都可以哦（不局限于任何语言和平台）。</p>
+<p><img src="http://7xvy2g.com1.z0.glb.clouddn.com/qrcode_for_gh_2e738d2eb3b5_430.jpg" alt="公众号"></p>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[PWA 渐进式实践 (3) - 用户体验 & 性能]]></title>
       <url>http://blog.zhaiyifan.cn/2017/01/15/pwa-in-practice-3/</url>
       <content type="html"><![CDATA[<p>为了让我们的网站能达到更高的评分（咦，为什么变成刷分了），我们最后需要进行用户体验和性能的优化。</p>
