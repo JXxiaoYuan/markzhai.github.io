@@ -23,6 +23,9 @@
 
 
 
+
+
+
   <meta name="baidu-site-verification" content="780t5iFaTK" />
 
 
@@ -43,7 +46,7 @@
 
 <link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
 
-<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
   <meta name="keywords" content="markzhai, zhaiyifan, 魔都三帅, 翟一帆, Android, React, React Native, Javascript" />
@@ -57,7 +60,7 @@
 
 
 
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
 
 
 
@@ -81,7 +84,7 @@
   var CONFIG = {
     root: '/',
     scheme: 'Mist',
-    sidebar: {"position":"left","display":"post"},
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
     fancybox: true,
     motion: true,
     duoshuo: {
@@ -92,13 +95,15 @@
       applicationID: '',
       apiKey: '',
       indexName: '',
-      hits: "",
-      labels: ""
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
     }
   };
 </script>
 
 
+
+  <link rel="canonical" href="http://blog.zhaiyifan.cn/page/3/"/>
 
 
 
@@ -112,11 +117,13 @@
   
 
 
+
+
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
             (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
           m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
   ga('create', 'UA-67533211-1', 'auto');
   ga('send', 'pageview');
 </script>
@@ -126,11 +133,13 @@
     var _hmt = _hmt || [];
     (function() {
       var hm = document.createElement("script");
-      hm.src = "//hm.baidu.com/hm.js?74dc0d49be7a61e341f6c897ee4d733a";
+      hm.src = "https://hm.baidu.com/hm.js?74dc0d49be7a61e341f6c897ee4d733a";
       var s = document.getElementsByTagName("script")[0];
       s.parentNode.insertBefore(hm, s);
     })();
   </script>
+
+
 
 
 
@@ -144,31 +153,35 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left 
+  <div class="container sidebar-position-left 
    page-home 
  ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-meta ">
-  
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
 
-  <div class="custom-logo-site-title">
-    <a href="/"  class="brand" rel="start">
-      <span class="logo-line-before"><i></i></span>
-      <span class="site-title">markzhai's home</span>
-      <span class="logo-line-after"><i></i></span>
-    </a>
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">markzhai's home</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
   </div>
-  <p class="site-subtitle"></p>
-</div>
 
-<div class="site-nav-toggle">
-  <button>
-    <span class="btn-bar"></span>
-    <span class="btn-bar"></span>
-    <span class="btn-bar"></span>
-  </button>
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
 </div>
 
 <nav class="site-nav">
@@ -229,32 +242,9 @@
       
 
       
-        <li class="menu-item menu-item-search">
-          
-            <a href="javascript:;" class="popup-trigger">
-          
-            
-              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
-            
-            搜索
-          </a>
-        </li>
-      
     </ul>
   
 
-  
-    <div class="site-search">
-      
-  <div class="popup">
- <span class="search-icon fa fa-search"></span>
- <input type="text" id="local-search-input">
- <div id="local-search-result"></div>
- <span class="popup-btn-close">close</span>
-</div>
-
-
-    </div>
   
 </nav>
 
@@ -279,20 +269,17 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://blog.zhaiyifan.cn/2016/04/22/trans-react-newbies-tutorial/">
+    <link itemprop="mainEntityOfPage" href="http://blog.zhaiyifan.cn/2016/04/22/trans-react-newbies-tutorial/">
 
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="Mark Zhai (翟一帆)">
-    <meta itemprop="description" content="">
-    <meta itemprop="image" content="/images/avatar.jpg">
-  </span>
-
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="markzhai's home">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="markzhai's home" src="">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Mark Zhai (翟一帆)">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
     </span>
-  </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="markzhai's home">
+    </span>
 
     
       <header class="post-header">
@@ -314,32 +301,34 @@
 
         <div class="post-meta">
           <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time title="Дата создания записи" itemprop="dateCreated datePublished" datetime="2016-04-22T10:54:01+08:00">
-              2016-04-22
-            </time>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-04-22T10:54:01+08:00">
+                2016-04-22
+              </time>
+            
 
-            &nbsp;|&nbsp;
+            
 
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-check-o"></i>
-            </span>
-            <time title="Дата обновления записи" itemprop="dateModified" datetime="2016-11-14T23:27:14+08:00">
-              2016-11-14
-            </time>
             
           </span>
 
           
             <span class="post-category" >
-              &nbsp; | &nbsp;
+            
+              <span class="post-meta-divider">|</span>
+            
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">分类于</span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/Frontend/" itemprop="url" rel="index">
@@ -349,7 +338,6 @@
 
                 
                 
-
               
             </span>
           
@@ -357,7 +345,10 @@
           
             
               <span class="post-comments-count">
-                &nbsp; | &nbsp;
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
                 <a href="/2016/04/22/trans-react-newbies-tutorial/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/22/trans-react-newbies-tutorial/" itemprop="commentCount"></span>
                 </a>
@@ -366,12 +357,12 @@
           
 
           
-
-          
           
 
           
+
           
+
           
 
         </div>
@@ -399,8 +390,8 @@
 正如你能从标题猜到的，这篇文章的目标是给那些
           ...
           <!--noindex-->
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/04/22/trans-react-newbies-tutorial/#more" rel="contents">
+          <div class="post-button text-center">
+            <a class="btn" href="/2016/04/22/trans-react-newbies-tutorial/#далее" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -417,8 +408,13 @@
       
     </div>
 
+    <div>
+      
+    </div>
 
     <footer class="post-footer">
+      
+
       
 
       
@@ -441,20 +437,17 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://blog.zhaiyifan.cn/2016/04/20/trans-java-8-in-android-n-preview/">
+    <link itemprop="mainEntityOfPage" href="http://blog.zhaiyifan.cn/2016/04/20/trans-java-8-in-android-n-preview/">
 
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="Mark Zhai (翟一帆)">
-    <meta itemprop="description" content="">
-    <meta itemprop="image" content="/images/avatar.jpg">
-  </span>
-
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="markzhai's home">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="markzhai's home" src="">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Mark Zhai (翟一帆)">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
     </span>
-  </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="markzhai's home">
+    </span>
 
     
       <header class="post-header">
@@ -476,32 +469,34 @@
 
         <div class="post-meta">
           <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time title="Дата создания записи" itemprop="dateCreated datePublished" datetime="2016-04-20T11:48:40+08:00">
-              2016-04-20
-            </time>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-04-20T11:48:40+08:00">
+                2016-04-20
+              </time>
+            
 
-            &nbsp;|&nbsp;
+            
 
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-check-o"></i>
-            </span>
-            <time title="Дата обновления записи" itemprop="dateModified" datetime="2016-05-26T12:14:07+08:00">
-              2016-05-26
-            </time>
             
           </span>
 
           
             <span class="post-category" >
-              &nbsp; | &nbsp;
+            
+              <span class="post-meta-divider">|</span>
+            
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">分类于</span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/Java8/" itemprop="url" rel="index">
@@ -511,7 +506,6 @@
 
                 
                 
-
               
             </span>
           
@@ -519,7 +513,10 @@
           
             
               <span class="post-comments-count">
-                &nbsp; | &nbsp;
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
                 <a href="/2016/04/20/trans-java-8-in-android-n-preview/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/20/trans-java-8-in-android-n-preview/" itemprop="commentCount"></span>
                 </a>
@@ -528,12 +525,12 @@
           
 
           
-
-          
           
 
           
+
           
+
           
 
         </div>
@@ -561,8 +558,8 @@
 Android团队最近发布了Android N Preview，带来了很多提
           ...
           <!--noindex-->
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/04/20/trans-java-8-in-android-n-preview/#more" rel="contents">
+          <div class="post-button text-center">
+            <a class="btn" href="/2016/04/20/trans-java-8-in-android-n-preview/#далее" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -579,8 +576,13 @@ Android团队最近发布了Android N Preview，带来了很多提
       
     </div>
 
+    <div>
+      
+    </div>
 
     <footer class="post-footer">
+      
+
       
 
       
@@ -603,20 +605,17 @@ Android团队最近发布了Android N Preview，带来了很多提
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://blog.zhaiyifan.cn/2016/03/27/android-new-project-from-0-p4/">
+    <link itemprop="mainEntityOfPage" href="http://blog.zhaiyifan.cn/2016/03/27/android-new-project-from-0-p4/">
 
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="Mark Zhai (翟一帆)">
-    <meta itemprop="description" content="">
-    <meta itemprop="image" content="/images/avatar.jpg">
-  </span>
-
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="markzhai's home">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="markzhai's home" src="">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Mark Zhai (翟一帆)">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
     </span>
-  </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="markzhai's home">
+    </span>
 
     
       <header class="post-header">
@@ -638,32 +637,34 @@ Android团队最近发布了Android N Preview，带来了很多提
 
         <div class="post-meta">
           <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time title="Дата создания записи" itemprop="dateCreated datePublished" datetime="2016-03-27T11:14:49+08:00">
-              2016-03-27
-            </time>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-03-27T11:14:49+08:00">
+                2016-03-27
+              </time>
+            
 
-            &nbsp;|&nbsp;
+            
 
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-check-o"></i>
-            </span>
-            <time title="Дата обновления записи" itemprop="dateModified" datetime="2016-04-01T10:55:01+08:00">
-              2016-04-01
-            </time>
             
           </span>
 
           
             <span class="post-category" >
-              &nbsp; | &nbsp;
+            
+              <span class="post-meta-divider">|</span>
+            
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">分类于</span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/Android-Project-From-0/" itemprop="url" rel="index">
@@ -673,7 +674,6 @@ Android团队最近发布了Android N Preview，带来了很多提
 
                 
                 
-
               
             </span>
           
@@ -681,7 +681,10 @@ Android团队最近发布了Android N Preview，带来了很多提
           
             
               <span class="post-comments-count">
-                &nbsp; | &nbsp;
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
                 <a href="/2016/03/27/android-new-project-from-0-p4/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count ds-thread-count" data-thread-key="2016/03/27/android-new-project-from-0-p4/" itemprop="commentCount"></span>
                 </a>
@@ -690,12 +693,12 @@ Android团队最近发布了Android N Preview，带来了很多提
           
 
           
-
-          
           
 
           
+
           
+
           
 
         </div>
@@ -715,8 +718,8 @@ Android团队最近发布了Android N Preview，带来了很多提
 本
           ...
           <!--noindex-->
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/03/27/android-new-project-from-0-p4/#more" rel="contents">
+          <div class="post-button text-center">
+            <a class="btn" href="/2016/03/27/android-new-project-from-0-p4/#далее" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -733,8 +736,13 @@ Android团队最近发布了Android N Preview，带来了很多提
       
     </div>
 
+    <div>
+      
+    </div>
 
     <footer class="post-footer">
+      
+
       
 
       
@@ -757,20 +765,17 @@ Android团队最近发布了Android N Preview，带来了很多提
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://blog.zhaiyifan.cn/2016/03/16/android-new-project-from-0-p3/">
+    <link itemprop="mainEntityOfPage" href="http://blog.zhaiyifan.cn/2016/03/16/android-new-project-from-0-p3/">
 
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="Mark Zhai (翟一帆)">
-    <meta itemprop="description" content="">
-    <meta itemprop="image" content="/images/avatar.jpg">
-  </span>
-
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="markzhai's home">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="markzhai's home" src="">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Mark Zhai (翟一帆)">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
     </span>
-  </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="markzhai's home">
+    </span>
 
     
       <header class="post-header">
@@ -792,32 +797,34 @@ Android团队最近发布了Android N Preview，带来了很多提
 
         <div class="post-meta">
           <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time title="Дата создания записи" itemprop="dateCreated datePublished" datetime="2016-03-16T10:19:28+08:00">
-              2016-03-16
-            </time>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-03-16T10:19:28+08:00">
+                2016-03-16
+              </time>
+            
 
-            &nbsp;|&nbsp;
+            
 
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-check-o"></i>
-            </span>
-            <time title="Дата обновления записи" itemprop="dateModified" datetime="2016-03-26T14:47:44+08:00">
-              2016-03-26
-            </time>
             
           </span>
 
           
             <span class="post-category" >
-              &nbsp; | &nbsp;
+            
+              <span class="post-meta-divider">|</span>
+            
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">分类于</span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/Android-Project-From-0/" itemprop="url" rel="index">
@@ -827,7 +834,6 @@ Android团队最近发布了Android N Preview，带来了很多提
 
                 
                 
-
               
             </span>
           
@@ -835,7 +841,10 @@ Android团队最近发布了Android N Preview，带来了很多提
           
             
               <span class="post-comments-count">
-                &nbsp; | &nbsp;
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
                 <a href="/2016/03/16/android-new-project-from-0-p3/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count ds-thread-count" data-thread-key="2016/03/16/android-new-project-from-0-p3/" itemprop="commentCount"></span>
                 </a>
@@ -844,12 +853,12 @@ Android团队最近发布了Android N Preview，带来了很多提
           
 
           
-
-          
           
 
           
+
           
+
           
 
         </div>
@@ -868,8 +877,8 @@ Android团队最近发布了Android N Preview，带来了很多提
           前言去年5月左右的时候，笔者在逛GitHub的时候，看到了一个MVP的项目，叫做mosby，仔细看了源码和作者介绍的文章后，发现确实有点意思，虽然会需要多写几个类和方法，但是解决了activity/fragment过重的问题，通过V/P分离能够帮助提高可维护性。时至去年年底，今年年初，MVP才逐渐被
           ...
           <!--noindex-->
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/03/16/android-new-project-from-0-p3/#more" rel="contents">
+          <div class="post-button text-center">
+            <a class="btn" href="/2016/03/16/android-new-project-from-0-p3/#далее" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -886,8 +895,13 @@ Android团队最近发布了Android N Preview，带来了很多提
       
     </div>
 
+    <div>
+      
+    </div>
 
     <footer class="post-footer">
+      
+
       
 
       
@@ -910,20 +924,17 @@ Android团队最近发布了Android N Preview，带来了很多提
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://blog.zhaiyifan.cn/2016/03/14/android-new-project-from-0-p2/">
+    <link itemprop="mainEntityOfPage" href="http://blog.zhaiyifan.cn/2016/03/14/android-new-project-from-0-p2/">
 
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="Mark Zhai (翟一帆)">
-    <meta itemprop="description" content="">
-    <meta itemprop="image" content="/images/avatar.jpg">
-  </span>
-
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="markzhai's home">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="markzhai's home" src="">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Mark Zhai (翟一帆)">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
     </span>
-  </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="markzhai's home">
+    </span>
 
     
       <header class="post-header">
@@ -945,32 +956,34 @@ Android团队最近发布了Android N Preview，带来了很多提
 
         <div class="post-meta">
           <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time title="Дата создания записи" itemprop="dateCreated datePublished" datetime="2016-03-14T13:52:39+08:00">
-              2016-03-14
-            </time>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-03-14T13:52:39+08:00">
+                2016-03-14
+              </time>
+            
 
-            &nbsp;|&nbsp;
+            
 
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-check-o"></i>
-            </span>
-            <time title="Дата обновления записи" itemprop="dateModified" datetime="2016-03-14T17:16:34+08:00">
-              2016-03-14
-            </time>
             
           </span>
 
           
             <span class="post-category" >
-              &nbsp; | &nbsp;
+            
+              <span class="post-meta-divider">|</span>
+            
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">分类于</span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/Android-Project-From-0/" itemprop="url" rel="index">
@@ -980,7 +993,6 @@ Android团队最近发布了Android N Preview，带来了很多提
 
                 
                 
-
               
             </span>
           
@@ -988,7 +1000,10 @@ Android团队最近发布了Android N Preview，带来了很多提
           
             
               <span class="post-comments-count">
-                &nbsp; | &nbsp;
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
                 <a href="/2016/03/14/android-new-project-from-0-p2/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count ds-thread-count" data-thread-key="2016/03/14/android-new-project-from-0-p2/" itemprop="commentCount"></span>
                 </a>
@@ -997,12 +1012,12 @@ Android团队最近发布了Android N Preview，带来了很多提
           
 
           
-
-          
           
 
           
+
           
+
           
 
         </div>
@@ -1022,8 +1037,8 @@ Android团队最近发布了Android N Preview，带来了很多提
 module类型的区分科普小结，可能有些同学不太明白Java library module和An
           ...
           <!--noindex-->
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/03/14/android-new-project-from-0-p2/#more" rel="contents">
+          <div class="post-button text-center">
+            <a class="btn" href="/2016/03/14/android-new-project-from-0-p2/#далее" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1040,8 +1055,13 @@ module类型的区分科普小结，可能有些同学不太明白Java library m
       
     </div>
 
+    <div>
+      
+    </div>
 
     <footer class="post-footer">
+      
+
       
 
       
@@ -1064,20 +1084,17 @@ module类型的区分科普小结，可能有些同学不太明白Java library m
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://blog.zhaiyifan.cn/2016/03/14/android-new-project-from-0-p1/">
+    <link itemprop="mainEntityOfPage" href="http://blog.zhaiyifan.cn/2016/03/14/android-new-project-from-0-p1/">
 
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="Mark Zhai (翟一帆)">
-    <meta itemprop="description" content="">
-    <meta itemprop="image" content="/images/avatar.jpg">
-  </span>
-
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="markzhai's home">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="markzhai's home" src="">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Mark Zhai (翟一帆)">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
     </span>
-  </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="markzhai's home">
+    </span>
 
     
       <header class="post-header">
@@ -1099,32 +1116,34 @@ module类型的区分科普小结，可能有些同学不太明白Java library m
 
         <div class="post-meta">
           <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time title="Дата создания записи" itemprop="dateCreated datePublished" datetime="2016-03-14T10:04:18+08:00">
-              2016-03-14
-            </time>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-03-14T10:04:18+08:00">
+                2016-03-14
+              </time>
+            
 
-            &nbsp;|&nbsp;
+            
 
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-check-o"></i>
-            </span>
-            <time title="Дата обновления записи" itemprop="dateModified" datetime="2016-03-27T22:26:55+08:00">
-              2016-03-27
-            </time>
             
           </span>
 
           
             <span class="post-category" >
-              &nbsp; | &nbsp;
+            
+              <span class="post-meta-divider">|</span>
+            
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">分类于</span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/Android-Project-From-0/" itemprop="url" rel="index">
@@ -1134,7 +1153,6 @@ module类型的区分科普小结，可能有些同学不太明白Java library m
 
                 
                 
-
               
             </span>
           
@@ -1142,7 +1160,10 @@ module类型的区分科普小结，可能有些同学不太明白Java library m
           
             
               <span class="post-comments-count">
-                &nbsp; | &nbsp;
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
                 <a href="/2016/03/14/android-new-project-from-0-p1/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count ds-thread-count" data-thread-key="2016/03/14/android-new-project-from-0-p1/" itemprop="commentCount"></span>
                 </a>
@@ -1151,12 +1172,12 @@ module类型的区分科普小结，可能有些同学不太明白Java library m
           
 
           
-
-          
           
 
           
+
           
+
           
 
         </div>
@@ -1177,8 +1198,8 @@ module类型的区分科普小结，可能有些同学不太明白Java library m
 本系列文章不是教你怎么从0开始学Android，从0开始怎么建一个项目，而定位于零负担的情况下，在201
           ...
           <!--noindex-->
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/03/14/android-new-project-from-0-p1/#more" rel="contents">
+          <div class="post-button text-center">
+            <a class="btn" href="/2016/03/14/android-new-project-from-0-p1/#далее" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1195,8 +1216,13 @@ module类型的区分科普小结，可能有些同学不太明白Java library m
       
     </div>
 
+    <div>
+      
+    </div>
 
     <footer class="post-footer">
+      
+
       
 
       
@@ -1219,20 +1245,17 @@ module类型的区分科普小结，可能有些同学不太明白Java library m
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://blog.zhaiyifan.cn/2016/02/24/android-reverse-3/">
+    <link itemprop="mainEntityOfPage" href="http://blog.zhaiyifan.cn/2016/02/24/android-reverse-3/">
 
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="Mark Zhai (翟一帆)">
-    <meta itemprop="description" content="">
-    <meta itemprop="image" content="/images/avatar.jpg">
-  </span>
-
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="markzhai's home">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="markzhai's home" src="">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Mark Zhai (翟一帆)">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
     </span>
-  </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="markzhai's home">
+    </span>
 
     
       <header class="post-header">
@@ -1254,32 +1277,34 @@ module类型的区分科普小结，可能有些同学不太明白Java library m
 
         <div class="post-meta">
           <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time title="Дата создания записи" itemprop="dateCreated datePublished" datetime="2016-02-24T23:09:12+08:00">
-              2016-02-24
-            </time>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-02-24T23:09:12+08:00">
+                2016-02-24
+              </time>
+            
 
-            &nbsp;|&nbsp;
+            
 
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-check-o"></i>
-            </span>
-            <time title="Дата обновления записи" itemprop="dateModified" datetime="2016-02-24T14:47:05+08:00">
-              2016-02-24
-            </time>
             
           </span>
 
           
             <span class="post-category" >
-              &nbsp; | &nbsp;
+            
+              <span class="post-meta-divider">|</span>
+            
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">分类于</span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/Android-Reverse-Engineering/" itemprop="url" rel="index">
@@ -1289,7 +1314,6 @@ module类型的区分科普小结，可能有些同学不太明白Java library m
 
                 
                 
-
               
             </span>
           
@@ -1297,7 +1321,10 @@ module类型的区分科普小结，可能有些同学不太明白Java library m
           
             
               <span class="post-comments-count">
-                &nbsp; | &nbsp;
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
                 <a href="/2016/02/24/android-reverse-3/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count ds-thread-count" data-thread-key="2016/02/24/android-reverse-3/" itemprop="commentCount"></span>
                 </a>
@@ -1306,12 +1333,12 @@ module类型的区分科普小结，可能有些同学不太明白Java library m
           
 
           
-
-          
           
 
           
+
           
+
           
 
         </div>
@@ -1331,8 +1358,8 @@ module类型的区分科普小结，可能有些同学不太明白Java library m
 前言米娜桑，是时候揭开DEX的面纱了！我们都知道multidex，都知道65535方法数超标，那DEX到底是个什么东西呢？或许又有些同学知道DEX会优化为ODEX，那ODEX又是什么鬼，优化了什么呢？为什么ClassLoader热补丁方案插入构造函数导致CLASS_ISPR
           ...
           <!--noindex-->
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/02/24/android-reverse-3/#more" rel="contents">
+          <div class="post-button text-center">
+            <a class="btn" href="/2016/02/24/android-reverse-3/#далее" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1349,8 +1376,13 @@ module类型的区分科普小结，可能有些同学不太明白Java library m
       
     </div>
 
+    <div>
+      
+    </div>
 
     <footer class="post-footer">
+      
+
       
 
       
@@ -1373,20 +1405,17 @@ module类型的区分科普小结，可能有些同学不太明白Java library m
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://blog.zhaiyifan.cn/2016/02/23/world-class-testing-development-pipeline-for-android-part-2/">
+    <link itemprop="mainEntityOfPage" href="http://blog.zhaiyifan.cn/2016/02/23/world-class-testing-development-pipeline-for-android-part-2/">
 
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="Mark Zhai (翟一帆)">
-    <meta itemprop="description" content="">
-    <meta itemprop="image" content="/images/avatar.jpg">
-  </span>
-
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="markzhai's home">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="markzhai's home" src="">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Mark Zhai (翟一帆)">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
     </span>
-  </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="markzhai's home">
+    </span>
 
     
       <header class="post-header">
@@ -1408,32 +1437,34 @@ module类型的区分科普小结，可能有些同学不太明白Java library m
 
         <div class="post-meta">
           <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time title="Дата создания записи" itemprop="dateCreated datePublished" datetime="2016-02-23T11:25:28+08:00">
-              2016-02-23
-            </time>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-02-23T11:25:28+08:00">
+                2016-02-23
+              </time>
+            
 
-            &nbsp;|&nbsp;
+            
 
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-check-o"></i>
-            </span>
-            <time title="Дата обновления записи" itemprop="dateModified" datetime="2016-02-24T14:45:51+08:00">
-              2016-02-24
-            </time>
             
           </span>
 
           
             <span class="post-category" >
-              &nbsp; | &nbsp;
+            
+              <span class="post-meta-divider">|</span>
+            
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">分类于</span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/Android-Test/" itemprop="url" rel="index">
@@ -1443,7 +1474,6 @@ module类型的区分科普小结，可能有些同学不太明白Java library m
 
                 
                 
-
               
             </span>
           
@@ -1451,7 +1481,10 @@ module类型的区分科普小结，可能有些同学不太明白Java library m
           
             
               <span class="post-comments-count">
-                &nbsp; | &nbsp;
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
                 <a href="/2016/02/23/world-class-testing-development-pipeline-for-android-part-2/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count ds-thread-count" data-thread-key="2016/02/23/world-class-testing-development-pipeline-for-android-part-2/" itemprop="commentCount"></span>
                 </a>
@@ -1460,12 +1493,12 @@ module类型的区分科普小结，可能有些同学不太明白Java library m
           
 
           
-
-          
           
 
           
+
           
+
           
 
         </div>
@@ -1491,8 +1524,8 @@ module类型的区分科普小结，可能有些同学不太明白Java library m
 在我们的上一篇博客文章，“世
           ...
           <!--noindex-->
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/02/23/world-class-testing-development-pipeline-for-android-part-2/#more" rel="contents">
+          <div class="post-button text-center">
+            <a class="btn" href="/2016/02/23/world-class-testing-development-pipeline-for-android-part-2/#далее" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1509,8 +1542,13 @@ module类型的区分科普小结，可能有些同学不太明白Java library m
       
     </div>
 
+    <div>
+      
+    </div>
 
     <footer class="post-footer">
+      
+
       
 
       
@@ -1533,20 +1571,17 @@ module类型的区分科普小结，可能有些同学不太明白Java library m
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://blog.zhaiyifan.cn/2016/02/23/world-class-testing-development-pipeline-for-android-part-1/">
+    <link itemprop="mainEntityOfPage" href="http://blog.zhaiyifan.cn/2016/02/23/world-class-testing-development-pipeline-for-android-part-1/">
 
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="Mark Zhai (翟一帆)">
-    <meta itemprop="description" content="">
-    <meta itemprop="image" content="/images/avatar.jpg">
-  </span>
-
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="markzhai's home">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="markzhai's home" src="">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Mark Zhai (翟一帆)">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
     </span>
-  </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="markzhai's home">
+    </span>
 
     
       <header class="post-header">
@@ -1568,32 +1603,34 @@ module类型的区分科普小结，可能有些同学不太明白Java library m
 
         <div class="post-meta">
           <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time title="Дата создания записи" itemprop="dateCreated datePublished" datetime="2016-02-23T11:25:24+08:00">
-              2016-02-23
-            </time>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-02-23T11:25:24+08:00">
+                2016-02-23
+              </time>
+            
 
-            &nbsp;|&nbsp;
+            
 
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-check-o"></i>
-            </span>
-            <time title="Дата обновления записи" itemprop="dateModified" datetime="2016-02-24T18:32:52+08:00">
-              2016-02-24
-            </time>
             
           </span>
 
           
             <span class="post-category" >
-              &nbsp; | &nbsp;
+            
+              <span class="post-meta-divider">|</span>
+            
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">分类于</span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/Android-Test/" itemprop="url" rel="index">
@@ -1603,7 +1640,6 @@ module类型的区分科普小结，可能有些同学不太明白Java library m
 
                 
                 
-
               
             </span>
           
@@ -1611,7 +1647,10 @@ module类型的区分科普小结，可能有些同学不太明白Java library m
           
             
               <span class="post-comments-count">
-                &nbsp; | &nbsp;
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
                 <a href="/2016/02/23/world-class-testing-development-pipeline-for-android-part-1/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count ds-thread-count" data-thread-key="2016/02/23/world-class-testing-development-pipeline-for-android-part-1/" itemprop="commentCount"></span>
                 </a>
@@ -1620,12 +1659,12 @@ module类型的区分科普小结，可能有些同学不太明白Java library m
           
 
           
-
-          
           
 
           
+
           
+
           
 
         </div>
@@ -1651,8 +1690,8 @@ module类型的区分科普小结，可能有些同学不太明白Java library m
 世界级的 Android 测
           ...
           <!--noindex-->
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/02/23/world-class-testing-development-pipeline-for-android-part-1/#more" rel="contents">
+          <div class="post-button text-center">
+            <a class="btn" href="/2016/02/23/world-class-testing-development-pipeline-for-android-part-1/#далее" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1669,8 +1708,13 @@ module类型的区分科普小结，可能有些同学不太明白Java library m
       
     </div>
 
+    <div>
+      
+    </div>
 
     <footer class="post-footer">
+      
+
       
 
       
@@ -1693,20 +1737,17 @@ module类型的区分科普小结，可能有些同学不太明白Java library m
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://blog.zhaiyifan.cn/2016/02/18/android-resource-overlay/">
+    <link itemprop="mainEntityOfPage" href="http://blog.zhaiyifan.cn/2016/02/18/android-resource-overlay/">
 
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="Mark Zhai (翟一帆)">
-    <meta itemprop="description" content="">
-    <meta itemprop="image" content="/images/avatar.jpg">
-  </span>
-
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="markzhai's home">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="markzhai's home" src="">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Mark Zhai (翟一帆)">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
     </span>
-  </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="markzhai's home">
+    </span>
 
     
       <header class="post-header">
@@ -1728,32 +1769,34 @@ module类型的区分科普小结，可能有些同学不太明白Java library m
 
         <div class="post-meta">
           <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time title="Дата создания записи" itemprop="dateCreated datePublished" datetime="2016-02-18T16:42:26+08:00">
-              2016-02-18
-            </time>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-02-18T16:42:26+08:00">
+                2016-02-18
+              </time>
+            
 
-            &nbsp;|&nbsp;
+            
 
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-check-o"></i>
-            </span>
-            <time title="Дата обновления записи" itemprop="dateModified" datetime="2016-02-19T23:25:12+08:00">
-              2016-02-19
-            </time>
             
           </span>
 
           
             <span class="post-category" >
-              &nbsp; | &nbsp;
+            
+              <span class="post-meta-divider">|</span>
+            
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">分类于</span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/Android-Introduction/" itemprop="url" rel="index">
@@ -1763,7 +1806,6 @@ module类型的区分科普小结，可能有些同学不太明白Java library m
 
                 
                 
-
               
             </span>
           
@@ -1771,7 +1813,10 @@ module类型的区分科普小结，可能有些同学不太明白Java library m
           
             
               <span class="post-comments-count">
-                &nbsp; | &nbsp;
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
                 <a href="/2016/02/18/android-resource-overlay/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count ds-thread-count" data-thread-key="2016/02/18/android-resource-overlay/" itemprop="commentCount"></span>
                 </a>
@@ -1780,12 +1825,12 @@ module类型的区分科普小结，可能有些同学不太明白Java library m
           
 
           
-
-          
           
 
           
+
           
+
           
 
         </div>
@@ -1804,8 +1849,8 @@ module类型的区分科普小结，可能有些同学不太明白Java library m
           前言在Android逆向分析(2) APK的打包与安装一文中对资源编译过程的介绍中，笔者提到了overlay（重叠包）这个概念，一位每天都被自己帅醒的好友看了那篇东西后，来问我这个重叠包究竟是个什么东西，笔者想了想，确实这个概念有很多同学们都不甚了解，搜索了一下网上了介绍，也几乎没有看到任何对这个的
           ...
           <!--noindex-->
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/02/18/android-resource-overlay/#more" rel="contents">
+          <div class="post-button text-center">
+            <a class="btn" href="/2016/02/18/android-resource-overlay/#далее" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1822,8 +1867,13 @@ module类型的区分科普小结，可能有些同学不太明白Java library m
       
     </div>
 
+    <div>
+      
+    </div>
 
     <footer class="post-footer">
+      
+
       
 
       
@@ -1877,19 +1927,26 @@ module类型的区分科普小结，可能有些同学不太明白Java library m
                src="/images/avatar.jpg"
                alt="Mark Zhai (翟一帆)" />
           <p class="site-author-name" itemprop="name">Mark Zhai (翟一帆)</p>
-          <p class="site-description motion-element" itemprop="description">白驹过隙 忽然而已</p>
+           
+              <p class="site-description motion-element" itemprop="description">白驹过隙 忽然而已</p>
+          
         </div>
         <nav class="site-state motion-element">
-          <div class="site-state-item site-state-posts">
-            <a href="/archives">
-              <span class="site-state-item-count">66</span>
-              <span class="site-state-item-name">日志</span>
-            </a>
-          </div>
 
           
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">66</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
             <div class="site-state-item site-state-categories">
-              <a href="/categories">
+              <a href="/categories/index.html">
                 <span class="site-state-item-count">17</span>
                 <span class="site-state-item-name">分类</span>
               </a>
@@ -1897,8 +1954,10 @@ module类型的区分科普小结，可能有些同学不太明白Java library m
           
 
           
+            
+            
             <div class="site-state-item site-state-tags">
-              <a href="/tags">
+              <a href="/tags/index.html">
                 <span class="site-state-item-count">64</span>
                 <span class="site-state-item-name">标签</span>
               </a>
@@ -1997,6 +2056,8 @@ module类型的区分科普小结，可能有些同学不太明白Java library m
 
       
 
+      
+
     </div>
   </aside>
 
@@ -2018,32 +2079,51 @@ module类型的区分科普小结，可能有些同学不太明白Java library m
 </div>
 
 
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
 
         
-
 <div class="busuanzi-count">
-
   <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
   
-    <span class="site-uv"><i class="fa fa-user"></i><span class="busuanzi-value" id="busuanzi_value_site_uv"></span></span>
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
   
 
   
-    <span class="site-pv"><i class="fa fa-eye"></i><span class="busuanzi-value" id="busuanzi_value_site_pv"></span></span>
-  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
   
 </div>
-
 
 
         
       </div>
     </footer>
 
-    <div class="back-to-top">
-      <i class="fa fa-arrow-up"></i>
-    </div>
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
   </div>
 
   
@@ -2063,6 +2143,9 @@ module类型的区分科普小结，可能有些同学不太明白Java library m
 
 
   
+
+
+
 
 
 
@@ -2088,21 +2171,21 @@ module类型的区分科普小结，可能有些同学不太明白Java library m
   
 
 
-  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
 
-  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
 
 
 
   
-  
-
   
 
   
 
+  
 
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
 
 
 
@@ -2139,131 +2222,18 @@ module类型的区分科普小结，可能有些同学不太明白Java library m
 
 
 
+
+
+
+
+
+
+
+
   
-  
-  <script type="text/javascript">
-    // Popup Window;
-    var isfetched = false;
-    // Search DB path;
-    var search_path = "search.xml";
-    if (search_path.length == 0) {
-      search_path = "search.xml";
-    }
-    var path = "/" + search_path;
-    // monitor main search box;
 
-    function proceedsearch() {
-      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
-      $('.popup').toggle();
-    }
-    // search function;
-    var searchFunc = function(path, search_id, content_id) {
-      'use strict';
-      $.ajax({
-        url: path,
-        dataType: "xml",
-        async: true,
-        success: function( xmlResponse ) {
-          // get the contents from search data
-          isfetched = true;
-          $('.popup').detach().appendTo('.header-inner');
-          var datas = $( "entry", xmlResponse ).map(function() {
-            return {
-              title: $( "title", this ).text(),
-              content: $("content",this).text(),
-              url: $( "url" , this).text()
-            };
-          }).get();
-          var $input = document.getElementById(search_id);
-          var $resultContent = document.getElementById(content_id);
-          $input.addEventListener('input', function(){
-            var matchcounts = 0;
-            var str='<ul class=\"search-result-list\">';
-            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
-            $resultContent.innerHTML = "";
-            if (this.value.trim().length > 1) {
-              // perform local searching
-              datas.forEach(function(data) {
-                var isMatch = false;
-                var content_index = [];
-                var data_title = data.title.trim().toLowerCase();
-                var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
-                var data_url = decodeURIComponent(data.url);
-                var index_title = -1;
-                var index_content = -1;
-                var first_occur = -1;
-                // only match artiles with not empty titles and contents
-                if(data_title != '') {
-                  keywords.forEach(function(keyword, i) {
-                    index_title = data_title.indexOf(keyword);
-                    index_content = data_content.indexOf(keyword);
-                    if( index_title >= 0 || index_content >= 0 ){
-                      isMatch = true;
-                      if (i == 0) {
-                        first_occur = index_content;
-                      }
-                    }
 
-                  });
-                }
-                // show search results
-                if (isMatch) {
-                  matchcounts += 1;
-                  str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
-                  var content = data.content.trim().replace(/<[^>]+>/g,"");
-                  if (first_occur >= 0) {
-                    // cut out 100 characters
-                    var start = first_occur - 20;
-                    var end = first_occur + 80;
-                    if(start < 0){
-                      start = 0;
-                    }
-                    if(start == 0){
-                      end = 50;
-                    }
-                    if(end > content.length){
-                      end = content.length;
-                    }
-                    var match_content = content.substring(start, end);
-                    // highlight all keywords
-                    keywords.forEach(function(keyword){
-                      var regS = new RegExp(keyword, "gi");
-                      match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
-                    });
 
-                    str += "<p class=\"search-result\">" + match_content +"...</p>"
-                  }
-                  str += "</li>";
-                }
-              })};
-            str += "</ul>";
-            if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
-            if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
-            $resultContent.innerHTML = str;
-          });
-          proceedsearch();
-        }
-      });}
-
-    // handle and trigger popup window;
-    $('.popup-trigger').click(function(e) {
-      e.stopPropagation();
-      if (isfetched == false) {
-        searchFunc(path, 'local-search-input', 'local-search-result');
-      } else {
-        proceedsearch();
-      };
-    });
-
-    $('.popup-btn-close').click(function(e){
-      $('.popup').hide();
-      $(".popoverlay").remove();
-      $('body').css('overflow', '');
-    });
-    $('.popup').click(function(e){
-      e.stopPropagation();
-    });
-  </script>
 
 
   
@@ -2273,7 +2243,6 @@ module类型的区分科普小结，可能有些同学不太明白Java library m
   
 
   
-
 
 </body>
 </html>

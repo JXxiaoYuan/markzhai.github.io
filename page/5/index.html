@@ -23,6 +23,9 @@
 
 
 
+
+
+
   <meta name="baidu-site-verification" content="780t5iFaTK" />
 
 
@@ -43,7 +46,7 @@
 
 <link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
 
-<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
   <meta name="keywords" content="markzhai, zhaiyifan, 魔都三帅, 翟一帆, Android, React, React Native, Javascript" />
@@ -57,7 +60,7 @@
 
 
 
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
 
 
 
@@ -81,7 +84,7 @@
   var CONFIG = {
     root: '/',
     scheme: 'Mist',
-    sidebar: {"position":"left","display":"post"},
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
     fancybox: true,
     motion: true,
     duoshuo: {
@@ -92,13 +95,15 @@
       applicationID: '',
       apiKey: '',
       indexName: '',
-      hits: "",
-      labels: ""
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
     }
   };
 </script>
 
 
+
+  <link rel="canonical" href="http://blog.zhaiyifan.cn/page/5/"/>
 
 
 
@@ -112,11 +117,13 @@
   
 
 
+
+
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
             (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
           m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
   ga('create', 'UA-67533211-1', 'auto');
   ga('send', 'pageview');
 </script>
@@ -126,11 +133,13 @@
     var _hmt = _hmt || [];
     (function() {
       var hm = document.createElement("script");
-      hm.src = "//hm.baidu.com/hm.js?74dc0d49be7a61e341f6c897ee4d733a";
+      hm.src = "https://hm.baidu.com/hm.js?74dc0d49be7a61e341f6c897ee4d733a";
       var s = document.getElementsByTagName("script")[0];
       s.parentNode.insertBefore(hm, s);
     })();
   </script>
+
+
 
 
 
@@ -144,31 +153,35 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left 
+  <div class="container sidebar-position-left 
    page-home 
  ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-meta ">
-  
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
 
-  <div class="custom-logo-site-title">
-    <a href="/"  class="brand" rel="start">
-      <span class="logo-line-before"><i></i></span>
-      <span class="site-title">markzhai's home</span>
-      <span class="logo-line-after"><i></i></span>
-    </a>
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">markzhai's home</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
   </div>
-  <p class="site-subtitle"></p>
-</div>
 
-<div class="site-nav-toggle">
-  <button>
-    <span class="btn-bar"></span>
-    <span class="btn-bar"></span>
-    <span class="btn-bar"></span>
-  </button>
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
 </div>
 
 <nav class="site-nav">
@@ -229,32 +242,9 @@
       
 
       
-        <li class="menu-item menu-item-search">
-          
-            <a href="javascript:;" class="popup-trigger">
-          
-            
-              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
-            
-            搜索
-          </a>
-        </li>
-      
     </ul>
   
 
-  
-    <div class="site-search">
-      
-  <div class="popup">
- <span class="search-icon fa fa-search"></span>
- <input type="text" id="local-search-input">
- <div id="local-search-result"></div>
- <span class="popup-btn-close">close</span>
-</div>
-
-
-    </div>
   
 </nav>
 
@@ -279,20 +269,17 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://blog.zhaiyifan.cn/2015/11/24/BuildAndroid6OnMacElCapitan/">
+    <link itemprop="mainEntityOfPage" href="http://blog.zhaiyifan.cn/2015/11/24/BuildAndroid6OnMacElCapitan/">
 
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="Mark Zhai (翟一帆)">
-    <meta itemprop="description" content="">
-    <meta itemprop="image" content="/images/avatar.jpg">
-  </span>
-
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="markzhai's home">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="markzhai's home" src="">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Mark Zhai (翟一帆)">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
     </span>
-  </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="markzhai's home">
+    </span>
 
     
       <header class="post-header">
@@ -314,32 +301,34 @@
 
         <div class="post-meta">
           <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time title="Дата создания записи" itemprop="dateCreated datePublished" datetime="2015-11-24T21:49:19+08:00">
-              2015-11-24
-            </time>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-11-24T21:49:19+08:00">
+                2015-11-24
+              </time>
+            
 
-            &nbsp;|&nbsp;
+            
 
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-check-o"></i>
-            </span>
-            <time title="Дата обновления записи" itemprop="dateModified" datetime="2016-02-04T17:37:08+08:00">
-              2016-02-04
-            </time>
             
           </span>
 
           
             <span class="post-category" >
-              &nbsp; | &nbsp;
+            
+              <span class="post-meta-divider">|</span>
+            
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">分类于</span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/AOSP/" itemprop="url" rel="index">
@@ -349,7 +338,6 @@
 
                 
                 
-
               
             </span>
           
@@ -357,7 +345,10 @@
           
             
               <span class="post-comments-count">
-                &nbsp; | &nbsp;
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
                 <a href="/2015/11/24/BuildAndroid6OnMacElCapitan/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count ds-thread-count" data-thread-key="2015/11/24/BuildAndroid6OnMacElCapitan/" itemprop="commentCount"></span>
                 </a>
@@ -366,12 +357,12 @@
           
 
           
-
-          
           
 
           
+
           
+
           
 
         </div>
@@ -390,8 +381,8 @@
           背景因为只有一台可怜的256G MBPR，并没有足够的空间去装一个Ubuntu，所以之前在10.10的时候尝试编译5.0未果后（各种版本问题），就无奈放弃了。前几天在看最新的aosp官网介绍的时候，发现master和6.0.x的编译都使用了or later来描述对Mac OS的版本要求，就抱着试一试
           ...
           <!--noindex-->
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2015/11/24/BuildAndroid6OnMacElCapitan/#more" rel="contents">
+          <div class="post-button text-center">
+            <a class="btn" href="/2015/11/24/BuildAndroid6OnMacElCapitan/#далее" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -408,8 +399,13 @@
       
     </div>
 
+    <div>
+      
+    </div>
 
     <footer class="post-footer">
+      
+
       
 
       
@@ -432,20 +428,17 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://blog.zhaiyifan.cn/2015/11/20/HotPatchCompare/">
+    <link itemprop="mainEntityOfPage" href="http://blog.zhaiyifan.cn/2015/11/20/HotPatchCompare/">
 
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="Mark Zhai (翟一帆)">
-    <meta itemprop="description" content="">
-    <meta itemprop="image" content="/images/avatar.jpg">
-  </span>
-
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="markzhai's home">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="markzhai's home" src="">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Mark Zhai (翟一帆)">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
     </span>
-  </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="markzhai's home">
+    </span>
 
     
       <header class="post-header">
@@ -467,32 +460,34 @@
 
         <div class="post-meta">
           <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time title="Дата создания записи" itemprop="dateCreated datePublished" datetime="2015-11-20T21:46:13+08:00">
-              2015-11-20
-            </time>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-11-20T21:46:13+08:00">
+                2015-11-20
+              </time>
+            
 
-            &nbsp;|&nbsp;
+            
 
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-check-o"></i>
-            </span>
-            <time title="Дата обновления записи" itemprop="dateModified" datetime="2016-02-20T00:28:01+08:00">
-              2016-02-20
-            </time>
             
           </span>
 
           
             <span class="post-category" >
-              &nbsp; | &nbsp;
+            
+              <span class="post-meta-divider">|</span>
+            
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">分类于</span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/Android/" itemprop="url" rel="index">
@@ -502,7 +497,6 @@
 
                 
                 
-
               
             </span>
           
@@ -510,7 +504,10 @@
           
             
               <span class="post-comments-count">
-                &nbsp; | &nbsp;
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
                 <a href="/2015/11/20/HotPatchCompare/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count ds-thread-count" data-thread-key="2015/11/20/HotPatchCompare/" itemprop="commentCount"></span>
                 </a>
@@ -519,12 +516,12 @@
           
 
           
-
-          
           
 
           
+
           
+
           
 
         </div>
@@ -544,8 +541,8 @@
 开源界往往一个方案会有好几种
           ...
           <!--noindex-->
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2015/11/20/HotPatchCompare/#more" rel="contents">
+          <div class="post-button text-center">
+            <a class="btn" href="/2015/11/20/HotPatchCompare/#далее" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -562,8 +559,13 @@
       
     </div>
 
+    <div>
+      
+    </div>
 
     <footer class="post-footer">
+      
+
       
 
       
@@ -586,20 +588,17 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://blog.zhaiyifan.cn/2015/11/20/new-skin-toggle-way/">
+    <link itemprop="mainEntityOfPage" href="http://blog.zhaiyifan.cn/2015/11/20/new-skin-toggle-way/">
 
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="Mark Zhai (翟一帆)">
-    <meta itemprop="description" content="">
-    <meta itemprop="image" content="/images/avatar.jpg">
-  </span>
-
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="markzhai's home">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="markzhai's home" src="">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Mark Zhai (翟一帆)">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
     </span>
-  </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="markzhai's home">
+    </span>
 
     
       <header class="post-header">
@@ -621,32 +620,34 @@
 
         <div class="post-meta">
           <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time title="Дата создания записи" itemprop="dateCreated datePublished" datetime="2015-11-20T11:22:05+08:00">
-              2015-11-20
-            </time>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-11-20T11:22:05+08:00">
+                2015-11-20
+              </time>
+            
 
-            &nbsp;|&nbsp;
+            
 
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-check-o"></i>
-            </span>
-            <time title="Дата обновления записи" itemprop="dateModified" datetime="2016-02-03T23:43:34+08:00">
-              2016-02-03
-            </time>
             
           </span>
 
           
             <span class="post-category" >
-              &nbsp; | &nbsp;
+            
+              <span class="post-meta-divider">|</span>
+            
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">分类于</span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/Android/" itemprop="url" rel="index">
@@ -656,7 +657,6 @@
 
                 
                 
-
               
             </span>
           
@@ -664,7 +664,10 @@
           
             
               <span class="post-comments-count">
-                &nbsp; | &nbsp;
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
                 <a href="/2015/11/20/new-skin-toggle-way/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count ds-thread-count" data-thread-key="2015/11/20/new-skin-toggle-way/" itemprop="commentCount"></span>
                 </a>
@@ -673,12 +676,12 @@
           
 
           
-
-          
           
 
           
+
           
+
           
 
         </div>
@@ -699,8 +702,8 @@
 比如我们平时会直接@an
           ...
           <!--noindex-->
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2015/11/20/new-skin-toggle-way/#more" rel="contents">
+          <div class="post-button text-center">
+            <a class="btn" href="/2015/11/20/new-skin-toggle-way/#далее" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -717,8 +720,13 @@
       
     </div>
 
+    <div>
+      
+    </div>
 
     <footer class="post-footer">
+      
+
       
 
       
@@ -741,20 +749,17 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://blog.zhaiyifan.cn/2015/10/04/init/">
+    <link itemprop="mainEntityOfPage" href="http://blog.zhaiyifan.cn/2015/10/04/init/">
 
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="Mark Zhai (翟一帆)">
-    <meta itemprop="description" content="">
-    <meta itemprop="image" content="/images/avatar.jpg">
-  </span>
-
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="markzhai's home">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="markzhai's home" src="">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Mark Zhai (翟一帆)">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
     </span>
-  </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="markzhai's home">
+    </span>
 
     
       <header class="post-header">
@@ -776,32 +781,34 @@
 
         <div class="post-meta">
           <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time title="Дата создания записи" itemprop="dateCreated datePublished" datetime="2015-10-04T12:37:44+08:00">
-              2015-10-04
-            </time>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-10-04T12:37:44+08:00">
+                2015-10-04
+              </time>
+            
 
-            &nbsp;|&nbsp;
+            
 
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-check-o"></i>
-            </span>
-            <time title="Дата обновления записи" itemprop="dateModified" datetime="2016-02-03T23:39:45+08:00">
-              2016-02-03
-            </time>
             
           </span>
 
           
             <span class="post-category" >
-              &nbsp; | &nbsp;
+            
+              <span class="post-meta-divider">|</span>
+            
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">分类于</span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/Project/" itemprop="url" rel="index">
@@ -811,7 +818,6 @@
 
                 
                 
-
               
             </span>
           
@@ -819,7 +825,10 @@
           
             
               <span class="post-comments-count">
-                &nbsp; | &nbsp;
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
                 <a href="/2015/10/04/init/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count ds-thread-count" data-thread-key="2015/10/04/init/" itemprop="commentCount"></span>
                 </a>
@@ -828,12 +837,12 @@
           
 
           
-
-          
           
 
           
+
           
+
           
 
         </div>
@@ -854,8 +863,8 @@ Init Init帮助Android应用调度复杂的任务流（如应用初始化流程�
 尽管Init设计的初衷是为了应用(applicati
           ...
           <!--noindex-->
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2015/10/04/init/#more" rel="contents">
+          <div class="post-button text-center">
+            <a class="btn" href="/2015/10/04/init/#далее" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -872,8 +881,13 @@ Init Init帮助Android应用调度复杂的任务流（如应用初始化流程�
       
     </div>
 
+    <div>
+      
+    </div>
 
     <footer class="post-footer">
+      
+
       
 
       
@@ -896,20 +910,17 @@ Init Init帮助Android应用调度复杂的任务流（如应用初始化流程�
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://blog.zhaiyifan.cn/2015/09/16/Try-React-Native-for-Android/">
+    <link itemprop="mainEntityOfPage" href="http://blog.zhaiyifan.cn/2015/09/16/Try-React-Native-for-Android/">
 
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="Mark Zhai (翟一帆)">
-    <meta itemprop="description" content="">
-    <meta itemprop="image" content="/images/avatar.jpg">
-  </span>
-
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="markzhai's home">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="markzhai's home" src="">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Mark Zhai (翟一帆)">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
     </span>
-  </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="markzhai's home">
+    </span>
 
     
       <header class="post-header">
@@ -931,32 +942,34 @@ Init Init帮助Android应用调度复杂的任务流（如应用初始化流程�
 
         <div class="post-meta">
           <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time title="Дата создания записи" itemprop="dateCreated datePublished" datetime="2015-09-16T12:28:33+08:00">
-              2015-09-16
-            </time>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-09-16T12:28:33+08:00">
+                2015-09-16
+              </time>
+            
 
-            &nbsp;|&nbsp;
+            
 
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-check-o"></i>
-            </span>
-            <time title="Дата обновления записи" itemprop="dateModified" datetime="2016-02-03T23:41:27+08:00">
-              2016-02-03
-            </time>
             
           </span>
 
           
             <span class="post-category" >
-              &nbsp; | &nbsp;
+            
+              <span class="post-meta-divider">|</span>
+            
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">分类于</span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/Android/" itemprop="url" rel="index">
@@ -966,7 +979,6 @@ Init Init帮助Android应用调度复杂的任务流（如应用初始化流程�
 
                 
                 
-
               
             </span>
           
@@ -974,7 +986,10 @@ Init Init帮助Android应用调度复杂的任务流（如应用初始化流程�
           
             
               <span class="post-comments-count">
-                &nbsp; | &nbsp;
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
                 <a href="/2015/09/16/Try-React-Native-for-Android/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count ds-thread-count" data-thread-key="2015/09/16/Try-React-Native-for-Android/" itemprop="commentCount"></span>
                 </a>
@@ -983,12 +998,12 @@ Init Init帮助Android应用调度复杂的任务流（如应用初始化流程�
           
 
           
-
-          
           
 
           
+
           
+
           
 
         </div>
@@ -1008,8 +1023,8 @@ Init Init帮助Android应用调度复杂的任务流（如应用初始化流程�
 本文就从 https://github.com/faceb
           ...
           <!--noindex-->
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2015/09/16/Try-React-Native-for-Android/#more" rel="contents">
+          <div class="post-button text-center">
+            <a class="btn" href="/2015/09/16/Try-React-Native-for-Android/#далее" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1026,8 +1041,13 @@ Init Init帮助Android应用调度复杂的任务流（如应用初始化流程�
       
     </div>
 
+    <div>
+      
+    </div>
 
     <footer class="post-footer">
+      
+
       
 
       
@@ -1050,20 +1070,17 @@ Init Init帮助Android应用调度复杂的任务流（如应用初始化流程�
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://blog.zhaiyifan.cn/2015/09/13/LyricHere/">
+    <link itemprop="mainEntityOfPage" href="http://blog.zhaiyifan.cn/2015/09/13/LyricHere/">
 
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="Mark Zhai (翟一帆)">
-    <meta itemprop="description" content="">
-    <meta itemprop="image" content="/images/avatar.jpg">
-  </span>
-
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="markzhai's home">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="markzhai's home" src="">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Mark Zhai (翟一帆)">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
     </span>
-  </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="markzhai's home">
+    </span>
 
     
       <header class="post-header">
@@ -1085,32 +1102,34 @@ Init Init帮助Android应用调度复杂的任务流（如应用初始化流程�
 
         <div class="post-meta">
           <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time title="Дата создания записи" itemprop="dateCreated datePublished" datetime="2015-09-13T09:45:19+08:00">
-              2015-09-13
-            </time>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-09-13T09:45:19+08:00">
+                2015-09-13
+              </time>
+            
 
-            &nbsp;|&nbsp;
+            
 
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-check-o"></i>
-            </span>
-            <time title="Дата обновления записи" itemprop="dateModified" datetime="2016-02-03T23:39:58+08:00">
-              2016-02-03
-            </time>
             
           </span>
 
           
             <span class="post-category" >
-              &nbsp; | &nbsp;
+            
+              <span class="post-meta-divider">|</span>
+            
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">分类于</span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/Project/" itemprop="url" rel="index">
@@ -1120,7 +1139,6 @@ Init Init帮助Android应用调度复杂的任务流（如应用初始化流程�
 
                 
                 
-
               
             </span>
           
@@ -1128,7 +1146,10 @@ Init Init帮助Android应用调度复杂的任务流（如应用初始化流程�
           
             
               <span class="post-comments-count">
-                &nbsp; | &nbsp;
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
                 <a href="/2015/09/13/LyricHere/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count ds-thread-count" data-thread-key="2015/09/13/LyricHere/" itemprop="commentCount"></span>
                 </a>
@@ -1137,12 +1158,12 @@ Init Init帮助Android应用调度复杂的任务流（如应用初始化流程�
           
 
           
-
-          
           
 
           
+
           
+
           
 
         </div>
@@ -1163,8 +1184,8 @@ Material design music and lyric player. Using Android’s new android.media.Medi
 Pre-requi
           ...
           <!--noindex-->
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2015/09/13/LyricHere/#more" rel="contents">
+          <div class="post-button text-center">
+            <a class="btn" href="/2015/09/13/LyricHere/#далее" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1181,8 +1202,13 @@ Pre-requi
       
     </div>
 
+    <div>
+      
+    </div>
 
     <footer class="post-footer">
+      
+
       
 
       
@@ -1205,20 +1231,17 @@ Pre-requi
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://blog.zhaiyifan.cn/2015/09/10/Android换肤技术总结/">
+    <link itemprop="mainEntityOfPage" href="http://blog.zhaiyifan.cn/2015/09/10/Android换肤技术总结/">
 
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="Mark Zhai (翟一帆)">
-    <meta itemprop="description" content="">
-    <meta itemprop="image" content="/images/avatar.jpg">
-  </span>
-
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="markzhai's home">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="markzhai's home" src="">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Mark Zhai (翟一帆)">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
     </span>
-  </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="markzhai's home">
+    </span>
 
     
       <header class="post-header">
@@ -1240,32 +1263,34 @@ Pre-requi
 
         <div class="post-meta">
           <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time title="Дата создания записи" itemprop="dateCreated datePublished" datetime="2015-09-10T23:51:48+08:00">
-              2015-09-10
-            </time>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-09-10T23:51:48+08:00">
+                2015-09-10
+              </time>
+            
 
-            &nbsp;|&nbsp;
+            
 
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-check-o"></i>
-            </span>
-            <time title="Дата обновления записи" itemprop="dateModified" datetime="2016-02-03T23:38:38+08:00">
-              2016-02-03
-            </time>
             
           </span>
 
           
             <span class="post-category" >
-              &nbsp; | &nbsp;
+            
+              <span class="post-meta-divider">|</span>
+            
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">分类于</span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/Android/" itemprop="url" rel="index">
@@ -1275,7 +1300,6 @@ Pre-requi
 
                 
                 
-
               
             </span>
           
@@ -1283,7 +1307,10 @@ Pre-requi
           
             
               <span class="post-comments-count">
-                &nbsp; | &nbsp;
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
                 <a href="/2015/09/10/Android换肤技术总结/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count ds-thread-count" data-thread-key="2015/09/10/Android换肤技术总结/" itemprop="commentCount"></span>
                 </a>
@@ -1292,12 +1319,12 @@ Pre-requi
           
 
           
-
-          
           
 
           
+
           
+
           
 
         </div>
@@ -1321,8 +1348,8 @@ Pre-requi
 对于第一种来说，目测应该是直接通过本地theme来
           ...
           <!--noindex-->
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2015/09/10/Android换肤技术总结/#more" rel="contents">
+          <div class="post-button text-center">
+            <a class="btn" href="/2015/09/10/Android换肤技术总结/#далее" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1339,8 +1366,13 @@ Pre-requi
       
     </div>
 
+    <div>
+      
+    </div>
 
     <footer class="post-footer">
+      
+
       
 
       
@@ -1363,20 +1395,17 @@ Pre-requi
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://blog.zhaiyifan.cn/2015/09/10/facebook-rebound-source/">
+    <link itemprop="mainEntityOfPage" href="http://blog.zhaiyifan.cn/2015/09/10/facebook-rebound-source/">
 
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="Mark Zhai (翟一帆)">
-    <meta itemprop="description" content="">
-    <meta itemprop="image" content="/images/avatar.jpg">
-  </span>
-
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="markzhai's home">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="markzhai's home" src="">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Mark Zhai (翟一帆)">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
     </span>
-  </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="markzhai's home">
+    </span>
 
     
       <header class="post-header">
@@ -1398,32 +1427,34 @@ Pre-requi
 
         <div class="post-meta">
           <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time title="Дата создания записи" itemprop="dateCreated datePublished" datetime="2015-09-10T19:58:10+08:00">
-              2015-09-10
-            </time>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-09-10T19:58:10+08:00">
+                2015-09-10
+              </time>
+            
 
-            &nbsp;|&nbsp;
+            
 
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-check-o"></i>
-            </span>
-            <time title="Дата обновления записи" itemprop="dateModified" datetime="2016-02-20T00:28:06+08:00">
-              2016-02-20
-            </time>
             
           </span>
 
           
             <span class="post-category" >
-              &nbsp; | &nbsp;
+            
+              <span class="post-meta-divider">|</span>
+            
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">分类于</span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/Android-Effects/" itemprop="url" rel="index">
@@ -1433,7 +1464,6 @@ Pre-requi
 
                 
                 
-
               
             </span>
           
@@ -1441,7 +1471,10 @@ Pre-requi
           
             
               <span class="post-comments-count">
-                &nbsp; | &nbsp;
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
                 <a href="/2015/09/10/facebook-rebound-source/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count ds-thread-count" data-thread-key="2015/09/10/facebook-rebound-source/" itemprop="commentCount"></span>
                 </a>
@@ -1450,12 +1483,12 @@ Pre-requi
           
 
           
-
-          
           
 
           
+
           
+
           
 
         </div>
@@ -1475,8 +1508,8 @@ Pre-requi
 今天看到了tumblr发布了基于rebound的Backboard，本想直接分析一下Backboard对rebound做了些什么，不过考虑到rebound还没有仔细分析过，所以这里
           ...
           <!--noindex-->
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2015/09/10/facebook-rebound-source/#more" rel="contents">
+          <div class="post-button text-center">
+            <a class="btn" href="/2015/09/10/facebook-rebound-source/#далее" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1493,8 +1526,13 @@ Pre-requi
       
     </div>
 
+    <div>
+      
+    </div>
 
     <footer class="post-footer">
+      
+
       
 
       
@@ -1517,20 +1555,17 @@ Pre-requi
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://blog.zhaiyifan.cn/2015/08/28/intellij老是警告的SparseArray是什么-HashMap的替代者/">
+    <link itemprop="mainEntityOfPage" href="http://blog.zhaiyifan.cn/2015/08/28/intellij老是警告的SparseArray是什么-HashMap的替代者/">
 
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="Mark Zhai (翟一帆)">
-    <meta itemprop="description" content="">
-    <meta itemprop="image" content="/images/avatar.jpg">
-  </span>
-
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="markzhai's home">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="markzhai's home" src="">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Mark Zhai (翟一帆)">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
     </span>
-  </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="markzhai's home">
+    </span>
 
     
       <header class="post-header">
@@ -1552,32 +1587,34 @@ Pre-requi
 
         <div class="post-meta">
           <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time title="Дата создания записи" itemprop="dateCreated datePublished" datetime="2015-08-28T20:41:25+08:00">
-              2015-08-28
-            </time>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-08-28T20:41:25+08:00">
+                2015-08-28
+              </time>
+            
 
-            &nbsp;|&nbsp;
+            
 
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-check-o"></i>
-            </span>
-            <time title="Дата обновления записи" itemprop="dateModified" datetime="2016-02-03T23:40:04+08:00">
-              2016-02-03
-            </time>
             
           </span>
 
           
             <span class="post-category" >
-              &nbsp; | &nbsp;
+            
+              <span class="post-meta-divider">|</span>
+            
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">分类于</span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/Android/" itemprop="url" rel="index">
@@ -1587,7 +1624,6 @@ Pre-requi
 
                 
                 
-
               
             </span>
           
@@ -1595,7 +1631,10 @@ Pre-requi
           
             
               <span class="post-comments-count">
-                &nbsp; | &nbsp;
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
                 <a href="/2015/08/28/intellij老是警告的SparseArray是什么-HashMap的替代者/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count ds-thread-count" data-thread-key="2015/08/28/intellij老是警告的SparseArray是什么-HashMap的替代者/" itemprop="commentCount"></span>
                 </a>
@@ -1604,12 +1643,12 @@ Pre-requi
           
 
           
-
-          
           
 
           
+
           
+
           
 
         </div>
@@ -1636,8 +1675,8 @@ Pre-requi
 当然了，实际开发
           ...
           <!--noindex-->
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2015/08/28/intellij老是警告的SparseArray是什么-HashMap的替代者/#more" rel="contents">
+          <div class="post-button text-center">
+            <a class="btn" href="/2015/08/28/intellij老是警告的SparseArray是什么-HashMap的替代者/#далее" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1654,8 +1693,13 @@ Pre-requi
       
     </div>
 
+    <div>
+      
+    </div>
 
     <footer class="post-footer">
+      
+
       
 
       
@@ -1678,20 +1722,17 @@ Pre-requi
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://blog.zhaiyifan.cn/2015/08/28/Java和Android中，代码块、static静态代码块的执行顺序/">
+    <link itemprop="mainEntityOfPage" href="http://blog.zhaiyifan.cn/2015/08/28/Java和Android中，代码块、static静态代码块的执行顺序/">
 
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="Mark Zhai (翟一帆)">
-    <meta itemprop="description" content="">
-    <meta itemprop="image" content="/images/avatar.jpg">
-  </span>
-
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="markzhai's home">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="markzhai's home" src="">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Mark Zhai (翟一帆)">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
     </span>
-  </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="markzhai's home">
+    </span>
 
     
       <header class="post-header">
@@ -1713,32 +1754,34 @@ Pre-requi
 
         <div class="post-meta">
           <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time title="Дата создания записи" itemprop="dateCreated datePublished" datetime="2015-08-28T19:42:21+08:00">
-              2015-08-28
-            </time>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-08-28T19:42:21+08:00">
+                2015-08-28
+              </time>
+            
 
-            &nbsp;|&nbsp;
+            
 
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-check-o"></i>
-            </span>
-            <time title="Дата обновления записи" itemprop="dateModified" datetime="2016-02-03T23:40:24+08:00">
-              2016-02-03
-            </time>
             
           </span>
 
           
             <span class="post-category" >
-              &nbsp; | &nbsp;
+            
+              <span class="post-meta-divider">|</span>
+            
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">分类于</span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/Android/" itemprop="url" rel="index">
@@ -1748,7 +1791,6 @@ Pre-requi
 
                 
                 
-
               
             </span>
           
@@ -1756,7 +1798,10 @@ Pre-requi
           
             
               <span class="post-comments-count">
-                &nbsp; | &nbsp;
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
                 <a href="/2015/08/28/Java和Android中，代码块、static静态代码块的执行顺序/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count ds-thread-count" data-thread-key="2015/08/28/Java和Android中，代码块、static静态代码块的执行顺序/" itemprop="commentCount"></span>
                 </a>
@@ -1765,12 +1810,12 @@ Pre-requi
           
 
           
-
-          
           
 
           
+
           
+
           
 
         </div>
@@ -1791,8 +1836,8 @@ Java先来个简单的例子
 Main.java:1234567891011121314151617public class Main &#123;    static int a = 1;    static &#
           ...
           <!--noindex-->
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2015/08/28/Java和Android中，代码块、static静态代码块的执行顺序/#more" rel="contents">
+          <div class="post-button text-center">
+            <a class="btn" href="/2015/08/28/Java和Android中，代码块、static静态代码块的执行顺序/#далее" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1809,8 +1854,13 @@ Main.java:1234567891011121314151617public class Main &#123;    static int a = 1;
       
     </div>
 
+    <div>
+      
+    </div>
 
     <footer class="post-footer">
+      
+
       
 
       
@@ -1864,19 +1914,26 @@ Main.java:1234567891011121314151617public class Main &#123;    static int a = 1;
                src="/images/avatar.jpg"
                alt="Mark Zhai (翟一帆)" />
           <p class="site-author-name" itemprop="name">Mark Zhai (翟一帆)</p>
-          <p class="site-description motion-element" itemprop="description">白驹过隙 忽然而已</p>
+           
+              <p class="site-description motion-element" itemprop="description">白驹过隙 忽然而已</p>
+          
         </div>
         <nav class="site-state motion-element">
-          <div class="site-state-item site-state-posts">
-            <a href="/archives">
-              <span class="site-state-item-count">66</span>
-              <span class="site-state-item-name">日志</span>
-            </a>
-          </div>
 
           
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">66</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
             <div class="site-state-item site-state-categories">
-              <a href="/categories">
+              <a href="/categories/index.html">
                 <span class="site-state-item-count">17</span>
                 <span class="site-state-item-name">分类</span>
               </a>
@@ -1884,8 +1941,10 @@ Main.java:1234567891011121314151617public class Main &#123;    static int a = 1;
           
 
           
+            
+            
             <div class="site-state-item site-state-tags">
-              <a href="/tags">
+              <a href="/tags/index.html">
                 <span class="site-state-item-count">64</span>
                 <span class="site-state-item-name">标签</span>
               </a>
@@ -1984,6 +2043,8 @@ Main.java:1234567891011121314151617public class Main &#123;    static int a = 1;
 
       
 
+      
+
     </div>
   </aside>
 
@@ -2005,32 +2066,51 @@ Main.java:1234567891011121314151617public class Main &#123;    static int a = 1;
 </div>
 
 
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
 
         
-
 <div class="busuanzi-count">
-
   <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
   
-    <span class="site-uv"><i class="fa fa-user"></i><span class="busuanzi-value" id="busuanzi_value_site_uv"></span></span>
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
   
 
   
-    <span class="site-pv"><i class="fa fa-eye"></i><span class="busuanzi-value" id="busuanzi_value_site_pv"></span></span>
-  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
   
 </div>
-
 
 
         
       </div>
     </footer>
 
-    <div class="back-to-top">
-      <i class="fa fa-arrow-up"></i>
-    </div>
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
   </div>
 
   
@@ -2050,6 +2130,9 @@ Main.java:1234567891011121314151617public class Main &#123;    static int a = 1;
 
 
   
+
+
+
 
 
 
@@ -2075,21 +2158,21 @@ Main.java:1234567891011121314151617public class Main &#123;    static int a = 1;
   
 
 
-  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
 
-  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
 
 
 
   
-  
-
   
 
   
 
+  
 
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
 
 
 
@@ -2126,131 +2209,18 @@ Main.java:1234567891011121314151617public class Main &#123;    static int a = 1;
 
 
 
+
+
+
+
+
+
+
+
   
-  
-  <script type="text/javascript">
-    // Popup Window;
-    var isfetched = false;
-    // Search DB path;
-    var search_path = "search.xml";
-    if (search_path.length == 0) {
-      search_path = "search.xml";
-    }
-    var path = "/" + search_path;
-    // monitor main search box;
 
-    function proceedsearch() {
-      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
-      $('.popup').toggle();
-    }
-    // search function;
-    var searchFunc = function(path, search_id, content_id) {
-      'use strict';
-      $.ajax({
-        url: path,
-        dataType: "xml",
-        async: true,
-        success: function( xmlResponse ) {
-          // get the contents from search data
-          isfetched = true;
-          $('.popup').detach().appendTo('.header-inner');
-          var datas = $( "entry", xmlResponse ).map(function() {
-            return {
-              title: $( "title", this ).text(),
-              content: $("content",this).text(),
-              url: $( "url" , this).text()
-            };
-          }).get();
-          var $input = document.getElementById(search_id);
-          var $resultContent = document.getElementById(content_id);
-          $input.addEventListener('input', function(){
-            var matchcounts = 0;
-            var str='<ul class=\"search-result-list\">';
-            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
-            $resultContent.innerHTML = "";
-            if (this.value.trim().length > 1) {
-              // perform local searching
-              datas.forEach(function(data) {
-                var isMatch = false;
-                var content_index = [];
-                var data_title = data.title.trim().toLowerCase();
-                var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
-                var data_url = decodeURIComponent(data.url);
-                var index_title = -1;
-                var index_content = -1;
-                var first_occur = -1;
-                // only match artiles with not empty titles and contents
-                if(data_title != '') {
-                  keywords.forEach(function(keyword, i) {
-                    index_title = data_title.indexOf(keyword);
-                    index_content = data_content.indexOf(keyword);
-                    if( index_title >= 0 || index_content >= 0 ){
-                      isMatch = true;
-                      if (i == 0) {
-                        first_occur = index_content;
-                      }
-                    }
 
-                  });
-                }
-                // show search results
-                if (isMatch) {
-                  matchcounts += 1;
-                  str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
-                  var content = data.content.trim().replace(/<[^>]+>/g,"");
-                  if (first_occur >= 0) {
-                    // cut out 100 characters
-                    var start = first_occur - 20;
-                    var end = first_occur + 80;
-                    if(start < 0){
-                      start = 0;
-                    }
-                    if(start == 0){
-                      end = 50;
-                    }
-                    if(end > content.length){
-                      end = content.length;
-                    }
-                    var match_content = content.substring(start, end);
-                    // highlight all keywords
-                    keywords.forEach(function(keyword){
-                      var regS = new RegExp(keyword, "gi");
-                      match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
-                    });
 
-                    str += "<p class=\"search-result\">" + match_content +"...</p>"
-                  }
-                  str += "</li>";
-                }
-              })};
-            str += "</ul>";
-            if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
-            if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
-            $resultContent.innerHTML = str;
-          });
-          proceedsearch();
-        }
-      });}
-
-    // handle and trigger popup window;
-    $('.popup-trigger').click(function(e) {
-      e.stopPropagation();
-      if (isfetched == false) {
-        searchFunc(path, 'local-search-input', 'local-search-result');
-      } else {
-        proceedsearch();
-      };
-    });
-
-    $('.popup-btn-close').click(function(e){
-      $('.popup').hide();
-      $(".popoverlay").remove();
-      $('body').css('overflow', '');
-    });
-    $('.popup').click(function(e){
-      e.stopPropagation();
-    });
-  </script>
 
 
   
@@ -2260,7 +2230,6 @@ Main.java:1234567891011121314151617public class Main &#123;    static int a = 1;
   
 
   
-
 
 </body>
 </html>
