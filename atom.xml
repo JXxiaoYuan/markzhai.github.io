@@ -4,7 +4,7 @@
   
   <link href="/atom.xml" rel="self"/>
   <link href="http://blog.zhaiyifan.cn/"/>
-  <updated>2017-03-28T08:10:54.000Z</updated>
+  <updated>2017-03-29T04:03:54.000Z</updated>
   <id>http://blog.zhaiyifan.cn/</id>
   
   <author>
@@ -19,7 +19,7 @@
     <link href="http://blog.zhaiyifan.cn/2017/03/28/rn-weex-compare-1/"/>
     <id>http://blog.zhaiyifan.cn/2017/03/28/rn-weex-compare-1/</id>
     <published>2017-03-28T05:40:33.000Z</published>
-    <updated>2017-03-28T08:10:54.000Z</updated>
+    <updated>2017-03-29T04:03:54.000Z</updated>
     <content type="html"><![CDATA[<h1 id="前言">前言</h1><p>React Native 自 iOS 版发布后至今也 2 年了，从最初国内QQ空间实践踩坑，到现在逐步稳定，线上已经有很多 app 在使用了：</p>
 <p><img src="/images/rn_weex_1_1.png" alt="RN Usage"></p>
 <p>上图的仅仅只是一部分，更多的可以查看官网 <a href="https://facebook.github.io/react-native/showcase.html" target="_blank" rel="external">Showcase</a>。</p>
@@ -47,6 +47,7 @@
 <h1 id="选择">选择</h1><p>如果你是个小而美的团队，而且同一份需求并不需要在三端都上线，仅需要支持 Android 和 iOS，那 React Native 是你最好的选择。</p>
 <p>如果你对三端有强需求，尤其是需要在 H5 / 微信公众号上上线，那你可以考虑 Weex，毕竟存在工作量 / 3 的问题，而且目前的 Weex 语法已经跟 Vue 一样了，对于原来做 Vue 开发的前端来说，上手成本很低。</p>
 <p>如果你的团队在移动端并不强，那建议使用 React Native，否则你可能会困惑到底是自己姿势错了还是 Weex 的错。毕竟不是每个团队都像饿了么一样可以直接让 Weex 的人过来驻场协助开发的。</p>
+<p>另外，就是苹果的问题了，Weex 不像 React Native 那样强势，如果苹果爸爸直接说 NO，那就是 GAME OVER 了。虽然 RN 也未必能幸免于难。。。如果真的发生了这种事，那最后大家还是搞回 hybrid 吧，你看支付宝的 H5 做的不是挺好的，哈哈。</p>
 <h1 id="总结">总结</h1><p>借用一句知乎专栏看到的话：跨平台是毒品，就算不纯，吸一口也会上瘾。</p>
 ]]></content>
     <summary type="html">
