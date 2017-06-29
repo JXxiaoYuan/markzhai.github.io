@@ -67,24 +67,20 @@
 
 
 
-<meta name="description" content="视频见：https://www.youtube.com/watch?v=puhfMX8jb9c视频很短，但是这个主题还是很有价值的，能帮助我们开发者理解应用设计的一些模式规范。
-在我看来，作为一个前端开发者，我们不仅仅是去执行产品设计下发下来的东西，更多的是要去思考什么样的设计/交互是好的，什么样的需求是合理的，成为一个有独立思考的开发者。
-本篇是该系列第二季的第一集，介绍了Snackbar的使用">
+<meta name="description" content="视频见：https://www.youtube.com/watch?v=puhfMX8jb9c视频很短，但是这个主题还是很有价值的，能帮助我们开发者理解应用设计的一些模式规范。 在我看来，作为一个前端开发者，我们不仅仅是去执行产品设计下发下来的东西，更多的是要去思考什么样的设计/交互是好的，什么样的需求是合理的，成为一个有独立思考的开发者。 本篇是该系列第二季的第一集，介绍了Snackbar的使用">
+<meta name="keywords" content="Android,Android Development Patterns,翻译">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Android开发模式 S2 EP1 - Snackbar, 合适的打断">
 <meta property="og:url" content="http://blog.zhaiyifan.cn/2016/02/03/AndroidDevelopmentPatternsS2EP1/index.html">
-<meta property="og:site_name" content="markzhai's home">
-<meta property="og:description" content="视频见：https://www.youtube.com/watch?v=puhfMX8jb9c视频很短，但是这个主题还是很有价值的，能帮助我们开发者理解应用设计的一些模式规范。
-在我看来，作为一个前端开发者，我们不仅仅是去执行产品设计下发下来的东西，更多的是要去思考什么样的设计/交互是好的，什么样的需求是合理的，成为一个有独立思考的开发者。
-本篇是该系列第二季的第一集，介绍了Snackbar的使用">
+<meta property="og:site_name" content="markzhai&#39;s home">
+<meta property="og:description" content="视频见：https://www.youtube.com/watch?v=puhfMX8jb9c视频很短，但是这个主题还是很有价值的，能帮助我们开发者理解应用设计的一些模式规范。 在我看来，作为一个前端开发者，我们不仅仅是去执行产品设计下发下来的东西，更多的是要去思考什么样的设计/交互是好的，什么样的需求是合理的，成为一个有独立思考的开发者。 本篇是该系列第二季的第一集，介绍了Snackbar的使用">
 <meta property="og:image" content="http://blog.zhaiyifan.cn/images/android-development-patterns-s2-ep1-1.png">
 <meta property="og:image" content="http://blog.zhaiyifan.cn/images/android-development-patterns-s2-ep1-2.png">
 <meta property="og:updated_time" content="2016-02-03T15:38:26.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android开发模式 S2 EP1 - Snackbar, 合适的打断">
-<meta name="twitter:description" content="视频见：https://www.youtube.com/watch?v=puhfMX8jb9c视频很短，但是这个主题还是很有价值的，能帮助我们开发者理解应用设计的一些模式规范。
-在我看来，作为一个前端开发者，我们不仅仅是去执行产品设计下发下来的东西，更多的是要去思考什么样的设计/交互是好的，什么样的需求是合理的，成为一个有独立思考的开发者。
-本篇是该系列第二季的第一集，介绍了Snackbar的使用">
+<meta name="twitter:description" content="视频见：https://www.youtube.com/watch?v=puhfMX8jb9c视频很短，但是这个主题还是很有价值的，能帮助我们开发者理解应用设计的一些模式规范。 在我看来，作为一个前端开发者，我们不仅仅是去执行产品设计下发下来的东西，更多的是要去思考什么样的设计/交互是好的，什么样的需求是合理的，成为一个有独立思考的开发者。 本篇是该系列第二季的第一集，介绍了Snackbar的使用">
+<meta name="twitter:image" content="http://blog.zhaiyifan.cn/images/android-development-patterns-s2-ep1-1.png">
 
 
 
@@ -388,7 +384,7 @@
         <p>视频见：<a href="https://www.youtube.com/watch?v=puhfMX8jb9c" target="_blank" rel="external">https://www.youtube.com/watch?v=puhfMX8jb9c</a><br>视频很短，但是这个主题还是很有价值的，能帮助我们开发者理解应用设计的一些模式规范。</p>
 <p>在我看来，作为一个前端开发者，我们不仅仅是去执行产品设计下发下来的东西，更多的是要去思考什么样的设计/交互是好的，什么样的需求是合理的，成为一个有独立思考的开发者。</p>
 <p>本篇是该系列第二季的第一集，介绍了Snackbar的使用场景（相信现在大部分的开发者使用的还只是Toast和Alert吧）。</p>
-<h2 id="正文">正文</h2><p>在你的应用中，交互信息的一个细节在于使用屏幕上的提示。但是，当那个信息很重要或者需要用户做决定的时候，你可能想要使用对话框(Alert)。</p>
+<h2 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h2><p>在你的应用中，交互信息的一个细节在于使用屏幕上的提示。但是，当那个信息很重要或者需要用户做决定的时候，你可能想要使用对话框(Alert)。</p>
 <p>在过去，你有2种方式：</p>
 <ol>
 <li>对话框。可以展示信息给用户，并让他们对其进行操作。<br>但是对话框是中断性的（强制用户停下正在做的，来处理你的对话框）。想想，你享受被打断的滋味吗？你喜欢那种去确认你想做的操作的感觉吗？还是喜欢弹出对话框？<br><img src="/images/android-development-patterns-s2-ep1-1.png" alt="android-development-patterns-s2-ep1-1"></li>
@@ -407,7 +403,7 @@
 <li>Toast：给用户一个不会改变任何东西的小提示。</li>
 <li>Snackbar：前两者之间的区间内，Snackbar是你最好的朋友。</li>
 </ul>
-<h2 id="小结">小结</h2><p>对话框（Alerts）对于和用户交互来说是<strong>很重</strong>的一个操作，但它确实帮助你了解什么是恰当的，从而你的用户不会讨厌你。幸运的是，现在有了一个简单的回答：使用<a href="http://developer.android.com/reference/android/support/design/widget/Snackbar.html" target="_blank" rel="external">Snackbar!</a>。</p>
+<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>对话框（Alerts）对于和用户交互来说是<strong>很重</strong>的一个操作，但它确实帮助你了解什么是恰当的，从而你的用户不会讨厌你。幸运的是，现在有了一个简单的回答：使用<a href="http://developer.android.com/reference/android/support/design/widget/Snackbar.html" target="_blank" rel="external">Snackbar!</a>。</p>
 <p>有一些微妙的场景，我们不知道如何在Toast和Snackbar之间抉择，那么<a href="http://www.google.com/design/spec/components/snackbars-toasts.html#" target="_blank" rel="external">Google的设计文档</a>包括了你可能需要的所有的详尽细节。如果你仍然希望做错，<a href="http://www.google.com/design/spec/components/dialogs.html#dialogs-behavior" target="_blank" rel="external">Dialog</a>当然也可以使用。但我们相信你能做得更好。所以成为一个更好的开发者，使用更好的选择：Snackbar。</p>
 <p>最后牢骚一句，国内一些app退出的时候还要弹个Dialog问你是不是要退出的交互，真是够了/(ㄒoㄒ)/~~</p>
 

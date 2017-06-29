@@ -49,7 +49,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="AOP,Android,监控," />
+  <meta name="keywords" content="Android,监控,AOP," />
 
 
 
@@ -67,22 +67,17 @@
 
 
 
-<meta name="description" content="什么是埋点埋点（打点）其实就是操作的记录，又细分为本地和在线两种，前者记录在log里供开发分析问题用，后者则直接上传到服务器，会被用到像是BI、PD分析业务趋势上。最常见的像是在activity的部分生命周期记录，或者点击操作的时候上报一下。
-虽然其本身只是一两行代码的事，却会对客户端代码的整洁性产生影响，而且本身也不够灵活，需要在各个地方或者基类写代码，很难做一些特例。
-AOPAOP，面向切面编">
+<meta name="description" content="什么是埋点埋点（打点）其实就是操作的记录，又细分为本地和在线两种，前者记录在log里供开发分析问题用，后者则直接上传到服务器，会被用到像是BI、PD分析业务趋势上。最常见的像是在activity的部分生命周期记录，或者点击操作的时候上报一下。 虽然其本身只是一两行代码的事，却会对客户端代码的整洁性产生影响，而且本身也不够灵活，需要在各个地方或者基类写代码，很难做一些特例。 AOPAOP，面向切面编">
+<meta name="keywords" content="Android,监控,AOP">
 <meta property="og:type" content="article">
 <meta property="og:title" content="基于AOP的方法级自动埋点">
 <meta property="og:url" content="http://blog.zhaiyifan.cn/2015/12/07/AopBasedMonitor/index.html">
-<meta property="og:site_name" content="markzhai's home">
-<meta property="og:description" content="什么是埋点埋点（打点）其实就是操作的记录，又细分为本地和在线两种，前者记录在log里供开发分析问题用，后者则直接上传到服务器，会被用到像是BI、PD分析业务趋势上。最常见的像是在activity的部分生命周期记录，或者点击操作的时候上报一下。
-虽然其本身只是一两行代码的事，却会对客户端代码的整洁性产生影响，而且本身也不够灵活，需要在各个地方或者基类写代码，很难做一些特例。
-AOPAOP，面向切面编">
+<meta property="og:site_name" content="markzhai&#39;s home">
+<meta property="og:description" content="什么是埋点埋点（打点）其实就是操作的记录，又细分为本地和在线两种，前者记录在log里供开发分析问题用，后者则直接上传到服务器，会被用到像是BI、PD分析业务趋势上。最常见的像是在activity的部分生命周期记录，或者点击操作的时候上报一下。 虽然其本身只是一两行代码的事，却会对客户端代码的整洁性产生影响，而且本身也不够灵活，需要在各个地方或者基类写代码，很难做一些特例。 AOPAOP，面向切面编">
 <meta property="og:updated_time" content="2016-02-03T15:38:06.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="基于AOP的方法级自动埋点">
-<meta name="twitter:description" content="什么是埋点埋点（打点）其实就是操作的记录，又细分为本地和在线两种，前者记录在log里供开发分析问题用，后者则直接上传到服务器，会被用到像是BI、PD分析业务趋势上。最常见的像是在activity的部分生命周期记录，或者点击操作的时候上报一下。
-虽然其本身只是一两行代码的事，却会对客户端代码的整洁性产生影响，而且本身也不够灵活，需要在各个地方或者基类写代码，很难做一些特例。
-AOPAOP，面向切面编">
+<meta name="twitter:description" content="什么是埋点埋点（打点）其实就是操作的记录，又细分为本地和在线两种，前者记录在log里供开发分析问题用，后者则直接上传到服务器，会被用到像是BI、PD分析业务趋势上。最常见的像是在activity的部分生命周期记录，或者点击操作的时候上报一下。 虽然其本身只是一两行代码的事，却会对客户端代码的整洁性产生影响，而且本身也不够灵活，需要在各个地方或者基类写代码，很难做一些特例。 AOPAOP，面向切面编">
 
 
 
@@ -383,13 +378,13 @@ AOPAOP，面向切面编">
       
 
       
-        <h1 id="什么是埋点">什么是埋点</h1><p>埋点（打点）其实就是操作的记录，又细分为本地和在线两种，前者记录在log里供开发分析问题用，后者则直接上传到服务器，会被用到像是BI、PD分析业务趋势上。最常见的像是在activity的部分生命周期记录，或者点击操作的时候上报一下。</p>
+        <h1 id="什么是埋点"><a href="#什么是埋点" class="headerlink" title="什么是埋点"></a>什么是埋点</h1><p>埋点（打点）其实就是操作的记录，又细分为本地和在线两种，前者记录在log里供开发分析问题用，后者则直接上传到服务器，会被用到像是BI、PD分析业务趋势上。最常见的像是在activity的部分生命周期记录，或者点击操作的时候上报一下。</p>
 <p>虽然其本身只是一两行代码的事，却会对客户端代码的整洁性产生影响，而且本身也不够灵活，需要在各个地方或者基类写代码，很难做一些特例。</p>
-<h1 id="AOP">AOP</h1><p>AOP，面向切面编程，通过预编译方式和运行期动态代理实现程序功能的统一维护的一种技术。AOP是OOP的延续，是软件开发中的一个热点，也是Spring框架中的一个重要内容，是函数式编程的一种衍生范型。利用AOP可以对业务逻辑的各个部分进行隔离，从而使得业务逻辑各部分之间的耦合度降低，提高程序的可重用性，同时提高了开发的效率。</p>
+<h1 id="AOP"><a href="#AOP" class="headerlink" title="AOP"></a>AOP</h1><p>AOP，面向切面编程，通过预编译方式和运行期动态代理实现程序功能的统一维护的一种技术。AOP是OOP的延续，是软件开发中的一个热点，也是Spring框架中的一个重要内容，是函数式编程的一种衍生范型。利用AOP可以对业务逻辑的各个部分进行隔离，从而使得业务逻辑各部分之间的耦合度降低，提高程序的可重用性，同时提高了开发的效率。</p>
 <p>看起来很牛逼的样子，其实简单来说，就是插代码（编译期或者运行期）。</p>
-<h1 id="AspectJ">AspectJ</h1><p>也是个有十几年历史的库了。定义了各种连接点集合来实现AOP的概念，网上现在很多资料，这里就不赘述了。</p>
-<h1 id="Android_Usage">Android Usage</h1><p>在Gradle中使用：<a href="https://github.com/uPhyca/gradle-android-aspectj-plugin" target="_blank" rel="external">https://github.com/uPhyca/gradle-android-aspectj-plugin</a></p>
-<h1 id="生命周期切面定义">生命周期切面定义</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 所有继承自android.app.Activity的类的以on开头的方法</span></span><br><span class="line"><span class="annotation">@Pointcut</span>(<span class="string">"execution(* android.app.Activity+.on*(..)) &amp;&amp; this(activity) "</span>)</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">logForActivity</span><span class="params">(android.app.Activity activity)</span> </span>&#123;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 所有继承android.support.v4.app.Fragment的类的以on开头的方法</span></span><br><span class="line"><span class="annotation">@Pointcut</span>(<span class="string">"execution(* android.support.v4.app.Fragment+.on*(..)) &amp;&amp; this(fragment) "</span>)</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">logForFragment</span><span class="params">(android.support.v4.app.Fragment fragment)</span> </span>&#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="AspectJ"><a href="#AspectJ" class="headerlink" title="AspectJ"></a>AspectJ</h1><p>也是个有十几年历史的库了。定义了各种连接点集合来实现AOP的概念，网上现在很多资料，这里就不赘述了。</p>
+<h1 id="Android-Usage"><a href="#Android-Usage" class="headerlink" title="Android Usage"></a>Android Usage</h1><p>在Gradle中使用：<a href="https://github.com/uPhyca/gradle-android-aspectj-plugin" target="_blank" rel="external">https://github.com/uPhyca/gradle-android-aspectj-plugin</a></p>
+<h1 id="生命周期切面定义"><a href="#生命周期切面定义" class="headerlink" title="生命周期切面定义"></a>生命周期切面定义</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 所有继承自android.app.Activity的类的以on开头的方法</span></div><div class="line"><span class="meta">@Pointcut</span>(<span class="string">"execution(* android.app.Activity+.on*(..)) &amp;&amp; this(activity) "</span>)</div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">logForActivity</span><span class="params">(android.app.Activity activity)</span> </span>&#123;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 所有继承android.support.v4.app.Fragment的类的以on开头的方法</span></div><div class="line"><span class="meta">@Pointcut</span>(<span class="string">"execution(* android.support.v4.app.Fragment+.on*(..)) &amp;&amp; this(fragment) "</span>)</div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">logForFragment</span><span class="params">(android.support.v4.app.Fragment fragment)</span> </span>&#123;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 
       
     </div>
@@ -445,11 +440,11 @@ AOPAOP，面向切面编">
       
         <div class="post-tags">
           
-            <a href="/tags/AOP/" rel="tag"># AOP</a>
-          
             <a href="/tags/Android/" rel="tag"># Android</a>
           
             <a href="/tags/监控/" rel="tag"># 监控</a>
+          
+            <a href="/tags/AOP/" rel="tag"># AOP</a>
           
         </div>
       
@@ -699,7 +694,7 @@ AOPAOP，面向切面编">
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#什么是埋点"><span class="nav-number">1.</span> <span class="nav-text">什么是埋点</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#AOP"><span class="nav-number">2.</span> <span class="nav-text">AOP</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#AspectJ"><span class="nav-number">3.</span> <span class="nav-text">AspectJ</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Android_Usage"><span class="nav-number">4.</span> <span class="nav-text">Android Usage</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#生命周期切面定义"><span class="nav-number">5.</span> <span class="nav-text">生命周期切面定义</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#什么是埋点"><span class="nav-number">1.</span> <span class="nav-text">什么是埋点</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#AOP"><span class="nav-number">2.</span> <span class="nav-text">AOP</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#AspectJ"><span class="nav-number">3.</span> <span class="nav-text">AspectJ</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Android-Usage"><span class="nav-number">4.</span> <span class="nav-text">Android Usage</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#生命周期切面定义"><span class="nav-number">5.</span> <span class="nav-text">生命周期切面定义</span></a></li></ol></div>
             
 
           </div>

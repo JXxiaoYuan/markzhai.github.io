@@ -67,31 +67,17 @@
 
 
 
-<meta name="description" content="EventBus, otto, LocalBroadcast的选择
-greenrobot的EventBus
-square的otto
-android support包里提供的LocalBroadcast
-
-三者都是类似订阅/发布的模式，降低了耦合度。与callback比起来，这种事件总线的模式使得两个类没有直接的依赖关系，对架构来说进行了解耦，把双向依赖变成了单向依赖，在大型项目中尤其显得重要。">
+<meta name="description" content="EventBus, otto, LocalBroadcast的选择 greenrobot的EventBus square的otto android support包里提供的LocalBroadcast  三者都是类似订阅/发布的模式，降低了耦合度。与callback比起来，这种事件总线的模式使得两个类没有直接的依赖关系，对架构来说进行了解耦，把双向依赖变成了单向依赖，在大型项目中尤其显得重要。">
+<meta name="keywords" content="Android,EventBus">
 <meta property="og:type" content="article">
 <meta property="og:title" content="EventBus, otto, LocalBroadcast的选择">
 <meta property="og:url" content="http://blog.zhaiyifan.cn/2015/08/17/EventBus:otto:LocalBroadcast的选择/index.html">
-<meta property="og:site_name" content="markzhai's home">
-<meta property="og:description" content="EventBus, otto, LocalBroadcast的选择
-greenrobot的EventBus
-square的otto
-android support包里提供的LocalBroadcast
-
-三者都是类似订阅/发布的模式，降低了耦合度。与callback比起来，这种事件总线的模式使得两个类没有直接的依赖关系，对架构来说进行了解耦，把双向依赖变成了单向依赖，在大型项目中尤其显得重要。">
+<meta property="og:site_name" content="markzhai&#39;s home">
+<meta property="og:description" content="EventBus, otto, LocalBroadcast的选择 greenrobot的EventBus square的otto android support包里提供的LocalBroadcast  三者都是类似订阅/发布的模式，降低了耦合度。与callback比起来，这种事件总线的模式使得两个类没有直接的依赖关系，对架构来说进行了解耦，把双向依赖变成了单向依赖，在大型项目中尤其显得重要。">
 <meta property="og:updated_time" content="2016-02-03T15:45:01.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="EventBus, otto, LocalBroadcast的选择">
-<meta name="twitter:description" content="EventBus, otto, LocalBroadcast的选择
-greenrobot的EventBus
-square的otto
-android support包里提供的LocalBroadcast
-
-三者都是类似订阅/发布的模式，降低了耦合度。与callback比起来，这种事件总线的模式使得两个类没有直接的依赖关系，对架构来说进行了解耦，把双向依赖变成了单向依赖，在大型项目中尤其显得重要。">
+<meta name="twitter:description" content="EventBus, otto, LocalBroadcast的选择 greenrobot的EventBus square的otto android support包里提供的LocalBroadcast  三者都是类似订阅/发布的模式，降低了耦合度。与callback比起来，这种事件总线的模式使得两个类没有直接的依赖关系，对架构来说进行了解耦，把双向依赖变成了单向依赖，在大型项目中尤其显得重要。">
 
 
 
@@ -392,18 +378,18 @@ android support包里提供的LocalBroadcast
       
 
       
-        <h1 id="EventBus,_otto,_LocalBroadcast的选择">EventBus, otto, LocalBroadcast的选择</h1><ul>
+        <h1 id="EventBus-otto-LocalBroadcast的选择"><a href="#EventBus-otto-LocalBroadcast的选择" class="headerlink" title="EventBus, otto, LocalBroadcast的选择"></a>EventBus, otto, LocalBroadcast的选择</h1><ul>
 <li>greenrobot的EventBus</li>
 <li>square的otto</li>
 <li>android support包里提供的LocalBroadcast</li>
 </ul>
 <p>三者都是类似订阅/发布的模式，降低了耦合度。与callback比起来，这种事件总线的模式使得两个类没有直接的依赖关系，对架构来说进行了解耦，把双向依赖变成了单向依赖，在大型项目中尤其显得重要。<br><a id="more"></a></p>
 <hr>
-<h2 id="Why_publish/subscribe">Why publish/subscribe</h2><p>一方面，callback很容易产生内存泄露，如I/O、网络操作持有了Activity/Fragment的引用，导致不能及时释放，而团队中也很难保证每个成员都足够优秀在写callback的时候能使用弱引用或静态变量。相比起来订阅/发布者模式则比较简单，直接在BaseActivity的onDestroy释放掉，避免了可能的坑。</p>
+<h2 id="Why-publish-subscribe"><a href="#Why-publish-subscribe" class="headerlink" title="Why publish/subscribe"></a>Why publish/subscribe</h2><p>一方面，callback很容易产生内存泄露，如I/O、网络操作持有了Activity/Fragment的引用，导致不能及时释放，而团队中也很难保证每个成员都足够优秀在写callback的时候能使用弱引用或静态变量。相比起来订阅/发布者模式则比较简单，直接在BaseActivity的onDestroy释放掉，避免了可能的坑。</p>
 <p>另外，从可扩展性、可维护性的角度来说，callback也更局限，比如以前某个接口是告诉上层网络数据拉回来了，现在我们希望扩展，这个接口也支持直接告诉上层数据库拉回来了，向上层屏蔽数据来源，如果用callback，则在一次回调结束后，没有办法再次进行回调了。页面必须自己去处理数据来源和拉数据的逻辑。</p>
 <p>虽然有些over-architect的嫌疑，但是<a href="https://github.com/android10/Android-CleanArchitecture" target="_blank" rel="external">Android-CleanArchitecture</a> 确实是一种很clean的architecture，而其也正是通过观察者/订阅者模式来实现了单向依赖。</p>
 <hr>
-<h2 id="比较">比较</h2><p>EventBus的github上就有其和otto的比较： <a href="https://github.com/greenrobot/EventBus/blob/master/COMPARISON.md" target="_blank" rel="external">EventBus vs Otto</a><br>总的来说，两者功能差的不多，otto多了Event producers (e.g. for coding cached events)，而EventBus则多了各种线程的处理、订阅者继承、sticky event等。<br>但从性能来说，由于otto使用了基于反射的annotation，而和EventBus产生了一定的差距（内部应该还有一些其他问题导致的性能差异，待研究）</p>
+<h2 id="比较"><a href="#比较" class="headerlink" title="比较"></a>比较</h2><p>EventBus的github上就有其和otto的比较： <a href="https://github.com/greenrobot/EventBus/blob/master/COMPARISON.md" target="_blank" rel="external">EventBus vs Otto</a><br>总的来说，两者功能差的不多，otto多了Event producers (e.g. for coding cached events)，而EventBus则多了各种线程的处理、订阅者继承、sticky event等。<br>但从性能来说，由于otto使用了基于反射的annotation，而和EventBus产生了一定的差距（内部应该还有一些其他问题导致的性能差异，待研究）</p>
 <p>三者都不支持跨进程，LocalBroadcast内部其实使用的是Handler，所以其实更像是一个utils类。</p>
 <p>如果要做选择的话，LocalBroadcast更轻量，otto相比起api更好用，而EventBus则拥有很棒的线程模型，我投EventBus一票，因为onEvent的各种线程回调真的很方便。</p>
 
@@ -713,7 +699,7 @@ android support包里提供的LocalBroadcast
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#EventBus,_otto,_LocalBroadcast的选择"><span class="nav-number">1.</span> <span class="nav-text">EventBus, otto, LocalBroadcast的选择</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Why_publish/subscribe"><span class="nav-number">1.1.</span> <span class="nav-text">Why publish/subscribe</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#比较"><span class="nav-number">1.2.</span> <span class="nav-text">比较</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#EventBus-otto-LocalBroadcast的选择"><span class="nav-number">1.</span> <span class="nav-text">EventBus, otto, LocalBroadcast的选择</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Why-publish-subscribe"><span class="nav-number">1.1.</span> <span class="nav-text">Why publish/subscribe</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#比较"><span class="nav-number">1.2.</span> <span class="nav-text">比较</span></a></li></ol></li></ol></div>
             
 
           </div>

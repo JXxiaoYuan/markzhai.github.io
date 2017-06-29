@@ -67,29 +67,19 @@
 
 
 
-<meta name="description" content="最近一直在忙新项目的事情，所以有的坑一直没填。。现在看来可能一时半会儿还填不了，倒不如记录一下新项目的搭建。
-试想一下，如果没有历史负担，没有KPI压力，去新搭建一个项目，你会怎么设计和实现呢？
-本系列文章不是教你怎么从0开始学Android，从0开始怎么建一个项目，而定位于零负担的情况下，在2016年怎么去创建一个好的Android项目，其中一部分技术并不太适合刚入门的初学者。
-
-Applica">
+<meta name="description" content="最近一直在忙新项目的事情，所以有的坑一直没填。。现在看来可能一时半会儿还填不了，倒不如记录一下新项目的搭建。 试想一下，如果没有历史负担，没有KPI压力，去新搭建一个项目，你会怎么设计和实现呢？ 本系列文章不是教你怎么从0开始学Android，从0开始怎么建一个项目，而定位于零负担的情况下，在2016年怎么去创建一个好的Android项目，其中一部分技术并不太适合刚入门的初学者。  Applica">
+<meta name="keywords" content="Android Architecture,New Android Project From 0">
 <meta property="og:type" content="article">
 <meta property="og:title" content="从零开始的Android新项目1 - 架构搭建篇">
 <meta property="og:url" content="http://blog.zhaiyifan.cn/2016/03/14/android-new-project-from-0-p1/index.html">
-<meta property="og:site_name" content="markzhai's home">
-<meta property="og:description" content="最近一直在忙新项目的事情，所以有的坑一直没填。。现在看来可能一时半会儿还填不了，倒不如记录一下新项目的搭建。
-试想一下，如果没有历史负担，没有KPI压力，去新搭建一个项目，你会怎么设计和实现呢？
-本系列文章不是教你怎么从0开始学Android，从0开始怎么建一个项目，而定位于零负担的情况下，在2016年怎么去创建一个好的Android项目，其中一部分技术并不太适合刚入门的初学者。
-
-Applica">
+<meta property="og:site_name" content="markzhai&#39;s home">
+<meta property="og:description" content="最近一直在忙新项目的事情，所以有的坑一直没填。。现在看来可能一时半会儿还填不了，倒不如记录一下新项目的搭建。 试想一下，如果没有历史负担，没有KPI压力，去新搭建一个项目，你会怎么设计和实现呢？ 本系列文章不是教你怎么从0开始学Android，从0开始怎么建一个项目，而定位于零负担的情况下，在2016年怎么去创建一个好的Android项目，其中一部分技术并不太适合刚入门的初学者。  Applica">
 <meta property="og:image" content="http://blog.zhaiyifan.cn/images/android-new-project-from-1-p1-1.png">
 <meta property="og:updated_time" content="2016-03-27T14:26:55.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="从零开始的Android新项目1 - 架构搭建篇">
-<meta name="twitter:description" content="最近一直在忙新项目的事情，所以有的坑一直没填。。现在看来可能一时半会儿还填不了，倒不如记录一下新项目的搭建。
-试想一下，如果没有历史负担，没有KPI压力，去新搭建一个项目，你会怎么设计和实现呢？
-本系列文章不是教你怎么从0开始学Android，从0开始怎么建一个项目，而定位于零负担的情况下，在2016年怎么去创建一个好的Android项目，其中一部分技术并不太适合刚入门的初学者。
-
-Applica">
+<meta name="twitter:description" content="最近一直在忙新项目的事情，所以有的坑一直没填。。现在看来可能一时半会儿还填不了，倒不如记录一下新项目的搭建。 试想一下，如果没有历史负担，没有KPI压力，去新搭建一个项目，你会怎么设计和实现呢？ 本系列文章不是教你怎么从0开始学Android，从0开始怎么建一个项目，而定位于零负担的情况下，在2016年怎么去创建一个好的Android项目，其中一部分技术并不太适合刚入门的初学者。  Applica">
+<meta name="twitter:image" content="http://blog.zhaiyifan.cn/images/android-new-project-from-1-p1-1.png">
 
 
 
@@ -394,7 +384,7 @@ Applica">
 <p>试想一下，如果没有历史负担，没有KPI压力，去新搭建一个项目，你会怎么设计和实现呢？</p>
 <p>本系列文章不是教你怎么从0开始学Android，从0开始怎么建一个项目，而定位于零负担的情况下，在2016年怎么去创建一个好的Android项目，其中一部分技术并不太适合刚入门的初学者。</p>
 <p><img src="/images/android-new-project-from-1-p1-1.png" alt="architecture"></p>
-<h1 id="Application_specific">Application specific</h1><p>类似clean architecture，分为三层 presentation - data - domain。</p>
+<h1 id="Application-specific"><a href="#Application-specific" class="headerlink" title="Application specific"></a>Application specific</h1><p>类似clean architecture，分为三层 presentation - data - domain。</p>
 <p>关于Clean Architecture由于国内的一些文章和项目都多少有偏离和错误，建议直接看</p>
 <ul>
 <li><a href="http://fernandocejas.com/2014/09/03/architecting-android-the-clean-way/" target="_blank" rel="external">http://fernandocejas.com/2014/09/03/architecting-android-the-clean-way/</a></li>
@@ -405,7 +395,7 @@ Applica">
 <p>data为domain的实现，是Android library，从MVP的角度来说，即是M层，内部隐藏所有数据细节，cache、数据库、网络、PO、exception（根据业务特点自定义的exception）、repository的具体实现（内部屏蔽数据细节，可能来自网络、数据库、缓存等）。使用Robolectric 3 + JUnit + Mockito进行集成测试。</p>
 <p>presentation即展示层，是Android application module，对data不存在实际感知，依赖仅仅是Dagger注入的实例化，所有访问都通过接口进行，可见的是domain里的接口。包含了error message factory(所有exception都会被factory生成对应的message)、DI、mapper（vo转换）、VO（data binding进行MVVM）、navigation、presenter（不强制，仅在一些特别复杂的场景引入）、usersystem、utils（业务相关）、view（activity、fragment、adapter等）、application实现、业务常量等。可以使用Espresso和Android Instrumentation进行UI测试。</p>
 <p>整个项目类似MVP+MVVM的混合（谁跟你说的MVP和MVVM是互斥的？），不过P层不一定存在，以避免为了模式而模式所导致的开发压力。</p>
-<h1 id="Common_libraries">Common libraries</h1><p>aar依赖以避免对编译速度造成影响，不过这里比较巧妙的是依赖作为module引入，所以当需要源码依赖的时候在build.gradle里进行注释/反注释就能迅速切换，十分方便。</p>
+<h1 id="Common-libraries"><a href="#Common-libraries" class="headerlink" title="Common libraries"></a>Common libraries</h1><p>aar依赖以避免对编译速度造成影响，不过这里比较巧妙的是依赖作为module引入，所以当需要源码依赖的时候在build.gradle里进行注释/反注释就能迅速切换，十分方便。</p>
 <p>lib_uiframework: UI framework，包含了各种Base类，如BaseActivity、BaseFragment、Navigator（应用中的一切通过scheme跳转）、ActivityManager、FragmentBackHelper等。</p>
 <p>lib_uikit: 各种自定义view、第三方view的gradle或者源码依赖。</p>
 <p>lib_im: 即时通讯库。</p>
@@ -413,7 +403,7 @@ Applica">
 <p>lib_authorize: 第三方认证(登陆)，目前包括QQ、微信、微博、LinkedIn。</p>
 <p>lib_share: 第三方分享，目前包括QQ、微信、微博。</p>
 <p>…等等</p>
-<h1 id="Third_party_libraries">Third party libraries</h1><p>Dagger, jsr250: 依赖注入框架让我们省了很多代码，jsr250则是Dagger注入时的一个annotation根据，我们的domain依赖了jsr250。</p>
+<h1 id="Third-party-libraries"><a href="#Third-party-libraries" class="headerlink" title="Third party libraries"></a>Third party libraries</h1><p>Dagger, jsr250: 依赖注入框架让我们省了很多代码，jsr250则是Dagger注入时的一个annotation根据，我们的domain依赖了jsr250。</p>
 <p>Rx大家族: RxJava, RxAndroid, RxBinding。新时代Android开发必备，还用说吗？</p>
 <p>Retrofit: 装逼，喔，不对，高效率开发必备的网络框架。使用注解生成API，方便极了。我这里的实践是根据业务划分多个API接口，然后通过Dagger module进行实例化注入。</p>
 <p>EventBus: 有了RxJava还要EventBus？当然，事件并不总是一对一的，也不总是流式的（可能是持续被动的）。举个简单的例子，feed详情信息更新后（比如点赞数据），外部可能有2个timeline页面也需要更新这个数据，这个时候EventBus就可以优雅地进行事件广播。</p>
@@ -728,7 +718,7 @@ Applica">
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Application_specific"><span class="nav-number">1.</span> <span class="nav-text">Application specific</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Common_libraries"><span class="nav-number">2.</span> <span class="nav-text">Common libraries</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Third_party_libraries"><span class="nav-number">3.</span> <span class="nav-text">Third party libraries</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Application-specific"><span class="nav-number">1.</span> <span class="nav-text">Application specific</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Common-libraries"><span class="nav-number">2.</span> <span class="nav-text">Common libraries</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Third-party-libraries"><span class="nav-number">3.</span> <span class="nav-text">Third party libraries</span></a></li></ol></div>
             
 
           </div>

@@ -49,7 +49,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="AOSP,Android,编译," />
+  <meta name="keywords" content="Android,AOSP,编译," />
 
 
 
@@ -67,19 +67,17 @@
 
 
 
-<meta name="description" content="背景因为只有一台可怜的256G MBPR，并没有足够的空间去装一个Ubuntu，所以之前在10.10的时候尝试编译5.0未果后（各种版本问题），就无奈放弃了。前几天在看最新的aosp官网介绍的时候，发现master和6.0.x的编译都使用了or later来描述对Mac OS的版本要求，就抱着试一试的心情开始了新的编译之旅。从下载到最后动车轰轰声中编译结束，也断断续续花了3天时间。
-配置OS X">
+<meta name="description" content="背景因为只有一台可怜的256G MBPR，并没有足够的空间去装一个Ubuntu，所以之前在10.10的时候尝试编译5.0未果后（各种版本问题），就无奈放弃了。前几天在看最新的aosp官网介绍的时候，发现master和6.0.x的编译都使用了or later来描述对Mac OS的版本要求，就抱着试一试的心情开始了新的编译之旅。从下载到最后动车轰轰声中编译结束，也断断续续花了3天时间。 配置OS X">
+<meta name="keywords" content="Android,AOSP,编译">
 <meta property="og:type" content="article">
 <meta property="og:title" content="在Mac 10.11编译最新的Android 6.0">
 <meta property="og:url" content="http://blog.zhaiyifan.cn/2015/11/24/BuildAndroid6OnMacElCapitan/index.html">
-<meta property="og:site_name" content="markzhai's home">
-<meta property="og:description" content="背景因为只有一台可怜的256G MBPR，并没有足够的空间去装一个Ubuntu，所以之前在10.10的时候尝试编译5.0未果后（各种版本问题），就无奈放弃了。前几天在看最新的aosp官网介绍的时候，发现master和6.0.x的编译都使用了or later来描述对Mac OS的版本要求，就抱着试一试的心情开始了新的编译之旅。从下载到最后动车轰轰声中编译结束，也断断续续花了3天时间。
-配置OS X">
+<meta property="og:site_name" content="markzhai&#39;s home">
+<meta property="og:description" content="背景因为只有一台可怜的256G MBPR，并没有足够的空间去装一个Ubuntu，所以之前在10.10的时候尝试编译5.0未果后（各种版本问题），就无奈放弃了。前几天在看最新的aosp官网介绍的时候，发现master和6.0.x的编译都使用了or later来描述对Mac OS的版本要求，就抱着试一试的心情开始了新的编译之旅。从下载到最后动车轰轰声中编译结束，也断断续续花了3天时间。 配置OS X">
 <meta property="og:updated_time" content="2016-02-04T09:37:08.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="在Mac 10.11编译最新的Android 6.0">
-<meta name="twitter:description" content="背景因为只有一台可怜的256G MBPR，并没有足够的空间去装一个Ubuntu，所以之前在10.10的时候尝试编译5.0未果后（各种版本问题），就无奈放弃了。前几天在看最新的aosp官网介绍的时候，发现master和6.0.x的编译都使用了or later来描述对Mac OS的版本要求，就抱着试一试的心情开始了新的编译之旅。从下载到最后动车轰轰声中编译结束，也断断续续花了3天时间。
-配置OS X">
+<meta name="twitter:description" content="背景因为只有一台可怜的256G MBPR，并没有足够的空间去装一个Ubuntu，所以之前在10.10的时候尝试编译5.0未果后（各种版本问题），就无奈放弃了。前几天在看最新的aosp官网介绍的时候，发现master和6.0.x的编译都使用了or later来描述对Mac OS的版本要求，就抱着试一试的心情开始了新的编译之旅。从下载到最后动车轰轰声中编译结束，也断断续续花了3天时间。 配置OS X">
 
 
 
@@ -380,16 +378,16 @@
       
 
       
-        <h1 id="背景">背景</h1><p>因为只有一台可怜的256G MBPR，并没有足够的空间去装一个Ubuntu，所以之前在10.10的时候尝试编译5.0未果后（各种版本问题），就无奈放弃了。<br>前几天在看最新的aosp<a href="https://source.android.com/source/initializing.html#branch-60x" target="_blank" rel="external">官网介绍</a>的时候，发现master和6.0.x的编译都使用了or later来描述对Mac OS的版本要求，就抱着试一试的心情开始了新的编译之旅。从下载到最后动车轰轰声中编译结束，也断断续续花了3天时间。</p>
-<h1 id="配置">配置</h1><p>OS X EL Capital 10.11.1<br>Java 1.7.0_79<br>Xcode 7.1.1 with command line tool<br>Zsh</p>
-<h1 id="过程">过程</h1><p>因为是给我的Nexus6编译image，所以分支上，我选择了6.0.0_r2进行编译，分支选择可以参照<a href="https://source.android.com/source/build-numbers.html#source-code-tags-and-builds" target="_blank" rel="external">Source code tags and builds</a>.</p>
+        <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>因为只有一台可怜的256G MBPR，并没有足够的空间去装一个Ubuntu，所以之前在10.10的时候尝试编译5.0未果后（各种版本问题），就无奈放弃了。<br>前几天在看最新的aosp<a href="https://source.android.com/source/initializing.html#branch-60x" target="_blank" rel="external">官网介绍</a>的时候，发现master和6.0.x的编译都使用了or later来描述对Mac OS的版本要求，就抱着试一试的心情开始了新的编译之旅。从下载到最后动车轰轰声中编译结束，也断断续续花了3天时间。</p>
+<h1 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h1><p>OS X EL Capital 10.11.1<br>Java 1.7.0_79<br>Xcode 7.1.1 with command line tool<br>Zsh</p>
+<h1 id="过程"><a href="#过程" class="headerlink" title="过程"></a>过程</h1><p>因为是给我的Nexus6编译image，所以分支上，我选择了6.0.0_r2进行编译，分支选择可以参照<a href="https://source.android.com/source/build-numbers.html#source-code-tags-and-builds" target="_blank" rel="external">Source code tags and builds</a>.</p>
 <p>对于aosp被墙，尽管我们也能用vpn连接去下，但是其实国内是有aosp镜像的：<a href="https://lug.ustc.edu.cn/wiki/mirrors/help/aosp" target="_blank" rel="external">科大镜像</a>。<br>速度挺快，同步过程也比较稳定。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 实测build完后，需要60多个G，所以其实分配70G也绰绰有余了</span></span><br><span class="line">hdiutil create -type SPARSE -fs <span class="string">'Case-sensitive Journaled HFS+'</span> -size <span class="number">70</span>g ~/android.dmg</span><br><span class="line">hdiutil attach ~/android.dmg.sparseimage -mountpoint /Volumes/android;</span><br><span class="line"></span><br><span class="line"><span class="built_in">cd</span> /Volumes/android</span><br><span class="line">mkdir <span class="number">6.0</span>.<span class="number">0</span>_r2</span><br><span class="line"><span class="built_in">cd</span> <span class="number">6.0</span>.<span class="number">0</span>_r2</span><br><span class="line"></span><br><span class="line">repo init -u git://mirrors.ustc.edu.cn/aosp/platform/manifest -b android-<span class="number">6.0</span>.<span class="number">0</span>_r2</span><br><span class="line">repo sync</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 实测build完后，需要60多个G，所以其实分配70G也绰绰有余了</span></div><div class="line">hdiutil create -<span class="built_in">type</span> SPARSE -fs <span class="string">'Case-sensitive Journaled HFS+'</span> -size 70g ~/android.dmg</div><div class="line">hdiutil attach ~/android.dmg.sparseimage -mountpoint /Volumes/android;</div><div class="line"></div><div class="line"><span class="built_in">cd</span> /Volumes/android</div><div class="line">mkdir 6.0.0_r2</div><div class="line"><span class="built_in">cd</span> 6.0.0_r2</div><div class="line"></div><div class="line">repo init -u git://mirrors.ustc.edu.cn/aosp/platform/manifest -b android-6.0.0_r2</div><div class="line">repo sync</div></pre></td></tr></table></figure>
 <p>然后是漫长的等待，内容会先下载到.repo里面，再解压出来，最后大致是37G左右。接着就可以开始我们的编译之旅了。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">source</span> build/envsetup.sh</span><br><span class="line">lunch</span><br><span class="line"><span class="comment"># 选择要build的target, 可参考 https://source.android.com/source/running.html#picking-and-building-the-configuration-that-matches-a-device, N6是shamu，即19</span></span><br><span class="line"><span class="number">19</span> (aosp_shamu-userdebug)</span><br><span class="line"><span class="comment"># 我是16G的i5 mbpr, 所以选了4，这里可以看机器性能指定不同的线程数</span></span><br><span class="line">make -j4</span><br></pre></td></tr></table></figure>
-<p>你会发现报错了！！没错。。就是报错了<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Install: out/target/product/hammerhead/root/res/images/charger/battery_scale.png</span><br><span class="line">Install: out/target/product/hammerhead/fake_packages/charger_res_images-timestamp</span><br><span class="line">make: *** No rule to make target `device/lge/hammerhead_fp-kernel/zImage-dtb<span class="string">', needed by `out/target/product/hammerhead/kernel'</span>.  Stop.</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">source</span> build/envsetup.sh</div><div class="line">lunch</div><div class="line"><span class="comment"># 选择要build的target, 可参考 https://source.android.com/source/running.html#picking-and-building-the-configuration-that-matches-a-device, N6是shamu，即19</span></div><div class="line">19 (aosp_shamu-userdebug)</div><div class="line"><span class="comment"># 我是16G的i5 mbpr, 所以选了4，这里可以看机器性能指定不同的线程数</span></div><div class="line">make -j4</div></pre></td></tr></table></figure>
+<p>你会发现报错了！！没错。。就是报错了<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Install: out/target/product/hammerhead/root/res/images/charger/battery_scale.png</div><div class="line">Install: out/target/product/hammerhead/fake_packages/charger_res_images-timestamp</div><div class="line">make: *** No rule to make target `device/lge/hammerhead_fp-kernel/zImage-dtb<span class="string">', needed by `out/target/product/hammerhead/kernel'</span>.  Stop.</div></pre></td></tr></table></figure></p>
 <p>分析了一下。。发现是kernel的问题，但是官网压根没提到这个。好吧，我们来到<a href="https://developers.google.com/android/nexus/drivers" target="_blank" rel="external">Binaries for Nexus Devices</a>, 选择自己机器和分支对应的driver, 我这里对应的是Nexus 6 (Mobile) binaries for Android 6.0.0 (MRA58N)，3个都下载解压到目录后，分别运行三个extract开头的sh脚本，再次make，就顺利地build成功了。</p>
-<p>最后，刷刷刷<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fastboot -w flashall</span><br></pre></td></tr></table></figure></p>
+<p>最后，刷刷刷<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">fastboot -w flashall</div></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -445,9 +443,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/AOSP/" rel="tag"># AOSP</a>
-          
             <a href="/tags/Android/" rel="tag"># Android</a>
+          
+            <a href="/tags/AOSP/" rel="tag"># AOSP</a>
           
             <a href="/tags/编译/" rel="tag"># 编译</a>
           

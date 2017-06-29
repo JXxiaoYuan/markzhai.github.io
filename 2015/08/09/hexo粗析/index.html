@@ -68,10 +68,11 @@
 
 
 <meta name="description" content="粗…因为我并没有看完官网的doc，只是从文件结构看了看，随便写写。">
+<meta name="keywords" content="Web,hexo">
 <meta property="og:type" content="article">
 <meta property="og:title" content="hexo粗析">
 <meta property="og:url" content="http://blog.zhaiyifan.cn/2015/08/09/hexo粗析/index.html">
-<meta property="og:site_name" content="markzhai's home">
+<meta property="og:site_name" content="markzhai&#39;s home">
 <meta property="og:description" content="粗…因为我并没有看完官网的doc，只是从文件结构看了看，随便写写。">
 <meta property="og:updated_time" content="2016-02-03T15:41:02.000Z">
 <meta name="twitter:card" content="summary">
@@ -378,17 +379,17 @@
 
       
         <p>粗…因为我并没有看完官网的doc，只是从文件结构看了看，随便写写。<br><a id="more"></a></p>
-<h1 id="scaffolds">scaffolds</h1><p>一些生成用的模板，如draft/page/post，在使用hexo对应命令行new的时候会用这个来生成文件，如<br><code>post.md</code>:<br><figure class="highlight md"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">title: &#123;&#123; title &#125;&#125;</span><br><span class="line">date: &#123;&#123; date &#125;&#125;</span><br><span class="line"><span class="header">tags:</span><br><span class="line">---</span></span><br></pre></td></tr></table></figure></p>
+<h1 id="scaffolds"><a href="#scaffolds" class="headerlink" title="scaffolds"></a>scaffolds</h1><p>一些生成用的模板，如draft/page/post，在使用hexo对应命令行new的时候会用这个来生成文件，如<br><code>post.md</code>:<br><figure class="highlight md"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">title: &#123;&#123; title &#125;&#125;</div><div class="line">date: &#123;&#123; date &#125;&#125;</div><div class="line"><span class="section">tags:</span></div><div class="line">---</div></pre></td></tr></table></figure></p>
 <p>就是新的文章用的模板，有标题，日期，tag这些填好的东西。</p>
-<h1 id="source">source</h1><p>顾名思义，源代码嘛。</p>
-<h2 id="_posts">_posts</h2><p>就是写的那些文章了。</p>
-<h2 id="categories_&amp;&amp;_tags">categories &amp;&amp; tags</h2><p>并不是hexo自带的，部分主题会申明一些页面，在_config.yml里对id和url进行映射，这里就是对应的url了</p>
-<h2 id="images">images</h2><p>上传的图片之类的，其实名字叫什么都可以了，毕竟是自己在markdown里面去引用的。</p>
-<h1 id="themes">themes</h1><p>_config.yml，可以视作对hexo项目根目录下得_config.yml的一个补充，因为往往里面的东西都跟主题紧密相关，所以各个主题独立维护。</p>
-<h2 id="layout">layout</h2><p>网页ejs模板，_partial中则是如footer/header这样各个页面都会include的东西。</p>
-<h2 id="source-1">source</h2><p>css/js/fonts</p>
-<h2 id="scripts">scripts</h2><p>js脚本。</p>
-<h2 id="languages">languages</h2><p>国际化！做翻译用的！里面用yml定义了各个语言id-&gt;字符串的映射。</p>
+<h1 id="source"><a href="#source" class="headerlink" title="source"></a>source</h1><p>顾名思义，源代码嘛。</p>
+<h2 id="posts"><a href="#posts" class="headerlink" title="_posts"></a>_posts</h2><p>就是写的那些文章了。</p>
+<h2 id="categories-amp-amp-tags"><a href="#categories-amp-amp-tags" class="headerlink" title="categories &amp;&amp; tags"></a>categories &amp;&amp; tags</h2><p>并不是hexo自带的，部分主题会申明一些页面，在_config.yml里对id和url进行映射，这里就是对应的url了</p>
+<h2 id="images"><a href="#images" class="headerlink" title="images"></a>images</h2><p>上传的图片之类的，其实名字叫什么都可以了，毕竟是自己在markdown里面去引用的。</p>
+<h1 id="themes"><a href="#themes" class="headerlink" title="themes"></a>themes</h1><p>_config.yml，可以视作对hexo项目根目录下得_config.yml的一个补充，因为往往里面的东西都跟主题紧密相关，所以各个主题独立维护。</p>
+<h2 id="layout"><a href="#layout" class="headerlink" title="layout"></a>layout</h2><p>网页ejs模板，_partial中则是如footer/header这样各个页面都会include的东西。</p>
+<h2 id="source-1"><a href="#source-1" class="headerlink" title="source"></a>source</h2><p>css/js/fonts</p>
+<h2 id="scripts"><a href="#scripts" class="headerlink" title="scripts"></a>scripts</h2><p>js脚本。</p>
+<h2 id="languages"><a href="#languages" class="headerlink" title="languages"></a>languages</h2><p>国际化！做翻译用的！里面用yml定义了各个语言id-&gt;字符串的映射。</p>
 
       
     </div>
@@ -696,7 +697,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#scaffolds"><span class="nav-number">1.</span> <span class="nav-text">scaffolds</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#source"><span class="nav-number">2.</span> <span class="nav-text">source</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#_posts"><span class="nav-number">2.1.</span> <span class="nav-text">_posts</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#categories_&&_tags"><span class="nav-number">2.2.</span> <span class="nav-text">categories && tags</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#images"><span class="nav-number">2.3.</span> <span class="nav-text">images</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#themes"><span class="nav-number">3.</span> <span class="nav-text">themes</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#layout"><span class="nav-number">3.1.</span> <span class="nav-text">layout</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#source-1"><span class="nav-number">3.2.</span> <span class="nav-text">source</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#scripts"><span class="nav-number">3.3.</span> <span class="nav-text">scripts</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#languages"><span class="nav-number">3.4.</span> <span class="nav-text">languages</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#scaffolds"><span class="nav-number">1.</span> <span class="nav-text">scaffolds</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#source"><span class="nav-number">2.</span> <span class="nav-text">source</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#posts"><span class="nav-number">2.1.</span> <span class="nav-text">_posts</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#categories-amp-amp-tags"><span class="nav-number">2.2.</span> <span class="nav-text">categories && tags</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#images"><span class="nav-number">2.3.</span> <span class="nav-text">images</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#themes"><span class="nav-number">3.</span> <span class="nav-text">themes</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#layout"><span class="nav-number">3.1.</span> <span class="nav-text">layout</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#source-1"><span class="nav-number">3.2.</span> <span class="nav-text">source</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#scripts"><span class="nav-number">3.3.</span> <span class="nav-text">scripts</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#languages"><span class="nav-number">3.4.</span> <span class="nav-text">languages</span></a></li></ol></li></ol></div>
             
 
           </div>

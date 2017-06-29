@@ -67,23 +67,19 @@
 
 
 
-<meta name="description" content="WORKING - 未完
-前言米娜桑，是时候揭开DEX的面纱了！我们都知道multidex，都知道65535方法数超标，那DEX到底是个什么东西呢？或许又有些同学知道DEX会优化为ODEX，那ODEX又是什么鬼，优化了什么呢？为什么ClassLoader热补丁方案插入构造函数导致CLASS_ISPREVERIFIED为false后，会对性能造成影响，和ODEX又有什么关系呢？
-我们又知道5.0以上">
+<meta name="description" content="WORKING - 未完 前言米娜桑，是时候揭开DEX的面纱了！我们都知道multidex，都知道65535方法数超标，那DEX到底是个什么东西呢？或许又有些同学知道DEX会优化为ODEX，那ODEX又是什么鬼，优化了什么呢？为什么ClassLoader热补丁方案插入构造函数导致CLASS_ISPREVERIFIED为false后，会对性能造成影响，和ODEX又有什么关系呢？ 我们又知道5.0以上">
+<meta name="keywords" content="Android,Reverse Engineering">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Android逆向分析(3) Android可执行文件之谜 - DEX与ODEX, OAT与ELF">
 <meta property="og:url" content="http://blog.zhaiyifan.cn/2016/02/24/android-reverse-3/index.html">
-<meta property="og:site_name" content="markzhai's home">
-<meta property="og:description" content="WORKING - 未完
-前言米娜桑，是时候揭开DEX的面纱了！我们都知道multidex，都知道65535方法数超标，那DEX到底是个什么东西呢？或许又有些同学知道DEX会优化为ODEX，那ODEX又是什么鬼，优化了什么呢？为什么ClassLoader热补丁方案插入构造函数导致CLASS_ISPREVERIFIED为false后，会对性能造成影响，和ODEX又有什么关系呢？
-我们又知道5.0以上">
+<meta property="og:site_name" content="markzhai&#39;s home">
+<meta property="og:description" content="WORKING - 未完 前言米娜桑，是时候揭开DEX的面纱了！我们都知道multidex，都知道65535方法数超标，那DEX到底是个什么东西呢？或许又有些同学知道DEX会优化为ODEX，那ODEX又是什么鬼，优化了什么呢？为什么ClassLoader热补丁方案插入构造函数导致CLASS_ISPREVERIFIED为false后，会对性能造成影响，和ODEX又有什么关系呢？ 我们又知道5.0以上">
 <meta property="og:image" content="http://blog.zhaiyifan.cn/images/android-reverse-3-1.png">
 <meta property="og:updated_time" content="2016-02-24T06:47:05.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android逆向分析(3) Android可执行文件之谜 - DEX与ODEX, OAT与ELF">
-<meta name="twitter:description" content="WORKING - 未完
-前言米娜桑，是时候揭开DEX的面纱了！我们都知道multidex，都知道65535方法数超标，那DEX到底是个什么东西呢？或许又有些同学知道DEX会优化为ODEX，那ODEX又是什么鬼，优化了什么呢？为什么ClassLoader热补丁方案插入构造函数导致CLASS_ISPREVERIFIED为false后，会对性能造成影响，和ODEX又有什么关系呢？
-我们又知道5.0以上">
+<meta name="twitter:description" content="WORKING - 未完 前言米娜桑，是时候揭开DEX的面纱了！我们都知道multidex，都知道65535方法数超标，那DEX到底是个什么东西呢？或许又有些同学知道DEX会优化为ODEX，那ODEX又是什么鬼，优化了什么呢？为什么ClassLoader热补丁方案插入构造函数导致CLASS_ISPREVERIFIED为false后，会对性能造成影响，和ODEX又有什么关系呢？ 我们又知道5.0以上">
+<meta name="twitter:image" content="http://blog.zhaiyifan.cn/images/android-reverse-3-1.png">
 
 
 
@@ -385,10 +381,10 @@
 
       
         <p><strong>WORKING - 未完</strong></p>
-<h1 id="前言">前言</h1><p>米娜桑，是时候揭开DEX的面纱了！我们都知道multidex，都知道65535方法数超标，那DEX到底是个什么东西呢？或许又有些同学知道DEX会优化为ODEX，那ODEX又是什么鬼，优化了什么呢？为什么ClassLoader热补丁方案插入构造函数导致CLASS_ISPREVERIFIED为false后，会对性能造成影响，和ODEX又有什么关系呢？</p>
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>米娜桑，是时候揭开DEX的面纱了！我们都知道multidex，都知道65535方法数超标，那DEX到底是个什么东西呢？或许又有些同学知道DEX会优化为ODEX，那ODEX又是什么鬼，优化了什么呢？为什么ClassLoader热补丁方案插入构造函数导致CLASS_ISPREVERIFIED为false后，会对性能造成影响，和ODEX又有什么关系呢？</p>
 <p>我们又知道5.0以上Android虚拟机变成了Art，那DEX在art上变成了什么呢？为什么安装特别耗时间？有时候我看着我的Nexus6安装一个应用在那进度条读啊读的好像卡住了，有一种想砸了它的想法，所以当我拿到Nexus 5测试机的时候，第一件事就是刷到4.4，不然每次安装的效率实在不能忍（捂脸）。</p>
-<h1 id="DEX是什么">DEX是什么</h1><p>直接把apk当成zip打开后，第一级目录你就会看见有classes.dex，这就是我们要揭开面纱的东西了。</p>
-<h2 id="Why_DEX">Why DEX</h2><p>为什么需要DEX，jar不行吗？相应地，为什么需要Dalvik虚拟机，JVM不行吗？</p>
+<h1 id="DEX是什么"><a href="#DEX是什么" class="headerlink" title="DEX是什么"></a>DEX是什么</h1><p>直接把apk当成zip打开后，第一级目录你就会看见有classes.dex，这就是我们要揭开面纱的东西了。</p>
+<h2 id="Why-DEX"><a href="#Why-DEX" class="headerlink" title="Why DEX"></a>Why DEX</h2><p>为什么需要DEX，jar不行吗？相应地，为什么需要Dalvik虚拟机，JVM不行吗？</p>
 <p>Dalvik虚拟机是专门为了Android移动平台设计的。目标系统的RAM有限，数据存储在缓慢的内部闪存上，而且性能和上个世纪的周免系统相当。它们运行Linux，来提供虚拟内存，进程和线程，以及基于UID的安全机制。</p>
 <p>这些特征和限制使我们聚焦在这些目标上：</p>
 <ul>
@@ -410,13 +406,13 @@
 <li>需要重写字节码的优化必须提前执行。</li>
 </ul>
 <p>而Dalvik虚拟机和DEX也就应运而生。</p>
-<h2 id="Hello_DEX">Hello DEX</h2><p>让我们手动来生成一个java，编译成javac，然后转换为dex看看:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">'class Foo &#123;'</span>\</span><br><span class="line"><span class="string">'public static void main(String[] args) &#123;'</span>\</span><br><span class="line"><span class="string">'System.out.println("Hello, world"); &#125;&#125;'</span> &gt; Foo.java</span><br><span class="line">javac Foo.java</span><br><span class="line">dx --dex --output=foo.jar Foo.class</span><br><span class="line">adb push foo.jar /sdcard/</span><br><span class="line">adb shell dalvikvm -cp /sdcard/foo.jar Foo</span><br></pre></td></tr></table></figure></p>
+<h2 id="Hello-DEX"><a href="#Hello-DEX" class="headerlink" title="Hello DEX"></a>Hello DEX</h2><p>让我们手动来生成一个java，编译成javac，然后转换为dex看看:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">echo</span> <span class="string">'class Foo &#123;'</span>\</div><div class="line"><span class="string">'public static void main(String[] args) &#123;'</span>\</div><div class="line"><span class="string">'System.out.println("Hello, world"); &#125;&#125;'</span> &gt; Foo.java</div><div class="line">javac Foo.java</div><div class="line">dx --dex --output=foo.jar Foo.class</div><div class="line">adb push foo.jar /sdcard/</div><div class="line">adb shell dalvikvm -cp /sdcard/foo.jar Foo</div></pre></td></tr></table></figure></p>
 <p>当我们在dx命令的output中指定输出文件后缀为.jar，.zip，或者.apk，名为classes.dex的文件就会被创建并保存在压缩包内。解开Foo.jar你就会看到classes.dex和META-INF文件夹（里面只有一个MANIFEST.MF文件）。</p>
 <p>我们创建完该jar后直接push到设备上，并通过shell直接让dalvik虚拟机去运行它，如果操作无误，会看到命令行的反馈 - Hello, world。</p>
-<h2 id="DEX_in_file_system">DEX in file system</h2><p>这次我打算多画点图，所以看图说话吧:<br><img src="http://blog.zhaiyifan.cn/images/android-reverse-3-1.png" alt="DEX in file system"></p>
-<h2 id="DEX_in_memory">DEX in memory</h2><p>为什么DEX不能被内存映射，或者说，不能直接从zip去执行呢？因为数据是压缩的，文件头也不保证是词对齐的。这些问题可以通过不压缩直接保存为classes.dex和填充zip文件来解决，但会导致数据网络间传输的包体积变大。</p>
+<h2 id="DEX-in-file-system"><a href="#DEX-in-file-system" class="headerlink" title="DEX in file system"></a>DEX in file system</h2><p>这次我打算多画点图，所以看图说话吧:<br><img src="http://blog.zhaiyifan.cn/images/android-reverse-3-1.png" alt="DEX in file system"></p>
+<h2 id="DEX-in-memory"><a href="#DEX-in-memory" class="headerlink" title="DEX in memory"></a>DEX in memory</h2><p>为什么DEX不能被内存映射，或者说，不能直接从zip去执行呢？因为数据是压缩的，文件头也不保证是词对齐的。这些问题可以通过不压缩直接保存为classes.dex和填充zip文件来解决，但会导致数据网络间传输的包体积变大。</p>
 <p>我们需要在使用前把zip包里的classes.dex解压。当我们拿到文件的时候，我们可能还会做些之前提到的其他操作（对齐、优化、验证）。这又引出了另一个问题：谁去负责做这些，我们又该把输出放在哪儿？</p>
-<h1 id="ODEX是什么">ODEX是什么</h1><p>ODEX，全名Optimized DEX，即优化过的DEX。</p>
+<h1 id="ODEX是什么"><a href="#ODEX是什么" class="headerlink" title="ODEX是什么"></a>ODEX是什么</h1><p>ODEX，全名Optimized DEX，即优化过的DEX。</p>
 <p>有至少3种方法去创建一个“准备好的”DEX文件，即ODEX：</p>
 <ol>
 <li>虚拟机“即时(just in time)”执行。输出会跑到一个特殊的dalvik-cache目录。这只在一些特殊的桌面和工程机的设备上使用（这些机器的build中，dalvik-cache目录的权限不是严格的）。在生产机器上这是不被允许的。</li>
@@ -430,15 +426,15 @@
 <p>最后，文件被内存映射以便访问，并被为当前系统使用进行调整。这包括了字节交换（byte-swapping），结构重新排列（structure realigning），但并没有对DEX文件做有意义的改变。还做了一些其他的基本结构检查，比如确保文件偏移量和数据索引落在有效范围内。</p>
 <p>构建系统不在桌面上运行工具，而宁愿去启动模拟器，强制所有相关DEX文件的即时优化，然后从dalvik-cache把结果提取出来。这样做的原因，在解释完优化后会变得更显而易见。</p>
 <p>一旦代码被字节替换和对齐，我们就可以继续了。我们添加了一些预计算的数据，在文件头填写ODEX header，然后开始执行。然而，如果我们对验证和优化有兴趣，就需要在初始准备后再插入一个步骤。</p>
-<h1 id="dexopt的魔法">dexopt的魔法</h1><p>在Android 2.3版本以前，系统源码中提供了生成odex的工具dexopt-wrapper，位于Android 2.2系统源码的 build/tools/dexpreopt/dexopt-wrapper/ 目录下，查看<code>DexOptWrapper.cpp</code>文件会发现实际调用的是 /system/bin/dexopt 程序。在5.0及以上版本的设备上，你可能已经再也找不到dexopt了，取而代之的是dex2oat。</p>
+<h1 id="dexopt的魔法"><a href="#dexopt的魔法" class="headerlink" title="dexopt的魔法"></a>dexopt的魔法</h1><p>在Android 2.3版本以前，系统源码中提供了生成odex的工具dexopt-wrapper，位于Android 2.2系统源码的 build/tools/dexpreopt/dexopt-wrapper/ 目录下，查看<code>DexOptWrapper.cpp</code>文件会发现实际调用的是 /system/bin/dexopt 程序。在5.0及以上版本的设备上，你可能已经再也找不到dexopt了，取而代之的是dex2oat。</p>
 <p>我们想要验证和优化DEX文件里的所有类。最简单和安全的方法就是把所有类加载到虚拟机，然后跑一遍。任何加载失败的就是验证/优化失败的。不幸的是，这可能导致一些资源的分配难以释放（比如native共享库的加载），所以我们不想执行在应用运行的虚拟机里。</p>
 <p>解决方案就是起一个叫做dexopt的程序（事实上就是虚拟机的后门）。它会执行一个简短的虚拟机初始化，从引导的类路径加载0个或多个DEX文件，然后开始做一切从目标DEX可以做的验证和优化。结束后，进程退出，释放所有资源。</p>
 <p>因为多个虚拟机可能同时需求同一个DEX文件，文件锁被用来确保dexopt仅被执行一次。</p>
-<h2 id="验证">验证</h2><p>字节码验证过程包含了扫描DEX文件中每一个类每个方法的指令。目的是为了识别非法指令序列以便不会在运行时才发现它们。涉及到的很多运算对“准确的”GC也是必要的。更多信息见<a href="http://crypto.nknu.edu.tw/AOSP/AOSP/dalvik/docs/verifier.html" target="_blank" rel="external">Dalvik字节码验证器笔记</a>。</p>
+<h2 id="验证"><a href="#验证" class="headerlink" title="验证"></a>验证</h2><p>字节码验证过程包含了扫描DEX文件中每一个类每个方法的指令。目的是为了识别非法指令序列以便不会在运行时才发现它们。涉及到的很多运算对“准确的”GC也是必要的。更多信息见<a href="http://crypto.nknu.edu.tw/AOSP/AOSP/dalvik/docs/verifier.html" target="_blank" rel="external">Dalvik字节码验证器笔记</a>。</p>
 <p>为了性能原因，（下节描述的）优化器假设验证器已经运行成功，还会做一些其他可能不安全的假设。默认地，Dalvik会坚持验证所有类，并只优化那些被验证过的类。可以使用命令行flags去禁用验证器。怎么在Android应用框架中控制这些功能的指令见<a href="http://security.nknu.edu.tw/AOSP/AOSP/dalvik/docs/embedded-vm-control.html" target="_blank" rel="external">控制嵌入式虚拟机</a>。</p>
 <p>验证失败的报告是一个复杂的问题。例如，在不同的package中，调用一个package内可见的方法是非法的，会被验证器捕捉到。但我们未必想要在验证期报告它 —— 事实上我们想要在试图调用方法的时候抛出异常。在每个方法调用上检查这些访问flags也是很昂贵的，<a href="http://crypto.nknu.edu.tw/AOSP/AOSP/dalvik/docs/verifier.html" target="_blank" rel="external">Dalvik字节码验证器笔记</a>提到了这个问题。</p>
 <p>成功被验证的类在ODEX有一个flag被设置了，在加载的时候就不会被重新验证。ODEX文件有一个32位的checksum，但那是主要是用来快速检查数据损坏的。</p>
-<h2 id="优化">优化</h2><p>虚拟机解释器通常会在一段代码被首次使用的时候执行某些优化。常量池引用被指向内部数据结构的指针所替代，总是成功的操作或是那些总会以某种方式工作的，会被更简单的形式所替代。这些的一部分需要仅在运行时可用的信息，另一部分在某些特定假设下可以被静态推论出。</p>
+<h2 id="优化"><a href="#优化" class="headerlink" title="优化"></a>优化</h2><p>虚拟机解释器通常会在一段代码被首次使用的时候执行某些优化。常量池引用被指向内部数据结构的指针所替代，总是成功的操作或是那些总会以某种方式工作的，会被更简单的形式所替代。这些的一部分需要仅在运行时可用的信息，另一部分在某些特定假设下可以被静态推论出。</p>
 <p>Dalvik优化器做了这些：</p>
 <ul>
 <li>对于虚方法调用，把方法索引替换为vtable索引。</li>
@@ -448,9 +444,9 @@
 <li>附加预计算数据。例如，虚拟机想要一个类名的哈希表以便查找。不同于在加载DEX文件时候去计算这个，我们可以先计算，以节省堆（heap）空间和所有加载该DEX文件的虚拟机的计算时间。</li>
 </ul>
 <p>大部分的优化显然都会更好。</p>
-<h2 id="Hello_ODEX">Hello ODEX</h2><p>我们继续玩耍之前生成的dex，来做一个odex:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">adb push dexopt-wrapper /sdcard/</span><br><span class="line"></span><br><span class="line">adb shell</span><br><span class="line"><span class="comment"># 不然没权限去/data/local</span></span><br><span class="line">su</span><br><span class="line">chmod <span class="number">777</span> dexopt-wrapper</span><br><span class="line"><span class="comment"># 直接在sdcard执行会提示权限错误</span></span><br><span class="line">cp dexopt-wrapper /data/<span class="built_in">local</span>/</span><br><span class="line">cp foo.jar /data/<span class="built_in">local</span>/</span><br><span class="line"><span class="built_in">cd</span> /data/<span class="built_in">local</span></span><br><span class="line">/dexopt-wrapper foo.jar foo.odex                        </span><br><span class="line">--- BEGIN <span class="string">'foo.jar'</span> (bootstrap=<span class="number">0</span>) ---</span><br><span class="line">--- waiting <span class="keyword">for</span> verify+opt, pid=<span class="number">5220</span></span><br><span class="line">--- would reduce privs here</span><br><span class="line">--- END <span class="string">'foo.jar'</span> (success) ---</span><br><span class="line">cp foo.odex /sdcard</span><br><span class="line"><span class="built_in">exit</span></span><br><span class="line"><span class="built_in">exit</span></span><br><span class="line"></span><br><span class="line">adb pull /sdcard/foo.odex .</span><br></pre></td></tr></table></figure></p>
+<h2 id="Hello-ODEX"><a href="#Hello-ODEX" class="headerlink" title="Hello ODEX"></a>Hello ODEX</h2><p>我们继续玩耍之前生成的dex，来做一个odex:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">adb push dexopt-wrapper /sdcard/</div><div class="line"></div><div class="line">adb shell</div><div class="line"><span class="comment"># 不然没权限去/data/local</span></div><div class="line">su</div><div class="line">chmod 777 dexopt-wrapper</div><div class="line"><span class="comment"># 直接在sdcard执行会提示权限错误</span></div><div class="line">cp dexopt-wrapper /data/<span class="built_in">local</span>/</div><div class="line">cp foo.jar /data/<span class="built_in">local</span>/</div><div class="line"><span class="built_in">cd</span> /data/<span class="built_in">local</span></div><div class="line">/dexopt-wrapper foo.jar foo.odex                        </div><div class="line">--- BEGIN <span class="string">'foo.jar'</span> (bootstrap=0) ---</div><div class="line">--- waiting <span class="keyword">for</span> verify+opt, pid=5220</div><div class="line">--- would reduce privs here</div><div class="line">--- END <span class="string">'foo.jar'</span> (success) ---</div><div class="line">cp foo.odex /sdcard</div><div class="line"><span class="built_in">exit</span></div><div class="line"><span class="built_in">exit</span></div><div class="line"></div><div class="line">adb pull /sdcard/foo.odex .</div></pre></td></tr></table></figure></p>
 <p>这样子就拿到了优化后的odex，赶紧把手机还给同事。</p>
-<h1 id="oat与elf">oat与elf</h1><h1 id="下期预告">下期预告</h1><p>下一次让我们利用本次讲到的这些知识，来改一改apktool，让它能重返19岁，反编译腾讯的apk。最后代码会丢到GitHub上。</p>
+<h1 id="oat与elf"><a href="#oat与elf" class="headerlink" title="oat与elf"></a>oat与elf</h1><h1 id="下期预告"><a href="#下期预告" class="headerlink" title="下期预告"></a>下期预告</h1><p>下一次让我们利用本次讲到的这些知识，来改一改apktool，让它能重返19岁，反编译腾讯的apk。最后代码会丢到GitHub上。</p>
 <hr>
 <p>参考资料</p>
 <ul>
@@ -765,7 +761,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#DEX是什么"><span class="nav-number">2.</span> <span class="nav-text">DEX是什么</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Why_DEX"><span class="nav-number">2.1.</span> <span class="nav-text">Why DEX</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Hello_DEX"><span class="nav-number">2.2.</span> <span class="nav-text">Hello DEX</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DEX_in_file_system"><span class="nav-number">2.3.</span> <span class="nav-text">DEX in file system</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DEX_in_memory"><span class="nav-number">2.4.</span> <span class="nav-text">DEX in memory</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ODEX是什么"><span class="nav-number">3.</span> <span class="nav-text">ODEX是什么</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#dexopt的魔法"><span class="nav-number">4.</span> <span class="nav-text">dexopt的魔法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#验证"><span class="nav-number">4.1.</span> <span class="nav-text">验证</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#优化"><span class="nav-number">4.2.</span> <span class="nav-text">优化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Hello_ODEX"><span class="nav-number">4.3.</span> <span class="nav-text">Hello ODEX</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#oat与elf"><span class="nav-number">5.</span> <span class="nav-text">oat与elf</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#下期预告"><span class="nav-number">6.</span> <span class="nav-text">下期预告</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#DEX是什么"><span class="nav-number">2.</span> <span class="nav-text">DEX是什么</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Why-DEX"><span class="nav-number">2.1.</span> <span class="nav-text">Why DEX</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Hello-DEX"><span class="nav-number">2.2.</span> <span class="nav-text">Hello DEX</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DEX-in-file-system"><span class="nav-number">2.3.</span> <span class="nav-text">DEX in file system</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DEX-in-memory"><span class="nav-number">2.4.</span> <span class="nav-text">DEX in memory</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ODEX是什么"><span class="nav-number">3.</span> <span class="nav-text">ODEX是什么</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#dexopt的魔法"><span class="nav-number">4.</span> <span class="nav-text">dexopt的魔法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#验证"><span class="nav-number">4.1.</span> <span class="nav-text">验证</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#优化"><span class="nav-number">4.2.</span> <span class="nav-text">优化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Hello-ODEX"><span class="nav-number">4.3.</span> <span class="nav-text">Hello ODEX</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#oat与elf"><span class="nav-number">5.</span> <span class="nav-text">oat与elf</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#下期预告"><span class="nav-number">6.</span> <span class="nav-text">下期预告</span></a></li></ol></div>
             
 
           </div>

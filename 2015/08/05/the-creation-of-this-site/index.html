@@ -68,10 +68,11 @@
 
 
 <meta name="description" content="序言仅以本篇唠叨地记录一下本站的建立。">
+<meta name="keywords" content="Web,hexo">
 <meta property="og:type" content="article">
 <meta property="og:title" content="the creation of this site">
 <meta property="og:url" content="http://blog.zhaiyifan.cn/2015/08/05/the-creation-of-this-site/index.html">
-<meta property="og:site_name" content="markzhai's home">
+<meta property="og:site_name" content="markzhai&#39;s home">
 <meta property="og:description" content="序言仅以本篇唠叨地记录一下本站的建立。">
 <meta property="og:updated_time" content="2016-02-03T15:46:36.000Z">
 <meta name="twitter:card" content="summary">
@@ -377,24 +378,24 @@
       
 
       
-        <h2 id="序言">序言</h2><p>仅以本篇唠叨地记录一下本站的建立。<br><a id="more"></a></p>
+        <h2 id="序言"><a href="#序言" class="headerlink" title="序言"></a>序言</h2><p>仅以本篇唠叨地记录一下本站的建立。<br><a id="more"></a></p>
 <p>很久以前我在新浪有过博客，后来在wordpress、csdn陆续又有过，但别人的总是很蛋疼，于是后来搬迁到了自己服务器上的wordpress。Everything seems ok, but…</p>
 <p>wordpress对外部的依赖实在让我蛋疼，备份一下配这配那的，有一天我的服务器格了，然后一切就悲剧了，我也懒得去google drive上找几个月前的备份了。经过一番查找，觉得静态的hexo很符合我的要求，而且markdown啊！再怎么我还能练练写README.md是不是？</p>
 <p>于是下文就是唠唠叨叨的实际建立过程了。</p>
-<h2 id="How_am_i_built">How am i built</h2><h3 id="前提">前提</h3><p>已经安装了node, xcode, git<br>配好了github ssh<br>在github建立了username.github.io的repo</p>
-<h3 id="安装">安装</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 安装淘宝的npm镜像工具cnpm</span></span><br><span class="line">npm install -g cnpm --registry=https://registry.npm.taobao.org</span><br><span class="line"><span class="comment"># 于是可以直接用cnpm了</span></span><br><span class="line">cnpm install -g hexo-cli</span><br><span class="line"><span class="comment"># 安装后去你的开发目录里建文件夹存放blog吧</span></span><br><span class="line">hexo init blog</span><br><span class="line"><span class="built_in">cd</span> blog</span><br><span class="line">cnpm install</span><br><span class="line">cnpm install hexo-deployer-git --save</span><br><span class="line">hexo generate</span><br><span class="line">hexo deploy</span><br></pre></td></tr></table></figure>
+<h2 id="How-am-i-built"><a href="#How-am-i-built" class="headerlink" title="How am i built"></a>How am i built</h2><h3 id="前提"><a href="#前提" class="headerlink" title="前提"></a>前提</h3><p>已经安装了node, xcode, git<br>配好了github ssh<br>在github建立了username.github.io的repo</p>
+<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 安装淘宝的npm镜像工具cnpm</span></div><div class="line">npm install -g cnpm --registry=https://registry.npm.taobao.org</div><div class="line"><span class="comment"># 于是可以直接用cnpm了</span></div><div class="line">cnpm install -g hexo-cli</div><div class="line"><span class="comment"># 安装后去你的开发目录里建文件夹存放blog吧</span></div><div class="line">hexo init blog</div><div class="line"><span class="built_in">cd</span> blog</div><div class="line">cnpm install</div><div class="line">cnpm install hexo-deployer-git --save</div><div class="line">hexo generate</div><div class="line">hexo deploy</div></pre></td></tr></table></figure>
 <p>deploy后上自己的github.io看看，是不是已经可以访问了？</p>
-<h3 id="配置">配置</h3><p>下一步就是把自己的域名和github.io绑定了，可以看到<br><a href="http://blog.zhaiyifan.cn">http://blog.zhaiyifan.cn</a> &amp; <a href="http://markzhai.github.io" target="_blank" rel="external">http://markzhai.github.io</a><br>最后都会跳转到我的blog域名下。</p>
-<p>这个就是配置的问题了, <code>_config.yml</code>:<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># URL&#10;url: http://blog.zhaiyifan.cn</span><br></pre></td></tr></table></figure></p>
+<h3 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h3><p>下一步就是把自己的域名和github.io绑定了，可以看到<br><a href="http://blog.zhaiyifan.cn">http://blog.zhaiyifan.cn</a> &amp; <a href="http://markzhai.github.io" target="_blank" rel="external">http://markzhai.github.io</a><br>最后都会跳转到我的blog域名下。</p>
+<p>这个就是配置的问题了, <code>_config.yml</code>:<br><figure class="highlight yml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># URL</span></div><div class="line"><span class="attr">url:</span> <span class="attr">http://blog.zhaiyifan.cn</span></div></pre></td></tr></table></figure></p>
 <p>url配成自己的域名，然后在域名商的解析中，把自己的域名解析到username.github.io</p>
-<p>然后！不要急，在generate和deploy前，hexo还需要CNAME<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> <span class="built_in">source</span></span><br><span class="line"><span class="built_in">echo</span> blog.zhaiyifan.cn &gt; CNAME</span><br><span class="line"><span class="built_in">cd</span> ..</span><br></pre></td></tr></table></figure></p>
+<p>然后！不要急，在generate和deploy前，hexo还需要CNAME<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">cd</span> <span class="built_in">source</span></div><div class="line"><span class="built_in">echo</span> blog.zhaiyifan.cn &gt; CNAME</div><div class="line"><span class="built_in">cd</span> ..</div></pre></td></tr></table></figure></p>
 <p>Done，generate和deploy后，大功告成。</p>
-<h2 id="主题">主题</h2><p>如果想要点好看的主题怎么办呢？作为一个宅男，我当然想要一个二次元的主题了，下面这两个站点可以看到一些主题，大部分都有demo展示<br><a href="https://github.com/hexojs/hexo/wiki/Themes" target="_blank" rel="external">https://github.com/hexojs/hexo/wiki/Themes</a><br><a href="https://hexo.io/themes/" target="_blank" rel="external">https://hexo.io/themes/</a></p>
-<p>于是我就一眼相中了hexadillax<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/XadillaX/hexadillax themes/hexadillax</span><br></pre></td></tr></table></figure></p>
+<h2 id="主题"><a href="#主题" class="headerlink" title="主题"></a>主题</h2><p>如果想要点好看的主题怎么办呢？作为一个宅男，我当然想要一个二次元的主题了，下面这两个站点可以看到一些主题，大部分都有demo展示<br><a href="https://github.com/hexojs/hexo/wiki/Themes" target="_blank" rel="external">https://github.com/hexojs/hexo/wiki/Themes</a><br><a href="https://hexo.io/themes/" target="_blank" rel="external">https://hexo.io/themes/</a></p>
+<p>于是我就一眼相中了hexadillax<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git <span class="built_in">clone</span> https://github.com/XadillaX/hexadillax themes/hexadillax</div></pre></td></tr></table></figure></p>
 <p>后把hexadillax/_config.sample.yml的内容拷贝到_config.yml，填一下，比如多说的二级域名，然后在source下对应文件夹创建两个文件<br><code>tags/index.md</code>:</p>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">layout: tags</span><br><span class="line"><span class="header">title: tags</span><br><span class="line">---</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">layout: tags</div><div class="line"><span class="section">title: tags</span></div><div class="line">---</div></pre></td></tr></table></figure>
 <p><code>categories/index.md</code>:</p>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">layout: categories</span><br><span class="line"><span class="header">title: categories</span><br><span class="line">---</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">layout: categories</div><div class="line"><span class="section">title: categories</span></div><div class="line">---</div></pre></td></tr></table></figure>
 <p>Done again, generate, deploy, check it!</p>
 
       
@@ -703,7 +704,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#序言"><span class="nav-number">1.</span> <span class="nav-text">序言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#How_am_i_built"><span class="nav-number">2.</span> <span class="nav-text">How am i built</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#前提"><span class="nav-number">2.1.</span> <span class="nav-text">前提</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装"><span class="nav-number">2.2.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置"><span class="nav-number">2.3.</span> <span class="nav-text">配置</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#主题"><span class="nav-number">3.</span> <span class="nav-text">主题</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#序言"><span class="nav-number">1.</span> <span class="nav-text">序言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#How-am-i-built"><span class="nav-number">2.</span> <span class="nav-text">How am i built</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#前提"><span class="nav-number">2.1.</span> <span class="nav-text">前提</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装"><span class="nav-number">2.2.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置"><span class="nav-number">2.3.</span> <span class="nav-text">配置</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#主题"><span class="nav-number">3.</span> <span class="nav-text">主题</span></a></li></ol></div>
             
 
           </div>

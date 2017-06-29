@@ -49,7 +49,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="JavaScript,PWA,React.js,前端," />
+  <meta name="keywords" content="JavaScript,前端,PWA,React.js," />
 
 
 
@@ -67,22 +67,13 @@
 
 
 
-<meta name="description" content="来自译者 markzhai：大家也知道最近 Web 越来越火了，如果你还以为 Web 就是 jQuery、Ajax、CSS 什么的，那你就 out 了。给大家几个链接看一看吧：
-
-https://shop.polymer-project.org/
-https://housing.com/
-https://www.flipkart.com/
-https://react-hn.appspot.com/">
+<meta name="description" content="来自译者 markzhai：大家也知道最近 Web 越来越火了，如果你还以为 Web 就是 jQuery、Ajax、CSS 什么的，那你就 out 了。给大家几个链接看一看吧：  https://shop.polymer-project.org/ https://housing.com/ https://www.flipkart.com/ https://react-hn.appspot.com/">
+<meta name="keywords" content="JavaScript,前端,PWA,React.js">
 <meta property="og:type" content="article">
 <meta property="og:title" content="使用 React.js 的渐进式 Web 应用程序：第 1 部分 - 介绍">
 <meta property="og:url" content="http://blog.zhaiyifan.cn/2016/11/14/pwa-react-p1/index.html">
-<meta property="og:site_name" content="markzhai's home">
-<meta property="og:description" content="来自译者 markzhai：大家也知道最近 Web 越来越火了，如果你还以为 Web 就是 jQuery、Ajax、CSS 什么的，那你就 out 了。给大家几个链接看一看吧：
-
-https://shop.polymer-project.org/
-https://housing.com/
-https://www.flipkart.com/
-https://react-hn.appspot.com/">
+<meta property="og:site_name" content="markzhai&#39;s home">
+<meta property="og:description" content="来自译者 markzhai：大家也知道最近 Web 越来越火了，如果你还以为 Web 就是 jQuery、Ajax、CSS 什么的，那你就 out 了。给大家几个链接看一看吧：  https://shop.polymer-project.org/ https://housing.com/ https://www.flipkart.com/ https://react-hn.appspot.com/">
 <meta property="og:image" content="https://cdn-images-1.medium.com/max/1600/1*Ms2muRzG4DHE36YU4kX_ag@2x.png">
 <meta property="og:image" content="https://cdn-images-1.medium.com/max/2000/0*EI9JfoDRizcpZolA.">
 <meta property="og:image" content="https://cdn-images-1.medium.com/max/1600/1*Qx7aFIAKWbn11heD--nxwg.png">
@@ -97,12 +88,8 @@ https://react-hn.appspot.com/">
 <meta property="og:updated_time" content="2016-11-15T03:06:13.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="使用 React.js 的渐进式 Web 应用程序：第 1 部分 - 介绍">
-<meta name="twitter:description" content="来自译者 markzhai：大家也知道最近 Web 越来越火了，如果你还以为 Web 就是 jQuery、Ajax、CSS 什么的，那你就 out 了。给大家几个链接看一看吧：
-
-https://shop.polymer-project.org/
-https://housing.com/
-https://www.flipkart.com/
-https://react-hn.appspot.com/">
+<meta name="twitter:description" content="来自译者 markzhai：大家也知道最近 Web 越来越火了，如果你还以为 Web 就是 jQuery、Ajax、CSS 什么的，那你就 out 了。给大家几个链接看一看吧：  https://shop.polymer-project.org/ https://housing.com/ https://www.flipkart.com/ https://react-hn.appspot.com/">
+<meta name="twitter:image" content="https://cdn-images-1.medium.com/max/1600/1*Ms2muRzG4DHE36YU4kX_ag@2x.png">
 
 
 
@@ -421,9 +408,9 @@ https://react-hn.appspot.com/">
 <li>校对者：<a href="https://github.com/Tina92" target="_blank" rel="external">Tina92</a>, <a href="https://github.com/DeadLion" target="_blank" rel="external">DeadLion</a></li>
 </ul>
 </blockquote>
-<h1 id="使用_React-js_的渐进式_Web_应用程序：第_1_部分_-_介绍">使用 React.js 的渐进式 Web 应用程序：第 1 部分 - 介绍</h1><h3 id="渐进式_Web_应用程序利用新技术的优势带给了用户最佳的移动网站和原生应用。它们是可靠的，迅捷的，迷人的。它们来自可靠的源，而且无论网络状态如何都能加载。">渐进式 Web 应用程序利用新技术的优势带给了用户最佳的移动网站和原生应用。它们是可靠的，迅捷的，迷人的。它们来自可靠的源，而且无论网络状态如何都能加载。</h3><p><img src="https://cdn-images-1.medium.com/max/1600/1*Ms2muRzG4DHE36YU4kX_ag@2x.png" alt=""></p>
+<h1 id="使用-React-js-的渐进式-Web-应用程序：第-1-部分-介绍"><a href="#使用-React-js-的渐进式-Web-应用程序：第-1-部分-介绍" class="headerlink" title="使用 React.js 的渐进式 Web 应用程序：第 1 部分 - 介绍"></a>使用 React.js 的渐进式 Web 应用程序：第 1 部分 - 介绍</h1><h3 id="渐进式-Web-应用程序利用新技术的优势带给了用户最佳的移动网站和原生应用。它们是可靠的，迅捷的，迷人的。它们来自可靠的源，而且无论网络状态如何都能加载。"><a href="#渐进式-Web-应用程序利用新技术的优势带给了用户最佳的移动网站和原生应用。它们是可靠的，迅捷的，迷人的。它们来自可靠的源，而且无论网络状态如何都能加载。" class="headerlink" title="渐进式 Web 应用程序利用新技术的优势带给了用户最佳的移动网站和原生应用。它们是可靠的，迅捷的，迷人的。它们来自可靠的源，而且无论网络状态如何都能加载。"></a>渐进式 Web 应用程序利用新技术的优势带给了用户最佳的移动网站和原生应用。它们是可靠的，迅捷的，迷人的。它们来自可靠的源，而且无论网络状态如何都能加载。</h3><p><img src="https://cdn-images-1.medium.com/max/1600/1*Ms2muRzG4DHE36YU4kX_ag@2x.png" alt=""></p>
 <p>在 <a href="https://infrequently.org/2015/06/progressive-apps-escaping-tabs-without-losing-our-soul/" target="_blank" rel="external">渐进式 Web 应用程序</a> (PWAs) 的世界中有很多新东西，你可能会想知道它们和现有架构是如何兼容的 —— 比如 <a href="https://facebook.github.io/react/" target="_blank" rel="external">React</a> 和 JS 模块化打包工具如 <a href="https://webpack.github.io/" target="_blank" rel="external">Webpack</a> 之间的兼容性如何。PWA 是否需要大量的重写？你需要关注哪个 Web 性能度量工具？在这系列的文章中，我将会分享将基于 React 的 web apps 转化为 PWAs 的经验。我们还将包括为什么<strong>仅</strong>加载用户路由所需要的，并抛开其他所有脚本是提高性能的好方式。</p>
-<h3 id="Lighthouse">Lighthouse</h3><p>让我们从一个 PWA manifest 开始。为此我们会使用 <a href="https://github.com/GoogleChrome/lighthouse" target="_blank" rel="external"><strong>Lighthouse</strong></a> — 一个评审 <a href="https://infrequently.org/2016/09/what-exactly-makes-something-a-progressive-web-app/" target="_blank" rel="external">app 面向 PWA 特性</a> 的工具，并且检查你的 app 在模拟移动场景下是否做的足够好。Lighthouse 可以通过 <a href="https://chrome.google.com/webstore/detail/lighthouse/blipmdconlkpinefehnmjammfjpmpbjk" target="_blank" rel="external">Chrome 插件</a> (我大部分时候都用这个) 以及 <a href="https://github.com/GoogleChrome/lighthouse#install-cli" target="_blank" rel="external">CLI</a> 来使用，两者都会展示一个类似这样的报告：</p>
+<h3 id="Lighthouse"><a href="#Lighthouse" class="headerlink" title="Lighthouse"></a>Lighthouse</h3><p>让我们从一个 PWA manifest 开始。为此我们会使用 <a href="https://github.com/GoogleChrome/lighthouse" target="_blank" rel="external"><strong>Lighthouse</strong></a> — 一个评审 <a href="https://infrequently.org/2016/09/what-exactly-makes-something-a-progressive-web-app/" target="_blank" rel="external">app 面向 PWA 特性</a> 的工具，并且检查你的 app 在模拟移动场景下是否做的足够好。Lighthouse 可以通过 <a href="https://chrome.google.com/webstore/detail/lighthouse/blipmdconlkpinefehnmjammfjpmpbjk" target="_blank" rel="external">Chrome 插件</a> (我大部分时候都用这个) 以及 <a href="https://github.com/GoogleChrome/lighthouse#install-cli" target="_blank" rel="external">CLI</a> 来使用，两者都会展示一个类似这样的报告：</p>
 <p><img src="https://cdn-images-1.medium.com/max/2000/0*EI9JfoDRizcpZolA." alt=""></p>
 <p>来自 Lighthouse Chrome 插件的结果</p>
 <p>顶级评审工具 Lighthouse 会高效地运行一系列为移动世界精炼的现代 web 最佳实践：</p>
@@ -452,7 +439,7 @@ https://react-hn.appspot.com/">
 <p><img src="https://cdn-images-1.medium.com/max/1600/0*5tmODLoFjo8A_nnW." alt=""></p>
 <p><strong>如果你想要看更复杂的使用 React 开发，并使用 Lighthouse 优化的 PWAs 例子，你可能会感兴趣于：</strong> <a href="https://github.com/insin/react-hn" target="_blank" rel="external"><em>ReactHN</em></a><strong>— 一个使用服务端渲染并支持离线的 HackerNews 客户端 或者 <a href="https://github.com/GoogleChrome/sw-precache/tree/master/app-shell-demo" target="_blank" rel="external"><em>iFixit</em></a> — 一个使用 React 开发，但使用了 Redux 进行状态管理的硬件修复指南 app。</strong></p>
 <p>现在让我们梳理一遍在 Lighthouse 报告中需要清点的每一项，并在系列中继续 React.js 专用的小贴士。</p>
-<h3 id="网络连接是安全的">网络连接是安全的</h3><h4 id="HTTPS_的工具和建议">HTTPS 的工具和建议</h4><p><img src="https://cdn-images-1.medium.com/max/1200/1*xRLobGG8a41wGypF9mKI-A.jpeg" alt=""></p>
+<h3 id="网络连接是安全的"><a href="#网络连接是安全的" class="headerlink" title="网络连接是安全的"></a>网络连接是安全的</h3><h4 id="HTTPS-的工具和建议"><a href="#HTTPS-的工具和建议" class="headerlink" title="HTTPS 的工具和建议"></a>HTTPS 的工具和建议</h4><p><img src="https://cdn-images-1.medium.com/max/1200/1*xRLobGG8a41wGypF9mKI-A.jpeg" alt=""></p>
 <p><a href="https://support.google.com/webmasters/answer/6073543?hl=en" target="_blank" rel="external">HTTPS</a> 防止坏人篡改你的 app 和你的用户使用的浏览器之间的通信，你可能读过 Google 正在推动 <a href="http://motherboard.vice.com/read/google-will-soon-shame-all-websites-that-are-unencrypted-chrome-https" target="_blank" rel="external">羞辱</a> 那些没有加密的网站。强大的新型 web 平台 APIs，像 <a href="https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API" target="_blank" rel="external">Service Worker</a>，<a href="https://www.chromium.org/Home/chromium-security/prefer-secure-origins-for-powerful-new-features" target="_blank" rel="external">require</a> 通过 HTTPS 保护来源，但是好消息是像是 <a href="https://letsencrypt.org/" target="_blank" rel="external">LetsEncrypt</a> 这样的服务商提供了免费的 <a href="https://www.globalsign.com/en/ssl-information-center/what-is-an-ssl-certificate/" target="_blank" rel="external">SSL 证书</a>，便宜的选择像是 <a href="https://www.cloudflare.com/" target="_blank" rel="external">Cloudflare</a> 可以使端到端流量 <a href="https://www.cloudflare.com/ssl/" target="_blank" rel="external">完全</a> 加密，从来没有如此简单直接地能做到现在这样。</p>
 <p>作为我的个人项目，我通常会部署到 <a href="https://cloud.google.com/appengine/" target="_blank" rel="external">Google App Engine</a>，它支持通过 appspot.com 域名的 SSL 通信服务，只需要你加上 <a href="https://cloud.google.com/appengine/docs/python/config/appref" target="_blank" rel="external">‘secure’</a> 参数到你的 app.yaml 文件。对于需要 Node.js 支持 Universal 渲染的 React apps，我使用 <a href="https://cloudplatform.googleblog.com/2016/03/Node.js-on-Google-App-Engine-goes-beta.html" target="_blank" rel="external">Node on App Engine</a>。<a href="https://github.com/blog/2186-https-for-github-pages" target="_blank" rel="external">Github Pages</a> 和 <a href="https://zeit.co/blog/now-alias" target="_blank" rel="external">Zeit.co</a> 现在也支持 HTTPS。</p>
 <p><img src="https://cdn-images-1.medium.com/max/1600/0*OzD-JvnlDlwVS8d-." alt=""></p>
@@ -464,7 +451,7 @@ https://react-hn.appspot.com/">
 <li>提供页面的时候，使用 <a href="https://en.wikipedia.org/wiki/HTTP_Strict_Transport_Security" target="_blank" rel="external">HTTP 严格传输安全</a> (HSTS) 头。这是一个强制浏览器只通过 HTTPS 和你的网站交流的指令。</li>
 </ul>
 <p>我建议去看看 <a href="https://developers.google.com/web/shows/cds/2015/deploying-https-the-green-lock-and-beyond-chrome-dev-summit-2015?hl=en" target="_blank" rel="external">Deploying HTTPS: The Green Lock and Beyond</a> 和 <a href="https://developers.google.com/web/shows/google-io/2016/mythbusting-https-squashing-securitys-urban-legends-google-io-2016?hl=en" target="_blank" rel="external">Mythbusting HTTPS: Squashing security’s urban legends</a> 来了解更多。</p>
-<h3 id="用户会被提醒将_app_添加到_Homescreen">用户会被提醒将 app 添加到 Homescreen</h3><p>下一个要讲的是自定义你的 app 的 “<a href="https://developer.chrome.com/multidevice/android/installtohomescreen" target="_blank" rel="external">添加到主屏幕</a>” 体验（favicons，显示的应用名字，方向和更多）。这是通过添加一个 <a href="https://developer.mozilla.org/en-US/docs/Web/Manifest" target="_blank" rel="external">Web 应用 manifest</a> 来做的。我经常会找定制的跨浏览器（以及系统）的图标来完成这部分工作，但是像是 <a href="http://realfavicongenerator.net/" target="_blank" rel="external">realfavicongenerator.net</a> 这样的工具能解决不少麻烦的事情。</p>
+<h3 id="用户会被提醒将-app-添加到-Homescreen"><a href="#用户会被提醒将-app-添加到-Homescreen" class="headerlink" title="用户会被提醒将 app 添加到 Homescreen"></a>用户会被提醒将 app 添加到 Homescreen</h3><p>下一个要讲的是自定义你的 app 的 “<a href="https://developer.chrome.com/multidevice/android/installtohomescreen" target="_blank" rel="external">添加到主屏幕</a>” 体验（favicons，显示的应用名字，方向和更多）。这是通过添加一个 <a href="https://developer.mozilla.org/en-US/docs/Web/Manifest" target="_blank" rel="external">Web 应用 manifest</a> 来做的。我经常会找定制的跨浏览器（以及系统）的图标来完成这部分工作，但是像是 <a href="http://realfavicongenerator.net/" target="_blank" rel="external">realfavicongenerator.net</a> 这样的工具能解决不少麻烦的事情。</p>
 <p><img src="https://cdn-images-1.medium.com/max/1600/0*00LlyQjpgTUPOh0g." alt=""></p>
 <p>有很多关于一个网站只需要在大部分场合能工作的 “最少” favicons 的讨论。Lighthouse <a href="https://github.com/GoogleChrome/lighthouse/issues/291" target="_blank" rel="external">提议</a> 提供一个 192px 的图标给主屏幕，一个 512px 的图标给你的闪屏。我个人坚持从 realfavicongenerator 得到的输出，除了它包含更多的 metatags, 我也更倾向于它能涵盖我的所有基数。</p>
 <p>一些网站可能更倾向于为每个平台提供高度定制化的 favicon。我推荐去看看 <a href="https://medium.com/dev-channel/designing-a-progressive-web-app-icon-b55f63f9ff6e#.voxq5imjg" target="_blank" rel="external">设计一个渐进式 Web App 图标</a> 以获得更多关于这个主题的指导。</p>
@@ -473,12 +460,12 @@ https://react-hn.appspot.com/">
 <p><a href="https://developers.google.com/web/tools/chrome-devtools/progressive-web-apps" target="_blank" rel="external"><strong>Chrome DevTools Application 面板</strong></a> 支持通过 Application &gt; Manifest 来查看你的 Web App manifest：</p>
 <p><img src="https://cdn-images-1.medium.com/max/1600/0*-UCHfo1lxUdWUKAD." alt=""></p>
 <p>它会解析出列在你的 manifest 清单文件的 favicons（网站头像），还能预览像是 start URL 和 theme colors 这样的属性。顺带一提，如果感兴趣的话，这里有一个完整的关于 Web App Manfests 的工具小贴士 <a href="https://www.youtube.com/watch?v=yQhFmPExcbs&amp;index=11&amp;list=PLNYkxOF6rcIB3ci6nwNyLYNU6RDOU3YyL" target="_blank" rel="external">片段</a> 😉</p>
-<h3 id="安装了的_web_app_启动时会带自定义的闪屏画面">安装了的 web app 启动时会带自定义的闪屏画面</h3><p>在旧版本的 Android Chrome 上，点击主屏幕上的 app 图标通常会花费 200 毫秒（一些慢的网站甚至要数秒）以到达文档的第一帧被渲染到屏幕上。</p>
+<h3 id="安装了的-web-app-启动时会带自定义的闪屏画面"><a href="#安装了的-web-app-启动时会带自定义的闪屏画面" class="headerlink" title="安装了的 web app 启动时会带自定义的闪屏画面"></a>安装了的 web app 启动时会带自定义的闪屏画面</h3><p>在旧版本的 Android Chrome 上，点击主屏幕上的 app 图标通常会花费 200 毫秒（一些慢的网站甚至要数秒）以到达文档的第一帧被渲染到屏幕上。</p>
 <p>在这段时间内，用户会看到一个白屏，减少对你网站的感知到的性能。Chrome 47 和以上版本 <a href="https://developers.google.com/web/updates/2015/10/splashscreen?hl=en" target="_blank" rel="external">支持自定义闪屏</a>（基于来自 Web App manifest 的背景颜色，名字和图标）会在浏览器准备绘制一些东西前给屏幕一些颜色。这使得你的 webapp 感受上更接近 “原生”。</p>
 <p><img src="https://cdn-images-1.medium.com/max/1600/0*sQHn9k-t--cNcijL." alt=""></p>
 <p><a href="http://realfavicongenerator.net/" target="_blank" rel="external">Realfavicongenerator.net</a> 现在还支持根据你的清单（manifest）预览并自定义闪屏，很方便地节约时间。</p>
 <p><strong>注意：Firefox for Android 和 Opera for Android 也支持 Web 应用程序清单，闪屏和添加到主屏幕的体验。在 iOS 上，Safari 也支持自定义添加到 <a href="https://developer.apple.com/library/ios/documentation/AppleApplications/Reference/SafariWebContent/ConfiguringWebApplications/ConfiguringWebApplications.html" target="_blank" rel="external">主屏幕的图标</a> 并曾经支持一个 <a href="https://gist.github.com/tfausak/2222823" target="_blank" rel="external">专有的闪屏</a> 实现，然而这个在 iOS9 上显得不能用了。我已经填了一个特性请求给 Webkit，以支持 Web App manifest，所以…希望一切顺利吧。</strong></p>
-<h3 id="设计是移动友好的">设计是移动友好的</h3><p>为多种设备所优化的 Apps 必须在他们的 document 里面包括一个  <a href="https://developers.google.com/web/fundamentals/design-and-ui/responsive/fundamentals/set-the-viewport?hl=en" target="_blank" rel="external">meta-viewport</a>。这看上去非常明显，但是我看到过很多的 React 项目中，人们忘了加上这个。好在 <a href="https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/public/index.html#L5" target="_blank" rel="external">create-react-app</a> 有默认加上有效的 meta-viewport，而且如果缺失的话 Lighthouse 会标记上：</p>
+<h3 id="设计是移动友好的"><a href="#设计是移动友好的" class="headerlink" title="设计是移动友好的"></a>设计是移动友好的</h3><p>为多种设备所优化的 Apps 必须在他们的 document 里面包括一个  <a href="https://developers.google.com/web/fundamentals/design-and-ui/responsive/fundamentals/set-the-viewport?hl=en" target="_blank" rel="external">meta-viewport</a>。这看上去非常明显，但是我看到过很多的 React 项目中，人们忘了加上这个。好在 <a href="https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/public/index.html#L5" target="_blank" rel="external">create-react-app</a> 有默认加上有效的 meta-viewport，而且如果缺失的话 Lighthouse 会标记上：</p>
 <p>尽管我们非常重视渐进式 Web 应用程序在移动 web 的体验，这 <a href="https://www.justinribeiro.com/chronicle/2016/09/10/desktop-pwa-bring-the-goodness/" target="_blank" rel="external">并不意味着桌面应该被忘记</a>。一个精心设计的 PWA 应该可以在各种 viewport 尺寸、浏览器以及设备上良好运作，正如 Housing.com 所展示的：</p>
 <p><img src="https://cdn-images-1.medium.com/max/2000/0*bgAmcKHWLB_DxiRC." alt=""></p>
 <p>在系列第 2 部分，我们将会看看那 <a href="https://medium.com/@addyosmani/progressive-web-apps-with-react-js-part-2-page-load-performance-33b932d97cf2#.9ebqqaw8k" target="_blank" rel="external"><strong>使用 React 和 Webpack 的页面加载性能</strong></a>。我们会深入 code-splitting（代码分割），基于路由的 chunking（分块）以及 达到更快交互性 PRPL 模式。</p>
@@ -541,11 +528,11 @@ https://react-hn.appspot.com/">
           
             <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
           
+            <a href="/tags/前端/" rel="tag"># 前端</a>
+          
             <a href="/tags/PWA/" rel="tag"># PWA</a>
           
             <a href="/tags/React-js/" rel="tag"># React.js</a>
-          
-            <a href="/tags/前端/" rel="tag"># 前端</a>
           
         </div>
       
@@ -795,7 +782,7 @@ https://react-hn.appspot.com/">
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#使用_React-js_的渐进式_Web_应用程序：第_1_部分_-_介绍"><span class="nav-number">1.</span> <span class="nav-text">使用 React.js 的渐进式 Web 应用程序：第 1 部分 - 介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#渐进式_Web_应用程序利用新技术的优势带给了用户最佳的移动网站和原生应用。它们是可靠的，迅捷的，迷人的。它们来自可靠的源，而且无论网络状态如何都能加载。"><span class="nav-number">1.0.1.</span> <span class="nav-text">渐进式 Web 应用程序利用新技术的优势带给了用户最佳的移动网站和原生应用。它们是可靠的，迅捷的，迷人的。它们来自可靠的源，而且无论网络状态如何都能加载。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Lighthouse"><span class="nav-number">1.0.2.</span> <span class="nav-text">Lighthouse</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#网络连接是安全的"><span class="nav-number">1.0.3.</span> <span class="nav-text">网络连接是安全的</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#HTTPS_的工具和建议"><span class="nav-number">1.0.3.1.</span> <span class="nav-text">HTTPS 的工具和建议</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#用户会被提醒将_app_添加到_Homescreen"><span class="nav-number">1.0.4.</span> <span class="nav-text">用户会被提醒将 app 添加到 Homescreen</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装了的_web_app_启动时会带自定义的闪屏画面"><span class="nav-number">1.0.5.</span> <span class="nav-text">安装了的 web app 启动时会带自定义的闪屏画面</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设计是移动友好的"><span class="nav-number">1.0.6.</span> <span class="nav-text">设计是移动友好的</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#使用-React-js-的渐进式-Web-应用程序：第-1-部分-介绍"><span class="nav-number">1.</span> <span class="nav-text">使用 React.js 的渐进式 Web 应用程序：第 1 部分 - 介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#渐进式-Web-应用程序利用新技术的优势带给了用户最佳的移动网站和原生应用。它们是可靠的，迅捷的，迷人的。它们来自可靠的源，而且无论网络状态如何都能加载。"><span class="nav-number">1.0.1.</span> <span class="nav-text">渐进式 Web 应用程序利用新技术的优势带给了用户最佳的移动网站和原生应用。它们是可靠的，迅捷的，迷人的。它们来自可靠的源，而且无论网络状态如何都能加载。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Lighthouse"><span class="nav-number">1.0.2.</span> <span class="nav-text">Lighthouse</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#网络连接是安全的"><span class="nav-number">1.0.3.</span> <span class="nav-text">网络连接是安全的</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#HTTPS-的工具和建议"><span class="nav-number">1.0.3.1.</span> <span class="nav-text">HTTPS 的工具和建议</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#用户会被提醒将-app-添加到-Homescreen"><span class="nav-number">1.0.4.</span> <span class="nav-text">用户会被提醒将 app 添加到 Homescreen</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装了的-web-app-启动时会带自定义的闪屏画面"><span class="nav-number">1.0.5.</span> <span class="nav-text">安装了的 web app 启动时会带自定义的闪屏画面</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设计是移动友好的"><span class="nav-number">1.0.6.</span> <span class="nav-text">设计是移动友好的</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>

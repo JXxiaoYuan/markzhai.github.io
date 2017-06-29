@@ -49,7 +49,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="New Android Project From 0,React Native,Redux," />
+  <meta name="keywords" content="React Native,New Android Project From 0,Redux," />
 
 
 
@@ -67,16 +67,13 @@
 
 
 
-<meta name="description" content="本篇来讲讲 React Native 和 Redux，和其他一上来就啪啪啪丢上来一堆翻译的东西不同，本文会从简单的例子入手，让大家能快速地明白 React Native 是什么，Redux 和常见的 MVC、MVP 等有什么区别，怎么去组织一个 Redux 架构的 React Native 项目。
-为避免大家还没入门就放弃，预计下一篇才会从我们项目中的实践出发，讲讲更复杂的应用场景。
-什么是Rea">
+<meta name="description" content="本篇来讲讲 React Native 和 Redux，和其他一上来就啪啪啪丢上来一堆翻译的东西不同，本文会从简单的例子入手，让大家能快速地明白 React Native 是什么，Redux 和常见的 MVC、MVP 等有什么区别，怎么去组织一个 Redux 架构的 React Native 项目。 为避免大家还没入门就放弃，预计下一篇才会从我们项目中的实践出发，讲讲更复杂的应用场景。 什么是Rea">
+<meta name="keywords" content="React Native,New Android Project From 0,Redux">
 <meta property="og:type" content="article">
-<meta property="og:title" content="从零开始的Android新项目10 - React Native & Redux">
+<meta property="og:title" content="从零开始的Android新项目10 - React Native &amp; Redux">
 <meta property="og:url" content="http://blog.zhaiyifan.cn/2016/08/04/android-new-project-from-0-p10/index.html">
-<meta property="og:site_name" content="markzhai's home">
-<meta property="og:description" content="本篇来讲讲 React Native 和 Redux，和其他一上来就啪啪啪丢上来一堆翻译的东西不同，本文会从简单的例子入手，让大家能快速地明白 React Native 是什么，Redux 和常见的 MVC、MVP 等有什么区别，怎么去组织一个 Redux 架构的 React Native 项目。
-为避免大家还没入门就放弃，预计下一篇才会从我们项目中的实践出发，讲讲更复杂的应用场景。
-什么是Rea">
+<meta property="og:site_name" content="markzhai&#39;s home">
+<meta property="og:description" content="本篇来讲讲 React Native 和 Redux，和其他一上来就啪啪啪丢上来一堆翻译的东西不同，本文会从简单的例子入手，让大家能快速地明白 React Native 是什么，Redux 和常见的 MVC、MVP 等有什么区别，怎么去组织一个 Redux 架构的 React Native 项目。 为避免大家还没入门就放弃，预计下一篇才会从我们项目中的实践出发，讲讲更复杂的应用场景。 什么是Rea">
 <meta property="og:image" content="http://blog.zhaiyifan.cn/images/react-native-1-reactnative.png">
 <meta property="og:image" content="http://blog.zhaiyifan.cn/images/react-native-1-reactjs.png">
 <meta property="og:image" content="https://camo.githubusercontent.com/f28b5bc7822f1b7bb28a96d8d09e7d79169248fc/687474703a2f2f692e696d6775722e636f6d2f4a65567164514d2e706e67">
@@ -92,10 +89,9 @@
 <meta property="og:image" content="http://blog.zhaiyifan.cn/images/react-native-1-counters-add-counter.png">
 <meta property="og:updated_time" content="2016-08-19T03:00:56.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="从零开始的Android新项目10 - React Native & Redux">
-<meta name="twitter:description" content="本篇来讲讲 React Native 和 Redux，和其他一上来就啪啪啪丢上来一堆翻译的东西不同，本文会从简单的例子入手，让大家能快速地明白 React Native 是什么，Redux 和常见的 MVC、MVP 等有什么区别，怎么去组织一个 Redux 架构的 React Native 项目。
-为避免大家还没入门就放弃，预计下一篇才会从我们项目中的实践出发，讲讲更复杂的应用场景。
-什么是Rea">
+<meta name="twitter:title" content="从零开始的Android新项目10 - React Native &amp; Redux">
+<meta name="twitter:description" content="本篇来讲讲 React Native 和 Redux，和其他一上来就啪啪啪丢上来一堆翻译的东西不同，本文会从简单的例子入手，让大家能快速地明白 React Native 是什么，Redux 和常见的 MVC、MVP 等有什么区别，怎么去组织一个 Redux 架构的 React Native 项目。 为避免大家还没入门就放弃，预计下一篇才会从我们项目中的实践出发，讲讲更复杂的应用场景。 什么是Rea">
+<meta name="twitter:image" content="http://blog.zhaiyifan.cn/images/react-native-1-reactnative.png">
 
 
 
@@ -398,7 +394,7 @@
       
         <p>本篇来讲讲 React Native 和 Redux，和其他一上来就啪啪啪丢上来一堆翻译的东西不同，本文会从简单的例子入手，让大家能快速地明白 React Native 是什么，Redux 和常见的 MVC、MVP 等有什么区别，怎么去组织一个 Redux 架构的 React Native 项目。</p>
 <p>为避免大家还没入门就放弃，预计下一篇才会从我们项目中的实践出发，讲讲更复杂的应用场景。</p>
-<h1 id="什么是React_Native">什么是React Native</h1><p><img src="http://blog.zhaiyifan.cn/images/react-native-1-reactnative.png" alt="React Native"></p>
+<h1 id="什么是React-Native"><a href="#什么是React-Native" class="headerlink" title="什么是React Native"></a>什么是React Native</h1><p><img src="http://blog.zhaiyifan.cn/images/react-native-1-reactnative.png" alt="React Native"></p>
 <p>React Native 使你能够基于 JavaScript 和 React 在原生平台上构建应用，提倡的是 “learn once, write anywhere”，复用代码，提高开发效率。</p>
 <p>项目由 Facebook 开源驱动，在过去的近一年中更新很活跃。文档建议直接看官网的 <a href="https://facebook.github.io/react-native/" target="_blank" rel="external">React Native</a>，中文站有点坑。</p>
 <p>支持系统：Android 4.1 (API 16) 以及 &gt;= iOS 7.0。</p>
@@ -421,21 +417,21 @@
 <li>React Native 目前仍然处于快速迭代开发的阶段，你永远也不知道下个版本自己升级需要修改多少原来的代码。</li>
 <li>React Native 的资料较少，尤其是国内的，更尤其是 hybrid 开发的（GitHub 上的开源项目大多是纯 RN 的）。</li>
 </ul>
-<h1 id="什么是Redux">什么是Redux</h1><p><img src="https://camo.githubusercontent.com/f28b5bc7822f1b7bb28a96d8d09e7d79169248fc/687474703a2f2f692e696d6775722e636f6d2f4a65567164514d2e706e67" alt="Redux.js"></p>
+<h1 id="什么是Redux"><a href="#什么是Redux" class="headerlink" title="什么是Redux"></a>什么是Redux</h1><p><img src="https://camo.githubusercontent.com/f28b5bc7822f1b7bb28a96d8d09e7d79169248fc/687474703a2f2f692e696d6775722e636f6d2f4a65567164514d2e706e67" alt="Redux.js"></p>
 <p><a href="http://redux.js.org/" target="_blank" rel="external">Redux</a> 本身和 React 并没有特别紧密的联系，而是 Facebook 提出的 Flux 架构的一种优秀实现，可以搭配其他任何框架一起使用。在 React 上使用，需要搭配 react-redux（如此一来 Redux 可以不局限于 React，而让社区发展出更多的 redux-* 中间件）。</p>
 <p>Redux 在 React 的基础上（state 和 props），增加了 <a href="http://cn.redux.js.org//docs/basics/Store.html" target="_blank" rel="external">store</a>、<a href="http://cn.redux.js.org//docs/basics/Actions.html" target="_blank" rel="external">action</a>、<a href="http://cn.redux.js.org//docs/basics/Reducers.html" target="_blank" rel="external">reducer</a> 的概念，规范了全局一个 state，从而只需要根据这个 state 就能回朔出整个应用的状态。组件通过 dispatch 将 action 传到 store，reducer 根据原来的 state 以及 action，返回新的 state，组件根据新的 state 渲染界面。</p>
 <p>Redux 是一个可预测的状态容器，即只需要有状态树，就能还原出“事发现场”。</p>
-<h1 id="从例子看项目">从例子看项目</h1><p>为了避免说一大堆概念，大家一头雾水，似懂非懂，这里拿一个例子来讲讲 React Native 和 Redux 结合后的效果，尽量避免代码的出现，而以图和文字代替。</p>
+<h1 id="从例子看项目"><a href="#从例子看项目" class="headerlink" title="从例子看项目"></a>从例子看项目</h1><p>为了避免说一大堆概念，大家一头雾水，似懂非懂，这里拿一个例子来讲讲 React Native 和 Redux 结合后的效果，尽量避免代码的出现，而以图和文字代替。</p>
 <p>Counter！没错，就是 Counter，不是 TODO，TODO已经被黑的不成样了。</p>
 <p>项目源码位于：<a href="https://github.com/alinz/example-react-native-redux" target="_blank" rel="external">example-react-native-redux</a>。包含了 <code>Counter</code> 和 <code>Counters</code> 两个子项目。前者是单个的计数器，后者则在前者的基础上增加了可以加减计数器个数的功能，相对更复杂一些，不过引入了一些不错的实践可以参考。</p>
-<h2 id="运行效果">运行效果</h2><p>先看看最后的效果，方便对应后面的解说。<br>第一个 Counter 项目很简单，就是一个文本框加上两个按钮，一个加1，一个减1。<br>第二个 Counters 项目在前者的基础上（使用了 Counter 组件），可以增加任意个计数器，还添加了带延迟的加1功能，来模拟耗时操作。</p>
-<h2 id="Counter">Counter</h2><p>先看看Counter，我们从物理架构和动作流两个角度来进行观察。</p>
+<h2 id="运行效果"><a href="#运行效果" class="headerlink" title="运行效果"></a>运行效果</h2><p>先看看最后的效果，方便对应后面的解说。<br>第一个 Counter 项目很简单，就是一个文本框加上两个按钮，一个加1，一个减1。<br>第二个 Counters 项目在前者的基础上（使用了 Counter 组件），可以增加任意个计数器，还添加了带延迟的加1功能，来模拟耗时操作。</p>
+<h2 id="Counter"><a href="#Counter" class="headerlink" title="Counter"></a>Counter</h2><p>先看看Counter，我们从物理架构和动作流两个角度来进行观察。</p>
 <p>目录下，有以下文件：</p>
 <p><img src="http://blog.zhaiyifan.cn/images/react-native-1-counter-files.png" alt="Counter List Files"></p>
 <p>index.android.js 和 index.ios.js 分别是 android 和 iOS 的 rn 入口，通常内容是相同的。<br>android 为 Android 的工程目录，下面有我们熟悉的 build.gralde。<br>ios 为 iOS 的工程目录，包含了 xcode 的项目。<br>app 就是 rn 的目录，包含了 Android 和 iOS 项目共享的 js 源码。<br>node_modules 是 node 通过解析 package.json 下载的依赖。</p>
-<h3 id="物理结构">物理结构</h3><p><img src="http://blog.zhaiyifan.cn/images/react-native-1-counter-structure.png" alt="Counter物理结构"></p>
+<h3 id="物理结构"><a href="#物理结构" class="headerlink" title="物理结构"></a>物理结构</h3><p><img src="http://blog.zhaiyifan.cn/images/react-native-1-counter-structure.png" alt="Counter物理结构"></p>
 <p>CounterApp.js 则是整个应用的实际入口。</p>
-<h3 id="动作流">动作流</h3><p>且不谈那些具体的 bind 和 createStore 操作，我们来看看当发生交互的时候，整个动作的分发，拿点击加号为例：</p>
+<h3 id="动作流"><a href="#动作流" class="headerlink" title="动作流"></a>动作流</h3><p>且不谈那些具体的 bind 和 createStore 操作，我们来看看当发生交互的时候，整个动作的分发，拿点击加号为例：</p>
 <p><img src="http://blog.zhaiyifan.cn/images/react-native-1-counter-flow.png" alt="Counter活动图"></p>
 <p>onPress 事件触发了后续的一系列活动，而 Counter Component 的 action function 则由外部通过 props 传入（在这里，是 CounterApp 的 render 函数，如下）。</p>
 <p><img src="http://blog.zhaiyifan.cn/images/react-native-1-counter-counterapp.png" alt="counterApp.js"></p>
@@ -444,12 +440,12 @@
 <p>而 Component 也不是直接调用 action 的 function，而是通过 bindActionCreators 注入到组件props中（这里是通过 react-redux 进行的，不是 redux 自身的东西，可以理解为 react 和 redux 之间的胶水）：</p>
 <p><img src="http://blog.zhaiyifan.cn/images/react-native-1-counter-action-bind.png" alt="action bind"></p>
 <p>通常我们会在智能组件的末尾使用：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> connect(mapStateToProps, mapDispatchToProps)(CardDetail);</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">export</span> <span class="keyword">default</span> connect(mapStateToProps, mapDispatchToProps)(CardDetail);</div></pre></td></tr></table></figure>
 <p>这样来把 state 以及 action 注入。</p>
-<h2 id="Counters">Counters</h2><p>接着我们来看看更为复杂的 Counters 项目，顶层目录结构类似，不再赘述。</p>
+<h2 id="Counters"><a href="#Counters" class="headerlink" title="Counters"></a>Counters</h2><p>接着我们来看看更为复杂的 Counters 项目，顶层目录结构类似，不再赘述。</p>
 <p><img src="http://blog.zhaiyifan.cn/images/react-native-1-counters-demo.gif" alt="demo"></p>
 <p>看完上面的 demo 动图后，相信大家对下面的解说会更容易理解。</p>
-<h3 id="物理结构-1">物理结构</h3><p><img src="http://blog.zhaiyifan.cn/images/react-native-1-counters-structure.png" alt="Counters物理结构"></p>
+<h3 id="物理结构-1"><a href="#物理结构-1" class="headerlink" title="物理结构"></a>物理结构</h3><p><img src="http://blog.zhaiyifan.cn/images/react-native-1-counters-structure.png" alt="Counters物理结构"></p>
 <p>我们来详细讲一下 modules 下的 app 目录中的文件组织。</p>
 <p>actions.js 和刚才一样，定义了一个个的 action，略有不同的是由于这次有异步的操作，所以涉及到了 dispatch 函数，关于 dispatch 可以查看<a href="http://cn.redux.js.org/docs/api/Store.html#dispatch" target="_blank" rel="external">官方文档</a>。</p>
 <p>constants.js 定义了所有 action 的 type，以及 App 的名字。</p>
@@ -457,12 +453,12 @@
 <p>App.js 定义了页面的布局（渲染和 action），导出了 connect 生成的 container。我们简单看一下 render 部分是怎么做的。</p>
 <p><img src="http://blog.zhaiyifan.cn/images/react-native-1-counters-app-render.png" alt="Counters render"></p>
 <p>怎么样，JSX 是不是挺容易理解的？</p>
-<h3 id="动作流-1">动作流</h3><p>Counter 本身的动作流上面我们已经举例过了，本工程中增减计数类似，唯一的区别是 action 不只有 type，还带了 payload（id）来标示不同的计数器。</p>
+<h3 id="动作流-1"><a href="#动作流-1" class="headerlink" title="动作流"></a>动作流</h3><p>Counter 本身的动作流上面我们已经举例过了，本工程中增减计数类似，唯一的区别是 action 不只有 type，还带了 payload（id）来标示不同的计数器。</p>
 <p>所以这里我们拿增加计数器的点击事件来做例子。</p>
 <p><img src="http://blog.zhaiyifan.cn/images/react-native-1-counters-add-counter.png" alt="Add Counter"></p>
 <p>看上去是不是跟上面的差不多？剩下的那个 incrementWithDelay 其实也差不多，只不过返回的是一个function，在 setTimeOut 回调中才进行 dispatch（thunk middleware 会帮我们进行处理）。</p>
-<h2 id="总结">总结</h2><p>上面我们通过物理结构和活动图大致了解了 React Native 上的 Redux 架构 app 是如何工作的。具体的细节，建议大家还是去查看 GitHub 上的源代码，通过上面的讲解后，应该不难理解。</p>
-<h1 id="技术栈">技术栈</h1><p>我们目前实践的React Nataive技术栈：</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>上面我们通过物理结构和活动图大致了解了 React Native 上的 Redux 架构 app 是如何工作的。具体的细节，建议大家还是去查看 GitHub 上的源代码，通过上面的讲解后，应该不难理解。</p>
+<h1 id="技术栈"><a href="#技术栈" class="headerlink" title="技术栈"></a>技术栈</h1><p>我们目前实践的React Nataive技术栈：</p>
 <ul>
 <li>immutable.js</li>
 <li>react</li>
@@ -477,7 +473,7 @@
 <li>undefined</li>
 <li>jest</li>
 </ul>
-<h1 id="更多阅读">更多阅读</h1><ul>
+<h1 id="更多阅读"><a href="#更多阅读" class="headerlink" title="更多阅读"></a>更多阅读</h1><ul>
 <li>React<ul>
 <li><a href="https://daveceddia.com/react-es5-createclass-vs-es6-classes/" target="_blank" rel="external">React: ES5 (createClass) or ES6 (class)?</a></li>
 </ul>
@@ -585,9 +581,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/New-Android-Project-From-0/" rel="tag"># New Android Project From 0</a>
-          
             <a href="/tags/React-Native/" rel="tag"># React Native</a>
+          
+            <a href="/tags/New-Android-Project-From-0/" rel="tag"># New Android Project From 0</a>
           
             <a href="/tags/Redux/" rel="tag"># Redux</a>
           
@@ -839,7 +835,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#什么是React_Native"><span class="nav-number">1.</span> <span class="nav-text">什么是React Native</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#什么是Redux"><span class="nav-number">2.</span> <span class="nav-text">什么是Redux</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#从例子看项目"><span class="nav-number">3.</span> <span class="nav-text">从例子看项目</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#运行效果"><span class="nav-number">3.1.</span> <span class="nav-text">运行效果</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Counter"><span class="nav-number">3.2.</span> <span class="nav-text">Counter</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#物理结构"><span class="nav-number">3.2.1.</span> <span class="nav-text">物理结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#动作流"><span class="nav-number">3.2.2.</span> <span class="nav-text">动作流</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Counters"><span class="nav-number">3.3.</span> <span class="nav-text">Counters</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#物理结构-1"><span class="nav-number">3.3.1.</span> <span class="nav-text">物理结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#动作流-1"><span class="nav-number">3.3.2.</span> <span class="nav-text">动作流</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">3.4.</span> <span class="nav-text">总结</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#技术栈"><span class="nav-number">4.</span> <span class="nav-text">技术栈</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#更多阅读"><span class="nav-number">5.</span> <span class="nav-text">更多阅读</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#什么是React-Native"><span class="nav-number">1.</span> <span class="nav-text">什么是React Native</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#什么是Redux"><span class="nav-number">2.</span> <span class="nav-text">什么是Redux</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#从例子看项目"><span class="nav-number">3.</span> <span class="nav-text">从例子看项目</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#运行效果"><span class="nav-number">3.1.</span> <span class="nav-text">运行效果</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Counter"><span class="nav-number">3.2.</span> <span class="nav-text">Counter</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#物理结构"><span class="nav-number">3.2.1.</span> <span class="nav-text">物理结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#动作流"><span class="nav-number">3.2.2.</span> <span class="nav-text">动作流</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Counters"><span class="nav-number">3.3.</span> <span class="nav-text">Counters</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#物理结构-1"><span class="nav-number">3.3.1.</span> <span class="nav-text">物理结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#动作流-1"><span class="nav-number">3.3.2.</span> <span class="nav-text">动作流</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">3.4.</span> <span class="nav-text">总结</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#技术栈"><span class="nav-number">4.</span> <span class="nav-text">技术栈</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#更多阅读"><span class="nav-number">5.</span> <span class="nav-text">更多阅读</span></a></li></ol></div>
             
 
           </div>

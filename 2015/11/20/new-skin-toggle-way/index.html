@@ -49,7 +49,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Android,Theme,换肤," />
+  <meta name="keywords" content="Android,换肤,Theme," />
 
 
 
@@ -67,22 +67,17 @@
 
 
 
-<meta name="description" content="新的换肤思路前文见Android换肤技术总结
-资源注入把资源放在另一个apk，类似android.jar一样作为基础资源，然后使用aapt联合编译，就可以让主工程像引用android资源一样，引用另一个apk的资源，不过如此一来，需要自己去做资源分区，否则可能会有id冲突。
-比如我们平时会直接@android:drawable，@android:anim去直接引用anrdoid资源，现在我们可以加">
+<meta name="description" content="新的换肤思路前文见Android换肤技术总结 资源注入把资源放在另一个apk，类似android.jar一样作为基础资源，然后使用aapt联合编译，就可以让主工程像引用android资源一样，引用另一个apk的资源，不过如此一来，需要自己去做资源分区，否则可能会有id冲突。 比如我们平时会直接@android:drawable，@android:anim去直接引用anrdoid资源，现在我们可以加">
+<meta name="keywords" content="Android,换肤,Theme">
 <meta property="og:type" content="article">
 <meta property="og:title" content="新的换肤思路">
 <meta property="og:url" content="http://blog.zhaiyifan.cn/2015/11/20/new-skin-toggle-way/index.html">
-<meta property="og:site_name" content="markzhai's home">
-<meta property="og:description" content="新的换肤思路前文见Android换肤技术总结
-资源注入把资源放在另一个apk，类似android.jar一样作为基础资源，然后使用aapt联合编译，就可以让主工程像引用android资源一样，引用另一个apk的资源，不过如此一来，需要自己去做资源分区，否则可能会有id冲突。
-比如我们平时会直接@android:drawable，@android:anim去直接引用anrdoid资源，现在我们可以加">
+<meta property="og:site_name" content="markzhai&#39;s home">
+<meta property="og:description" content="新的换肤思路前文见Android换肤技术总结 资源注入把资源放在另一个apk，类似android.jar一样作为基础资源，然后使用aapt联合编译，就可以让主工程像引用android资源一样，引用另一个apk的资源，不过如此一来，需要自己去做资源分区，否则可能会有id冲突。 比如我们平时会直接@android:drawable，@android:anim去直接引用anrdoid资源，现在我们可以加">
 <meta property="og:updated_time" content="2016-02-03T15:43:34.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="新的换肤思路">
-<meta name="twitter:description" content="新的换肤思路前文见Android换肤技术总结
-资源注入把资源放在另一个apk，类似android.jar一样作为基础资源，然后使用aapt联合编译，就可以让主工程像引用android资源一样，引用另一个apk的资源，不过如此一来，需要自己去做资源分区，否则可能会有id冲突。
-比如我们平时会直接@android:drawable，@android:anim去直接引用anrdoid资源，现在我们可以加">
+<meta name="twitter:description" content="新的换肤思路前文见Android换肤技术总结 资源注入把资源放在另一个apk，类似android.jar一样作为基础资源，然后使用aapt联合编译，就可以让主工程像引用android资源一样，引用另一个apk的资源，不过如此一来，需要自己去做资源分区，否则可能会有id冲突。 比如我们平时会直接@android:drawable，@android:anim去直接引用anrdoid资源，现在我们可以加">
 
 
 
@@ -383,11 +378,11 @@
       
 
       
-        <h1 id="新的换肤思路">新的换肤思路</h1><p>前文见<a href="http://blog.zhaiyifan.cn/2015/09/10/Android%E6%8D%A2%E8%82%A4%E6%8A%80%E6%9C%AF%E6%80%BB%E7%BB%93/">Android换肤技术总结</a></p>
-<h2 id="资源注入">资源注入</h2><p>把资源放在另一个apk，类似android.jar一样作为基础资源，然后使用aapt联合编译，就可以让主工程像引用android资源一样，引用另一个apk的资源，不过如此一来，需要自己去做资源分区，否则可能会有id冲突。</p>
+        <h1 id="新的换肤思路"><a href="#新的换肤思路" class="headerlink" title="新的换肤思路"></a>新的换肤思路</h1><p>前文见<a href="http://blog.zhaiyifan.cn/2015/09/10/Android%E6%8D%A2%E8%82%A4%E6%8A%80%E6%9C%AF%E6%80%BB%E7%BB%93/">Android换肤技术总结</a></p>
+<h2 id="资源注入"><a href="#资源注入" class="headerlink" title="资源注入"></a>资源注入</h2><p>把资源放在另一个apk，类似android.jar一样作为基础资源，然后使用aapt联合编译，就可以让主工程像引用android资源一样，引用另一个apk的资源，不过如此一来，需要自己去做资源分区，否则可能会有id冲突。</p>
 <p>比如我们平时会直接@android:drawable，@android:anim去直接引用anrdoid资源，现在我们可以加了一个叫做skin的包，那么就可以使用@skin:drawable来引用skin包的资源。要激活其他皮肤的时候，只要换一下包就行了。</p>
 <p>相比其他方案，这种改动很小，没有那些各种hack的黑科技。希望有空能自己实现一下。</p>
-<h2 id="aapt">aapt</h2><p>关于aapt的修改，可以看看携程的DynamacAPK。</p>
+<h2 id="aapt"><a href="#aapt" class="headerlink" title="aapt"></a>aapt</h2><p>关于aapt的修改，可以看看携程的DynamacAPK。</p>
 
       
     </div>
@@ -445,9 +440,9 @@
           
             <a href="/tags/Android/" rel="tag"># Android</a>
           
-            <a href="/tags/Theme/" rel="tag"># Theme</a>
-          
             <a href="/tags/换肤/" rel="tag"># 换肤</a>
+          
+            <a href="/tags/Theme/" rel="tag"># Theme</a>
           
         </div>
       

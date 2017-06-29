@@ -49,7 +49,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Android,Theme,换肤," />
+  <meta name="keywords" content="Android,换肤,Theme," />
 
 
 
@@ -67,34 +67,17 @@
 
 
 
-<meta name="description" content="Android换肤技术总结背景纵观现在各种Android app，其换肤需求可以归为
-
-白天/黑夜主题切换（或者别的名字，通常2套），如同花顺/自选股/天天动听等，UI表现为一个switcher。
-多种主题切换，通常为会员特权，如QQ/QQ空间。
-
-对于第一种来说，目测应该是直接通过本地theme来做的，即所有图片/颜色的资源都在apk里面打包了。
-而对于第二种，则相对复杂一些，由于作为一种线上服">
+<meta name="description" content="Android换肤技术总结背景纵观现在各种Android app，其换肤需求可以归为  白天/黑夜主题切换（或者别的名字，通常2套），如同花顺/自选股/天天动听等，UI表现为一个switcher。 多种主题切换，通常为会员特权，如QQ/QQ空间。  对于第一种来说，目测应该是直接通过本地theme来做的，即所有图片/颜色的资源都在apk里面打包了。 而对于第二种，则相对复杂一些，由于作为一种线上服">
+<meta name="keywords" content="Android,换肤,Theme">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Android换肤技术总结">
 <meta property="og:url" content="http://blog.zhaiyifan.cn/2015/09/10/Android换肤技术总结/index.html">
-<meta property="og:site_name" content="markzhai's home">
-<meta property="og:description" content="Android换肤技术总结背景纵观现在各种Android app，其换肤需求可以归为
-
-白天/黑夜主题切换（或者别的名字，通常2套），如同花顺/自选股/天天动听等，UI表现为一个switcher。
-多种主题切换，通常为会员特权，如QQ/QQ空间。
-
-对于第一种来说，目测应该是直接通过本地theme来做的，即所有图片/颜色的资源都在apk里面打包了。
-而对于第二种，则相对复杂一些，由于作为一种线上服">
+<meta property="og:site_name" content="markzhai&#39;s home">
+<meta property="og:description" content="Android换肤技术总结背景纵观现在各种Android app，其换肤需求可以归为  白天/黑夜主题切换（或者别的名字，通常2套），如同花顺/自选股/天天动听等，UI表现为一个switcher。 多种主题切换，通常为会员特权，如QQ/QQ空间。  对于第一种来说，目测应该是直接通过本地theme来做的，即所有图片/颜色的资源都在apk里面打包了。 而对于第二种，则相对复杂一些，由于作为一种线上服">
 <meta property="og:updated_time" content="2016-02-03T15:38:38.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android换肤技术总结">
-<meta name="twitter:description" content="Android换肤技术总结背景纵观现在各种Android app，其换肤需求可以归为
-
-白天/黑夜主题切换（或者别的名字，通常2套），如同花顺/自选股/天天动听等，UI表现为一个switcher。
-多种主题切换，通常为会员特权，如QQ/QQ空间。
-
-对于第一种来说，目测应该是直接通过本地theme来做的，即所有图片/颜色的资源都在apk里面打包了。
-而对于第二种，则相对复杂一些，由于作为一种线上服">
+<meta name="twitter:description" content="Android换肤技术总结背景纵观现在各种Android app，其换肤需求可以归为  白天/黑夜主题切换（或者别的名字，通常2套），如同花顺/自选股/天天动听等，UI表现为一个switcher。 多种主题切换，通常为会员特权，如QQ/QQ空间。  对于第一种来说，目测应该是直接通过本地theme来做的，即所有图片/颜色的资源都在apk里面打包了。 而对于第二种，则相对复杂一些，由于作为一种线上服">
 
 
 
@@ -395,14 +378,14 @@
       
 
       
-        <h1 id="Android换肤技术总结">Android换肤技术总结</h1><h2 id="背景">背景</h2><p>纵观现在各种Android app，其换肤需求可以归为</p>
+        <h1 id="Android换肤技术总结"><a href="#Android换肤技术总结" class="headerlink" title="Android换肤技术总结"></a>Android换肤技术总结</h1><h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>纵观现在各种Android app，其换肤需求可以归为</p>
 <ul>
 <li>白天/黑夜主题切换（或者别的名字，通常2套），如同花顺/自选股/天天动听等，UI表现为一个switcher。</li>
 <li>多种主题切换，通常为会员特权，如QQ/QQ空间。</li>
 </ul>
 <p>对于第一种来说，目测应该是直接通过本地theme来做的，即所有图片/颜色的资源都在apk里面打包了。</p>
 <p>而对于第二种，则相对复杂一些，由于作为一种线上服务，可能上架新皮肤，且那么多皮肤包放在apk里面实在太占体积了，所以皮肤资源会在选择后再进行下载，也就不能直接使用android的那套theme。</p>
-<h2 id="技术方案">技术方案</h2><p>内部资源加载方案和动态下载资源下载两种。</p>
+<h2 id="技术方案"><a href="#技术方案" class="headerlink" title="技术方案"></a>技术方案</h2><p>内部资源加载方案和动态下载资源下载两种。</p>
 <p>动态下载可以称为一种黑科技了，因为往往需要hack系统的一些方法，所以在部分机型和新的API上有时候可能有坑，但相对好处则很多</p>
 <ul>
 <li>图片/色值等资源由于是后台下发的，可以随时更新</li>
@@ -410,27 +393,27 @@
 <li>对应用开发者来说，换肤几乎是透明的，不需要关心有几套皮肤</li>
 <li><strong>可以作为增值服务卖钱！！</strong></li>
 </ul>
-<h2 id="内部资源加载方案">内部资源加载方案</h2><p>内部资源加载都是通过android本身那套theme来做的，相对业务开发来说工作量更大（需要定义attr和theme），不同方案类似地都是在<code>BaseActivity</code>里面做<code>setTheme</code>，差别主要在解决以下2个问题的策略：</p>
+<h2 id="内部资源加载方案"><a href="#内部资源加载方案" class="headerlink" title="内部资源加载方案"></a>内部资源加载方案</h2><p>内部资源加载都是通过android本身那套theme来做的，相对业务开发来说工作量更大（需要定义attr和theme），不同方案类似地都是在<code>BaseActivity</code>里面做<code>setTheme</code>，差别主要在解决以下2个问题的策略：</p>
 <ul>
 <li>setTheme后如何实时刷新，而不用重新创建页面（尤其是listview里面的item）。</li>
 <li>哪些view需要刷新，刷新什么（背景？字体颜色？ImageView的src？）。</li>
 </ul>
-<h3 id="自定义view">自定义view</h3><p><a href="https://github.com/dersoncheng/MultipleTheme" target="_blank" rel="external">MultipleTheme</a><br>做自定义view是为了在setTheme后会去立即刷新，更新页面UI对应资源（如TextView替换背景图和文字颜色），在上述项目中，则是通过对rootView进行遍历，对所有实现了<code>ColorUiInterface</code>的view/viewgroup进行setTheme操作来实现即使刷新的。</p>
+<h3 id="自定义view"><a href="#自定义view" class="headerlink" title="自定义view"></a>自定义view</h3><p><a href="https://github.com/dersoncheng/MultipleTheme" target="_blank" rel="external">MultipleTheme</a><br>做自定义view是为了在setTheme后会去立即刷新，更新页面UI对应资源（如TextView替换背景图和文字颜色），在上述项目中，则是通过对rootView进行遍历，对所有实现了<code>ColorUiInterface</code>的view/viewgroup进行setTheme操作来实现即使刷新的。</p>
 <p>显然这样太重了，需要把应用内的各种view/viewgroup进行替换。</p>
-<h3 id="手动绑定view和要改变的资源类型">手动绑定view和要改变的资源类型</h3><p><a href="https://github.com/bboyfeiyu/Colorful" target="_blank" rel="external">Colorful</a></p>
-<p>这个…我们看看用法吧….<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">ViewGroupSetter listViewSetter = <span class="keyword">new</span> ViewGroupSetter(mNewsListView);</span><br><span class="line"><span class="comment">// 绑定ListView的Item View中的news_title视图，在换肤时修改它的text_color属性</span></span><br><span class="line">listViewSetter.childViewTextColor(R.id.news_title, R.attr.text_color);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 构建Colorful对象来绑定View与属性的对象关系</span></span><br><span class="line">mColorful = <span class="keyword">new</span> Colorful.Builder(<span class="keyword">this</span>)</span><br><span class="line">        .backgroundDrawable(R.id.root_view, R.attr.root_view_bg)</span><br><span class="line">        <span class="comment">// 设置view的背景图片</span></span><br><span class="line">        .backgroundColor(R.id.change_btn, R.attr.btn_bg)</span><br><span class="line">        <span class="comment">// 设置背景色</span></span><br><span class="line">        .textColor(R.id.textview, R.attr.text_color)</span><br><span class="line">        .setter(listViewSetter) <span class="comment">// 手动设置setter</span></span><br><span class="line">        .create(); <span class="comment">// 设置文本颜色</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="手动绑定view和要改变的资源类型"><a href="#手动绑定view和要改变的资源类型" class="headerlink" title="手动绑定view和要改变的资源类型"></a>手动绑定view和要改变的资源类型</h3><p><a href="https://github.com/bboyfeiyu/Colorful" target="_blank" rel="external">Colorful</a></p>
+<p>这个…我们看看用法吧….<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">ViewGroupSetter listViewSetter = <span class="keyword">new</span> ViewGroupSetter(mNewsListView);</div><div class="line"><span class="comment">// 绑定ListView的Item View中的news_title视图，在换肤时修改它的text_color属性</span></div><div class="line">listViewSetter.childViewTextColor(R.id.news_title, R.attr.text_color);</div><div class="line"></div><div class="line"><span class="comment">// 构建Colorful对象来绑定View与属性的对象关系</span></div><div class="line">mColorful = <span class="keyword">new</span> Colorful.Builder(<span class="keyword">this</span>)</div><div class="line">        .backgroundDrawable(R.id.root_view, R.attr.root_view_bg)</div><div class="line">        <span class="comment">// 设置view的背景图片</span></div><div class="line">        .backgroundColor(R.id.change_btn, R.attr.btn_bg)</div><div class="line">        <span class="comment">// 设置背景色</span></div><div class="line">        .textColor(R.id.textview, R.attr.text_color)</div><div class="line">        .setter(listViewSetter) <span class="comment">// 手动设置setter</span></div><div class="line">        .create(); <span class="comment">// 设置文本颜色</span></div></pre></td></tr></table></figure></p>
 <p>我就是想换个皮肤，还得在activity里自己去设置要改变哪个view的什么属性，对应哪个attribute？是不是成本太高了？而且activity的逻辑也很容易被弄得乱七八糟。</p>
-<h2 id="动态资源加载方案">动态资源加载方案</h2><h3 id="resource替换">resource替换</h3><p>覆盖application的getResource方法，实现自己的resource，优先加载本地皮肤包文件夹下的资源包，对于性能问题，可以通过attribute或者资源名称规范(如需要换肤则用skin_开头)来优化，从而不对不换肤的资源进行额外检查开销。</p>
+<h2 id="动态资源加载方案"><a href="#动态资源加载方案" class="headerlink" title="动态资源加载方案"></a>动态资源加载方案</h2><h3 id="resource替换"><a href="#resource替换" class="headerlink" title="resource替换"></a>resource替换</h3><p>覆盖application的getResource方法，实现自己的resource，优先加载本地皮肤包文件夹下的资源包，对于性能问题，可以通过attribute或者资源名称规范(如需要换肤则用skin_开头)来优化，从而不对不换肤的资源进行额外检查开销。</p>
 <p>不过由于Android5.1源码里，drawable初始化的时候调用的是loadDrawable，而不是resource.getDrawable，而loadDrawable是私有的方法，无法覆盖，所以虽然很方便，却无法继续使用（不用关心任何皮肤相关的事情，android:color指定颜色就行了，神奇滴会自动换肤）。</p>
-<h3 id="自定义LayoutInflator-Factory">自定义LayoutInflator.Factory</h3><p>开源项目可参照<a href="https://github.com/fengjundev/Android-Skin-Loader" target="_blank" rel="external">Android-Skin-Loader</a>。</p>
+<h3 id="自定义LayoutInflator-Factory"><a href="#自定义LayoutInflator-Factory" class="headerlink" title="自定义LayoutInflator.Factory"></a>自定义LayoutInflator.Factory</h3><p>开源项目可参照<a href="https://github.com/fengjundev/Android-Skin-Loader" target="_blank" rel="external">Android-Skin-Loader</a>。</p>
 <p>即setFactory使用自定义的LayoutInflator.Factory，可以重点关注该项目中的<code>SkinInflaterFactory</code>和<code>SkinManager</code>（实现了自己的getColor、getDrawable、getBitmap、getColorStateList等等方法）。</p>
 <p>需要自定义一个tag比如app:customStyle，重写所有的style，转成set方法，这样带来的牺牲就是增加了换肤的成本，要写很多style，自己去set，并不完全透明了。</p>
-<h3 id="Hack_Resources_internally">Hack Resources internally</h3><p>黑科技方法，直接对Resources进行hack，<code>Resources.java:</code><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Information about preloaded resources.  Note that they are not</span></span><br><span class="line"><span class="comment">// protected by a lock, because while preloading in zygote we are all</span></span><br><span class="line"><span class="comment">// single-threaded, and after that these are immutable.</span></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> LongSparseArray&lt;Drawable.ConstantState&gt;[] sPreloadedDrawables;</span><br><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> LongSparseArray&lt;Drawable.ConstantState&gt; sPreloadedColorDrawables</span><br><span class="line">        = <span class="keyword">new</span> LongSparseArray&lt;Drawable.ConstantState&gt;();</span><br><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> LongSparseArray&lt;ColorStateList&gt; sPreloadedColorStateLists</span><br><span class="line">        = <span class="keyword">new</span> LongSparseArray&lt;ColorStateList&gt;();</span><br></pre></td></tr></table></figure></p>
-<p>直接对Resources里面的这三个LongSparseArray进行替换，由于apk运行时的资源都是从这三个数组里面加载的，所以只要采用interceptor模式：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DrawablePreloadInterceptor</span> <span class="keyword">extends</span> <span class="title">LongSparseArray</span>&lt;<span class="title">Drawable</span>.<span class="title">ConstantState</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="Hack-Resources-internally"><a href="#Hack-Resources-internally" class="headerlink" title="Hack Resources internally"></a>Hack Resources internally</h3><p>黑科技方法，直接对Resources进行hack，<code>Resources.java:</code><br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// Information about preloaded resources.  Note that they are not</span></div><div class="line"><span class="comment">// protected by a lock, because while preloading in zygote we are all</span></div><div class="line"><span class="comment">// single-threaded, and after that these are immutable.</span></div><div class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> LongSparseArray&lt;Drawable.ConstantState&gt;[] sPreloadedDrawables;</div><div class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> LongSparseArray&lt;Drawable.ConstantState&gt; sPreloadedColorDrawables</div><div class="line">        = <span class="keyword">new</span> LongSparseArray&lt;Drawable.ConstantState&gt;();</div><div class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> LongSparseArray&lt;ColorStateList&gt; sPreloadedColorStateLists</div><div class="line">        = <span class="keyword">new</span> LongSparseArray&lt;ColorStateList&gt;();</div></pre></td></tr></table></figure></p>
+<p>直接对Resources里面的这三个LongSparseArray进行替换，由于apk运行时的资源都是从这三个数组里面加载的，所以只要采用interceptor模式：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DrawablePreloadInterceptor</span> <span class="keyword">extends</span> <span class="title">LongSparseArray</span>&lt;<span class="title">Drawable</span>.<span class="title">ConstantState</span>&gt;</span></div></pre></td></tr></table></figure></p>
 <p>自己实现一个LongSparseArray，并通过反射set回去，就能实现换肤，具体getDrawable等方法里是怎么取preload数组的，可以自己看<code>Resources</code>的源码。</p>
 <p><strong>等等，就这么简单？</strong>，NONO，少年你太天真了，怎么去加载xml，9patch的padding怎么更新，怎么打包/加载自定义的皮肤包，drawable的状态怎么刷新，等等。这些都是你需要考虑的，在存在插件的app中，还需要考虑是否会互相覆盖resource id的问题，进而需要修改apt，把resource id按位放在2个range。</p>
 <p>手Q和独立版QQ空间使用的是这种方案，效果挺好。</p>
-<h2 id="总结">总结</h2><p>尽管动态加载方案比较黑科技，可能因为系统API的更改而出问题，但相对来所<br><strong>好处有</strong></p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>尽管动态加载方案比较黑科技，可能因为系统API的更改而出问题，但相对来所<br><strong>好处有</strong></p>
 <ul>
 <li>灵活性高，后台可以随时更新皮肤包</li>
 <li>相对透明，开发者几乎不用关心有几套皮肤，不用去定义各种theme和attr，甚至连皮肤包的打包都可以交给设计或者专门的同学</li>
@@ -499,9 +482,9 @@
           
             <a href="/tags/Android/" rel="tag"># Android</a>
           
-            <a href="/tags/Theme/" rel="tag"># Theme</a>
-          
             <a href="/tags/换肤/" rel="tag"># 换肤</a>
+          
+            <a href="/tags/Theme/" rel="tag"># Theme</a>
           
         </div>
       
@@ -751,7 +734,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Android换肤技术总结"><span class="nav-number">1.</span> <span class="nav-text">Android换肤技术总结</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#背景"><span class="nav-number">1.1.</span> <span class="nav-text">背景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#技术方案"><span class="nav-number">1.2.</span> <span class="nav-text">技术方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#内部资源加载方案"><span class="nav-number">1.3.</span> <span class="nav-text">内部资源加载方案</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#自定义view"><span class="nav-number">1.3.1.</span> <span class="nav-text">自定义view</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#手动绑定view和要改变的资源类型"><span class="nav-number">1.3.2.</span> <span class="nav-text">手动绑定view和要改变的资源类型</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#动态资源加载方案"><span class="nav-number">1.4.</span> <span class="nav-text">动态资源加载方案</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#resource替换"><span class="nav-number">1.4.1.</span> <span class="nav-text">resource替换</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#自定义LayoutInflator-Factory"><span class="nav-number">1.4.2.</span> <span class="nav-text">自定义LayoutInflator.Factory</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Hack_Resources_internally"><span class="nav-number">1.4.3.</span> <span class="nav-text">Hack Resources internally</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">1.5.</span> <span class="nav-text">总结</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Android换肤技术总结"><span class="nav-number">1.</span> <span class="nav-text">Android换肤技术总结</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#背景"><span class="nav-number">1.1.</span> <span class="nav-text">背景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#技术方案"><span class="nav-number">1.2.</span> <span class="nav-text">技术方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#内部资源加载方案"><span class="nav-number">1.3.</span> <span class="nav-text">内部资源加载方案</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#自定义view"><span class="nav-number">1.3.1.</span> <span class="nav-text">自定义view</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#手动绑定view和要改变的资源类型"><span class="nav-number">1.3.2.</span> <span class="nav-text">手动绑定view和要改变的资源类型</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#动态资源加载方案"><span class="nav-number">1.4.</span> <span class="nav-text">动态资源加载方案</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#resource替换"><span class="nav-number">1.4.1.</span> <span class="nav-text">resource替换</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#自定义LayoutInflator-Factory"><span class="nav-number">1.4.2.</span> <span class="nav-text">自定义LayoutInflator.Factory</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Hack-Resources-internally"><span class="nav-number">1.4.3.</span> <span class="nav-text">Hack Resources internally</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">1.5.</span> <span class="nav-text">总结</span></a></li></ol></li></ol></div>
             
 
           </div>

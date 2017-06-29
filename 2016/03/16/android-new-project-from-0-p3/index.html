@@ -49,7 +49,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="MVP,MVPVM,MVVM,New Android Project From 0," />
+  <meta name="keywords" content="New Android Project From 0,MVPVM,MVP,MVVM," />
 
 
 
@@ -67,14 +67,13 @@
 
 
 
-<meta name="description" content="前言去年5月左右的时候，笔者在逛GitHub的时候，看到了一个MVP的项目，叫做mosby，仔细看了源码和作者介绍的文章后，发现确实有点意思，虽然会需要多写几个类和方法，但是解决了activity/fragment过重的问题，通过V/P分离能够帮助提高可维护性。时至去年年底，今年年初，MVP才逐渐被大家所知，也不时看到些文章介绍其概念和实践。
-再说说MVVM (Model-View-ViewMod">
+<meta name="description" content="前言去年5月左右的时候，笔者在逛GitHub的时候，看到了一个MVP的项目，叫做mosby，仔细看了源码和作者介绍的文章后，发现确实有点意思，虽然会需要多写几个类和方法，但是解决了activity/fragment过重的问题，通过V/P分离能够帮助提高可维护性。时至去年年底，今年年初，MVP才逐渐被大家所知，也不时看到些文章介绍其概念和实践。 再说说MVVM (Model-View-ViewMod">
+<meta name="keywords" content="New Android Project From 0,MVPVM,MVP,MVVM">
 <meta property="og:type" content="article">
 <meta property="og:title" content="从零开始的Android新项目3 - MVPVM in Action, 谁告诉你MVP和MVVM是互斥的">
 <meta property="og:url" content="http://blog.zhaiyifan.cn/2016/03/16/android-new-project-from-0-p3/index.html">
-<meta property="og:site_name" content="markzhai's home">
-<meta property="og:description" content="前言去年5月左右的时候，笔者在逛GitHub的时候，看到了一个MVP的项目，叫做mosby，仔细看了源码和作者介绍的文章后，发现确实有点意思，虽然会需要多写几个类和方法，但是解决了activity/fragment过重的问题，通过V/P分离能够帮助提高可维护性。时至去年年底，今年年初，MVP才逐渐被大家所知，也不时看到些文章介绍其概念和实践。
-再说说MVVM (Model-View-ViewMod">
+<meta property="og:site_name" content="markzhai&#39;s home">
+<meta property="og:description" content="前言去年5月左右的时候，笔者在逛GitHub的时候，看到了一个MVP的项目，叫做mosby，仔细看了源码和作者介绍的文章后，发现确实有点意思，虽然会需要多写几个类和方法，但是解决了activity/fragment过重的问题，通过V/P分离能够帮助提高可维护性。时至去年年底，今年年初，MVP才逐渐被大家所知，也不时看到些文章介绍其概念和实践。 再说说MVVM (Model-View-ViewMod">
 <meta property="og:image" content="http://blog.zhaiyifan.cn/images/android-new-project-from-0-mvc.png">
 <meta property="og:image" content="http://blog.zhaiyifan.cn/images/android-new-project-from-0-mvp.png">
 <meta property="og:image" content="http://blog.zhaiyifan.cn/images/android-new-project-from-0-mvpc.png">
@@ -83,8 +82,8 @@
 <meta property="og:updated_time" content="2016-03-26T06:47:44.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="从零开始的Android新项目3 - MVPVM in Action, 谁告诉你MVP和MVVM是互斥的">
-<meta name="twitter:description" content="前言去年5月左右的时候，笔者在逛GitHub的时候，看到了一个MVP的项目，叫做mosby，仔细看了源码和作者介绍的文章后，发现确实有点意思，虽然会需要多写几个类和方法，但是解决了activity/fragment过重的问题，通过V/P分离能够帮助提高可维护性。时至去年年底，今年年初，MVP才逐渐被大家所知，也不时看到些文章介绍其概念和实践。
-再说说MVVM (Model-View-ViewMod">
+<meta name="twitter:description" content="前言去年5月左右的时候，笔者在逛GitHub的时候，看到了一个MVP的项目，叫做mosby，仔细看了源码和作者介绍的文章后，发现确实有点意思，虽然会需要多写几个类和方法，但是解决了activity/fragment过重的问题，通过V/P分离能够帮助提高可维护性。时至去年年底，今年年初，MVP才逐渐被大家所知，也不时看到些文章介绍其概念和实践。 再说说MVVM (Model-View-ViewMod">
+<meta name="twitter:image" content="http://blog.zhaiyifan.cn/images/android-new-project-from-0-mvc.png">
 
 
 
@@ -385,12 +384,12 @@
       
 
       
-        <h1 id="前言">前言</h1><p>去年5月左右的时候，笔者在逛GitHub的时候，看到了一个MVP的项目，叫做mosby，仔细看了源码和作者介绍的文章后，发现确实有点意思，虽然会需要多写几个类和方法，但是解决了activity/fragment过重的问题，通过V/P分离能够帮助提高可维护性。时至去年年底，今年年初，MVP才逐渐被大家所知，也不时看到些文章介绍其概念和实践。</p>
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>去年5月左右的时候，笔者在逛GitHub的时候，看到了一个MVP的项目，叫做mosby，仔细看了源码和作者介绍的文章后，发现确实有点意思，虽然会需要多写几个类和方法，但是解决了activity/fragment过重的问题，通过V/P分离能够帮助提高可维护性。时至去年年底，今年年初，MVP才逐渐被大家所知，也不时看到些文章介绍其概念和实践。</p>
 <p>再说说MVVM (Model-View-ViewModel)，在Android上对应data binding。即ViewModel到View的映射，不需要再去自己找到view，然后更新字段，而是在映射建立后直接更新ViewModel然后反映到View上。</p>
 <p>值得一提的是，MVP和MVVM都是微软提出的理念，最早都是在WPF里面被应用的，只是时至今日才在Android上被真正用起来。本文不是来介绍这两个的，所以不再赘述，讲讲正题。</p>
 <p>在本系列<a href="http://blog.zhaiyifan.cn/2016/03/14/android-new-project-from-0-p1/">首篇</a>中我曾经提到过在我设计的新应用中，采用了MVP+MVVM的混合（当初也考虑过Flux，但感觉并不合适Android），后来有一次CJJ同学和我探讨这个架构的时候，问到了我有没有什么正式的名字，我就有楞，因为这个组合和应用是我自己设计的，所以还真没想过这个问题，Google一搜，还真有这么个东西（见参考资料，文章写得很棒，建议英文不错的同学读一读）！</p>
 <p>这就是本文我要介绍的东西，MVPVM (Model-View-Presenter-ViewModel)。</p>
-<h1 id="Quick_glance">Quick glance</h1><p>以下所有Model，并不单单指的是Bean，而是Model层，更像是repository或者business logic。</p>
+<h1 id="Quick-glance"><a href="#Quick-glance" class="headerlink" title="Quick glance"></a>Quick glance</h1><p>以下所有Model，并不单单指的是Bean，而是Model层，更像是repository或者business logic。</p>
 <p><img src="/images/android-new-project-from-0-mvc.png" alt="MVC"></p>
 <p>MVC: View持有Controller，传递事件给Controller，Controller由此去触发Model层事件，Model更新完数据（如从网络或者数据库获得数据后）触发View的更新事件。</p>
 <p><img src="/images/android-new-project-from-0-mvp.png" alt="MVP"></p>
@@ -403,7 +402,7 @@
 <li>直接更新ViewModel，View会进行对应刷新</li>
 <li>View的事件直接传递到ViewModel，ViewModel去对Model进行操作并接受更新。</li>
 </ul>
-<h1 id="Why_MVPVM">Why MVPVM</h1><p>如果你仔细读过Clean architecture的源码，会发现其中已经有了ViewModel这一层。如果你熟悉DO（Domain Object），PO（Persistent Object），VO（View Object），或许了解visibility这个概念，各层只需要知道其应该知道的。这些Object代表了完全独立不同的概念。</p>
+<h1 id="Why-MVPVM"><a href="#Why-MVPVM" class="headerlink" title="Why MVPVM"></a>Why MVPVM</h1><p>如果你仔细读过Clean architecture的源码，会发现其中已经有了ViewModel这一层。如果你熟悉DO（Domain Object），PO（Persistent Object），VO（View Object），或许了解visibility这个概念，各层只需要知道其应该知道的。这些Object代表了完全独立不同的概念。</p>
 <p>ViewModel层的必要性，简单举个例子，服务器传来一个Date String，但我们需要显示的是该Date到现在的相对时间描述，比如1分钟前，2天前，为了避免在view中绑定数据时去做这个逻辑，ViewModel会代替来进行这个的转换。</p>
 <p>MVVM尽管确实省去了绑定数据到View的boilerplate，但</p>
 <ul>
@@ -422,25 +421,25 @@
 </ul>
 <p>从Presenter的Subscriber往下都是RxJava的流世界，stream in stream out。如果你原来就应用了MVP或者Clean Architecture，那会发现再加上ViewModel简直太简单了，同时让代码库更小，逻辑更清晰。</p>
 <p>接着看看各个组件在MVPVM中的standing。</p>
-<h2 id="MVPVM:_Model">MVPVM: Model</h2><p>实际对应的是Repository层，即第一篇文章中提到的data/domain module。具体的Model理论上应该是PO，但我们大部分场景并不需要PO，所以也可以是domain层的DO。</p>
-<h2 id="MVPVM:_View">MVPVM: View</h2><p>View对ViewModel不需要了解太多，这样才能保持两者的解耦，两者之间的协议只需要：</p>
+<h2 id="MVPVM-Model"><a href="#MVPVM-Model" class="headerlink" title="MVPVM: Model"></a>MVPVM: Model</h2><p>实际对应的是Repository层，即第一篇文章中提到的data/domain module。具体的Model理论上应该是PO，但我们大部分场景并不需要PO，所以也可以是domain层的DO。</p>
+<h2 id="MVPVM-View"><a href="#MVPVM-View" class="headerlink" title="MVPVM: View"></a>MVPVM: View</h2><p>View对ViewModel不需要了解太多，这样才能保持两者的解耦，两者之间的协议只需要：</p>
 <ul>
 <li>ViewModel支持View需要展示的properties。</li>
 <li>View实现了ViewModel的观察者模式接口（如Listener）。</li>
 </ul>
 <p>所以这里ViewModel到View是一条虚线，而不是MVVM中的双向实线。</p>
-<h2 id="MVPVM:_Presenter">MVPVM: Presenter</h2><p>和在MVP一样，Presenter站在View和Model层之间。这里值得一提的是Presenter到ViewModel是有耦合的，因为Presenter需要把model更新到ViewModel中，也就是map行为，然后调用View的对应接口进行binding。</p>
+<h2 id="MVPVM-Presenter"><a href="#MVPVM-Presenter" class="headerlink" title="MVPVM: Presenter"></a>MVPVM: Presenter</h2><p>和在MVP一样，Presenter站在View和Model层之间。这里值得一提的是Presenter到ViewModel是有耦合的，因为Presenter需要把model更新到ViewModel中，也就是map行为，然后调用View的对应接口进行binding。</p>
 <p>Presenter是MVPVM中唯一不需要解耦的，它紧紧地与View、ViewModel、Model层耦合。如果你的Presenter被多个View重用了，那你可能需要考虑它是不是更应该作为一个module，比如（第三方）登陆。</p>
-<h2 id="MVPVM:_ViewModel">MVPVM: ViewModel</h2><p>MVPVM让ViewModel可以重用，因为它再也不是直接和特定View绑定，而仅仅作为数据到View的一个绑定用展示。ViewModel因为用户操作而触发的事件不再直接对Model进行操作，而由View去负责任务流。ViewModel本身基本没有field，而是通过暴露get方法来让data binding找到对应要显示的property，get方法中直接调用持有的model的对应属性get方法。</p>
+<h2 id="MVPVM-ViewModel"><a href="#MVPVM-ViewModel" class="headerlink" title="MVPVM: ViewModel"></a>MVPVM: ViewModel</h2><p>MVPVM让ViewModel可以重用，因为它再也不是直接和特定View绑定，而仅仅作为数据到View的一个绑定用展示。ViewModel因为用户操作而触发的事件不再直接对Model进行操作，而由View去负责任务流。ViewModel本身基本没有field，而是通过暴露get方法来让data binding找到对应要显示的property，get方法中直接调用持有的model的对应属性get方法。</p>
 <p>理想化的架构是通过一个mapper类进行转换，但我想大部分的程序员面对这个工作都会抓狂，毕竟很多字段其实就是一个复制，而且对性能也有一些影响（遍历list，new对象，一个个字段转换，添加到新的list）。所以折中地，让ViewModel持有Model，在get方法中直接返回对应model的具体字段，在一些特殊的field如相对时间、添加一些描述性字符的地方再去进行拼接和特殊处理。</p>
-<p>啊，对了，说到ViewModel，Data Binding现在支持双向绑定了哦，见<a href="https://halfthought.wordpress.com/2016/03/23/2-way-data-binding-on-android/，语法如：" target="_blank" rel="external">https://halfthought.wordpress.com/2016/03/23/2-way-data-binding-on-android/，语法如：</a><br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">EditText</span> <span class="attribute">android:text</span>=<span class="value">"@=&#123;user.firstName&#125;"</span> <span class="attribute">...</span>/&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>啊，对了，说到ViewModel，Data Binding现在支持双向绑定了哦，见<a href="https://halfthought.wordpress.com/2016/03/23/2-way-data-binding-on-android/，语法如：" target="_blank" rel="external">https://halfthought.wordpress.com/2016/03/23/2-way-data-binding-on-android/，语法如：</a><br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">EditText</span> <span class="attr">android:text</span>=<span class="string">"@=&#123;user.firstName&#125;"</span> <span class="attr">...</span>/&gt;</span></div></pre></td></tr></table></figure></p>
 <p>不同于单向绑定的@{}，使用了@={}，毕竟双向绑定这个东西还是慎用，一方面早成数据流混乱不好理解，另一方面容易出现死循环。</p>
-<h2 id="NO_Presenter">NO Presenter</h2><p>在MVP中，我们有时候碰到的问题是，Presenter真的有必要存在吗，尤其是一些较为静态，没什么业务逻辑，只需要纯展示的页面，结果就是为了MVP而特意去创建一个Presenter。</p>
+<h2 id="NO-Presenter"><a href="#NO-Presenter" class="headerlink" title="NO Presenter"></a>NO Presenter</h2><p>在MVP中，我们有时候碰到的问题是，Presenter真的有必要存在吗，尤其是一些较为静态，没什么业务逻辑，只需要纯展示的页面，结果就是为了MVP而特意去创建一个Presenter。</p>
 <p>所以Presenter不应该被强求，正如MVP中，V和C其实被并在了一起，在某些情况下（确实就是个纯展示，或者很少的业务逻辑），应该允许去Presenter，并让View承担其任务。比如注册页面，我真的就只是想把用户的输入发到服务器验证一下，何必非得去搞一个presenter套着呢？</p>
 <p>我们不能永远理想化地去选择所谓最好的设计，在现实的必要情况下，我们要敢于舍弃，最合适的设计才是最好的设计。为此，Presenter不是强制的；为此，ViewModel并不一定通过mapper生成，而可以返回持有的DO对象对应字段。</p>
-<h1 id="总结">总结</h1><p>本篇讲了讲MVPVM及其在Android的实践，因为时间原因来不及写个demo来说说具体实现，欢迎大家提出意见和建议。有空的话我最近会在GitHub上写一下demo，你如果有兴趣可以follow一下等等更新: <a href="https://github.com/markzhai" target="_blank" rel="external">markzhai</a>。</p>
-<h1 id="下集预告">下集预告</h1><p>Dagger匕首，比ButterKnife黄油刀锋利得多。Square为什么这么有自信地给它取了这个名字，Google又为什么会拿去做了Dagger2呢？笔者看了很多国内Dagger2的文章，但发现它们都保留在介绍API和官网翻译的层面，无法让读者能明白究竟为什么用Dagger2，又如何用好Dagger2。希望能在下一次为大家讲清楚。</p>
-<h1 id="参考资料">参考资料</h1><ul>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>本篇讲了讲MVPVM及其在Android的实践，因为时间原因来不及写个demo来说说具体实现，欢迎大家提出意见和建议。有空的话我最近会在GitHub上写一下demo，你如果有兴趣可以follow一下等等更新: <a href="https://github.com/markzhai" target="_blank" rel="external">markzhai</a>。</p>
+<h1 id="下集预告"><a href="#下集预告" class="headerlink" title="下集预告"></a>下集预告</h1><p>Dagger匕首，比ButterKnife黄油刀锋利得多。Square为什么这么有自信地给它取了这个名字，Google又为什么会拿去做了Dagger2呢？笔者看了很多国内Dagger2的文章，但发现它们都保留在介绍API和官网翻译的层面，无法让读者能明白究竟为什么用Dagger2，又如何用好Dagger2。希望能在下一次为大家讲清楚。</p>
+<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><ul>
 <li><a href="https://msdn.microsoft.com/en-us/magazine/hh580734.aspx" target="_blank" rel="external">MVPVM Design Pattern - The Model-View-Presenter-ViewModel Design Pattern for WPF</a></li>
 </ul>
 
@@ -498,13 +497,13 @@
       
         <div class="post-tags">
           
-            <a href="/tags/MVP/" rel="tag"># MVP</a>
+            <a href="/tags/New-Android-Project-From-0/" rel="tag"># New Android Project From 0</a>
           
             <a href="/tags/MVPVM/" rel="tag"># MVPVM</a>
           
-            <a href="/tags/MVVM/" rel="tag"># MVVM</a>
+            <a href="/tags/MVP/" rel="tag"># MVP</a>
           
-            <a href="/tags/New-Android-Project-From-0/" rel="tag"># New Android Project From 0</a>
+            <a href="/tags/MVVM/" rel="tag"># MVVM</a>
           
         </div>
       
@@ -754,7 +753,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Quick_glance"><span class="nav-number">2.</span> <span class="nav-text">Quick glance</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Why_MVPVM"><span class="nav-number">3.</span> <span class="nav-text">Why MVPVM</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#MVPVM:_Model"><span class="nav-number">3.1.</span> <span class="nav-text">MVPVM: Model</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MVPVM:_View"><span class="nav-number">3.2.</span> <span class="nav-text">MVPVM: View</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MVPVM:_Presenter"><span class="nav-number">3.3.</span> <span class="nav-text">MVPVM: Presenter</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MVPVM:_ViewModel"><span class="nav-number">3.4.</span> <span class="nav-text">MVPVM: ViewModel</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#NO_Presenter"><span class="nav-number">3.5.</span> <span class="nav-text">NO Presenter</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#总结"><span class="nav-number">4.</span> <span class="nav-text">总结</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#下集预告"><span class="nav-number">5.</span> <span class="nav-text">下集预告</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考资料"><span class="nav-number">6.</span> <span class="nav-text">参考资料</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Quick-glance"><span class="nav-number">2.</span> <span class="nav-text">Quick glance</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Why-MVPVM"><span class="nav-number">3.</span> <span class="nav-text">Why MVPVM</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#MVPVM-Model"><span class="nav-number">3.1.</span> <span class="nav-text">MVPVM: Model</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MVPVM-View"><span class="nav-number">3.2.</span> <span class="nav-text">MVPVM: View</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MVPVM-Presenter"><span class="nav-number">3.3.</span> <span class="nav-text">MVPVM: Presenter</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MVPVM-ViewModel"><span class="nav-number">3.4.</span> <span class="nav-text">MVPVM: ViewModel</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#NO-Presenter"><span class="nav-number">3.5.</span> <span class="nav-text">NO Presenter</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#总结"><span class="nav-number">4.</span> <span class="nav-text">总结</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#下集预告"><span class="nav-number">5.</span> <span class="nav-text">下集预告</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考资料"><span class="nav-number">6.</span> <span class="nav-text">参考资料</span></a></li></ol></div>
             
 
           </div>
