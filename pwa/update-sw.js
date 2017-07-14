@@ -421,7 +421,7 @@
         }
     }
 
-    checkForUpdate(location.origin+'/pwa/update-sw/service-worker.js?d='+ (new Date().getTime()), "./", function () {
+    checkForUpdate(location.origin+'/pwa/service-worker.js?d='+ (new Date().getTime()), "./", function () {
         console.log("update over");
     })
 
