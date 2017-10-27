@@ -5,21 +5,20 @@
 		<meta name="format-detection" content="telephone=no, email=no">
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=0">
 		<script>
-		    document.documentElement.style.fontSize = document.documentElement["clientWidth"] * 16 / 320 + 'px';
-		    var a = document.documentElement.style.fontSize;
+		    var a = document.documentElement["clientWidth"];
 		    window.onload = function() {
-			   document.getElementById("test4").innerHTML = document.documentElement.style.fontSize;
+			   document.getElementById("test4").innerHTML = document.documentElement["clientWidth"];
 		    	document.getElementById("test1").innerHTML = a;
 		    	document.getElementById("test2").innerHTML = b;
 			}
 			document.addEventListener("DOMContentLoaded", function(event) {
-		    	document.getElementById("test3").innerHTML = document.documentElement.style.fontSize;
+		    	document.getElementById("test3").innerHTML = document.documentElement["clientWidth"];
 			});
 		</script>
 	</head>
 	<body class="page-my" id="pageMy">
 		<script>
-			   var b = document.documentElement.style.fontSize;
+			   var b = document.documentElement["clientWidth"];
 		</script>
 		<div id="mainWrap">
 		    <span>script: </span>
