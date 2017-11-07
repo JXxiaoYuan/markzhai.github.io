@@ -1,0 +1,41 @@
+<html style="font-size: 20.6px;">
+
+<head>
+  <meta charset="UTF-8">
+  <title>自定义键盘</title>
+  <meta name="format-detection" content="telephone=no, email=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=0">
+  <script>
+    document.documentElement.style.fontSize = document.documentElement["clientWidth"] * 16 / 320 + 'px';
+    if (navigator.userAgent.indexOf('iPad') > -1) {
+      document.documentElement.style.fontSize = '32px';
+    }
+  </script>
+</head>
+
+<body class="page-my" id="pageMy">
+  <div class="donate-item others" data-index="3">
+    <input class="J-payNum" type="number" value="" pattern="[0-9]*" data-keyboard="number" placeholder="自定义金额" maxlength="10"
+    />其他
+  </div>
+
+  <script>
+    var Item = document.querySelector('.donate-item');
+    var input = document.querySelector('.J-payNum');
+    // input.focus();
+    Item.addEventListener('click', function (e) {
+      console.log("div click")
+      e.preventDefault();
+      // 金额非“其他”，确保失焦以便收起键盘
+      if (!Item.querySelector('input')) {
+        console.log("input.blur()")
+        input.blur();
+      } else {
+        console.log("input.focus()")
+        input.focus();
+      }
+    });
+  </script>
+</body>
+
+</html>
