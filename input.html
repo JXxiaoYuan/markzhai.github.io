@@ -27,7 +27,7 @@
   </div>
   
   <script>
-      document.getElementById('ua').value = navigator.userAgent;
+      document.getElementById('ua').innerHTML = navigator.userAgent;
       var input = document.getElementById('J-payNum');
       var inputHandler = function (e) {
           console.log('%%%%%%%%%' + input.value);
@@ -38,7 +38,7 @@
               var val = input.value.slice(0, maxlength);
               console.log(val);
               console.log(input.value);
-              document.getElementById("input_value").value = input.value;
+              document.getElementById("input_value").innerHTML = input.value;
               input.value = val;
           }
       };
