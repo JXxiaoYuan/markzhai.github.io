@@ -14,27 +14,35 @@
 </head>
 
 <body class="page-my" id="pageMy">
-  <div class="donate-item others" data-index="3">
-    <input class="J-payNum" type="number" value="" pattern="[0-9]*" data-keyboard="number" placeholder="自定义金额" maxlength="10"
-    />其他
+  <div class="donate-item others" data-index="5" style="margin: 20px 0">
+     <input id="J-payNum" type="number" value="" placeholder="自定义金额" maxlength="10"/>元
   </div>
-
+  
+  <div>
+    input.value: <span id="input_value"></span>
+  </div>
+  
+  <div>
+    UA: <span id="ua"></span>
+  </div>
+  
   <script>
-    var Item = document.querySelector('.donate-item');
-    var input = document.querySelector('.J-payNum');
-    // input.focus();
-    Item.addEventListener('click', function (e) {
-      console.log("div click")
-      e.preventDefault();
-      // 金额非“其他”，确保失焦以便收起键盘
-      if (!Item.querySelector('input')) {
-        console.log("input.blur()")
-        input.blur();
-      } else {
-        console.log("input.focus()")
-        input.focus();
-      }
-    });
+      document.getElementById('ua').value = navigator.userAgent;
+      var input = document.getElementById('J-payNum');
+      var inputHandler = function (e) {
+          console.log('%%%%%%%%%' + input.value);
+          var maxlength = Number(input.getAttribute('maxlength') || '10');
+          console.log(maxlength);
+          if (maxlength > 0) {
+              console.log('!!!!!!!!!!' + input.value);
+              var val = input.value.slice(0, maxlength);
+              console.log(val);
+              console.log(input.value);
+              document.getElementById("input_value").value = input.value;
+              input.value = val;
+          }
+      };
+      input.addEventListener('input',inputHandler);
   </script>
 </body>
 
