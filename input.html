@@ -14,6 +14,10 @@
 </head>
 
 <body class="page-my" id="pageMy">
+  <div>
+    UA: <span id="ua"></span>
+  </div>
+  
   <div class="donate-item others" data-index="5" style="margin: 20px 0">
      <input id="J-payNum" type="number" value="" placeholder="自定义金额 number" maxlength="10"/>元
   </div
@@ -32,8 +36,13 @@
   <div>
     input.value: <span id="input_value3"></span>
   </div>
-  <div>
-    UA: <span id="ua"></span>
+  
+  <div class="donate-item others" data-index="5" style="margin: 20px 0">
+     <input data-keyboard="digit" type="text" value="" placeholder="新数字键盘 digit" maxlength="10"/>元
+  </div>
+  
+  <div class="donate-item others" data-index="5" style="margin: 20px 0">
+     <input data-keyboard="idcard" type="text" value="" placeholder="新数字键盘 idcard" maxlength="10"/>元
   </div>
   
   <script>
