@@ -15,13 +15,23 @@
 
 <body class="page-my" id="pageMy">
   <div class="donate-item others" data-index="5" style="margin: 20px 0">
-     <input id="J-payNum" type="number" value="" placeholder="自定义金额" maxlength="10"/>元
-  </div>
-  
+     <input id="J-payNum" type="number" value="" placeholder="自定义金额 number" maxlength="10"/>元
+  </div
   <div>
     input.value: <span id="input_value"></span>
   </div>
-  
+  <div class="donate-item others" data-index="5" style="margin: 20px 0">
+     <input id="J-payNum2" type="tel" value="" placeholder="自定义金额 tel" maxlength="10"/>元
+  </div>
+  <div>
+    input.value: <span id="input_value2"></span>
+  </div>
+  <div class="donate-item others" data-index="5" style="margin: 20px 0">
+     <input id="J-payNum3" data-keyboard="number" type="text" value="" placeholder="新数字键盘 text" maxlength="10"/>元
+  </div>
+  <div>
+    input.value: <span id="input_value3"></span>
+  </div>
   <div>
     UA: <span id="ua"></span>
   </div>
@@ -30,19 +40,31 @@
       document.getElementById('ua').innerHTML = navigator.userAgent;
       var input = document.getElementById('J-payNum');
       var inputHandler = function (e) {
-          console.log('%%%%%%%%%' + input.value);
           var maxlength = Number(input.getAttribute('maxlength') || '10');
-          console.log(maxlength);
           if (maxlength > 0) {
-              console.log('!!!!!!!!!!' + input.value);
               var val = input.value.slice(0, maxlength);
-              console.log(val);
-              console.log(input.value);
               document.getElementById("input_value").innerHTML = input.value;
-              //input.value = val;
+              input.value = val;
           }
       };
-      input.addEventListener('input',inputHandler);
+      input.addEventListener('input', inputHandler);
+    
+      var input2 = document.getElementById('J-payNum2');
+      var inputHandler2 = function (e) {
+          var maxlength = Number(input2.getAttribute('maxlength') || '10');
+          if (maxlength > 0) {
+              var val = input2.value.slice(0, maxlength);
+              document.getElementById("input_value2").innerHTML = input2.value;
+              input2.value = val;
+          }
+      };
+      input2.addEventListener('input', inputHandler2);
+    
+      var input3 = document.getElementById('J-payNum3');
+      var inputHandler3 = function (e) {
+          document.getElementById("input_value3").innerHTML = input3.value;
+      };
+      input3.addEventListener('input', inputHandler3);
   </script>
 </body>
 
